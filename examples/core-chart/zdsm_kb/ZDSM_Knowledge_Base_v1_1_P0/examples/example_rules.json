@@ -1,0 +1,83 @@
+[
+  {
+    "rule_id": "R-MAJOR-007",
+    "rule_type": "major_star_function",
+    "title": "七杀核心函数",
+    "conditions": {
+      "star": "七杀"
+    },
+    "effects": {
+      "core_function": [
+        "决断",
+        "切割",
+        "竞争",
+        "危机行动",
+        "突破"
+      ],
+      "interaction_operator": null,
+      "state_effect": [],
+      "possible_manifestations": [
+        "面对高压或不确定环境时更倾向快速做决定",
+        "在需要突破、竞争、危机处理的任务中更容易调用能力"
+      ],
+      "do_not_infer": [
+        "七杀等于凶",
+        "七杀必然导致事故或失败"
+      ]
+    },
+    "evidence": {
+      "type": "M",
+      "source_ids": [],
+      "notes": "由传统关键词系统抽象，需单独绑定具体古籍来源"
+    },
+    "confidence": "core",
+    "status": "active",
+    "validation": {
+      "falsifiable": true,
+      "observable_indicators": [
+        "高压任务中的决策速度",
+        "长期是否倾向突破型而非维护型任务"
+      ],
+      "disconfirming_observations": [
+        "长期在多种环境中均表现为高度回避决策与竞争"
+      ]
+    }
+  },
+  {
+    "rule_id": "R-CONFLICT-001",
+    "rule_type": "conflict_rule",
+    "title": "官禄强、财帛弱不平均",
+    "conditions": {
+      "career_structure": "strong",
+      "wealth_conversion_structure": "friction"
+    },
+    "effects": {
+      "core_function": [],
+      "interaction_operator": null,
+      "state_effect": [],
+      "possible_manifestations": [
+        "价值生产能力强于价值捕获能力",
+        "能做出成果但定价、成交、现金流或资源留存环节摩擦更高"
+      ],
+      "do_not_infer": [
+        "事业财运一般"
+      ]
+    },
+    "evidence": {
+      "type": "M",
+      "source_ids": [],
+      "notes": "ZDSM 冲突裁决规则"
+    },
+    "confidence": "core",
+    "status": "active",
+    "validation": {
+      "falsifiable": true,
+      "observable_indicators": [
+        "成果产出与实际收入增长是否长期不同步"
+      ],
+      "disconfirming_observations": [
+        "长期价值生产与价值捕获表现高度一致且无明显转化摩擦"
+      ]
+    }
+  }
+]

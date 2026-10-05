@@ -1,0 +1,27 @@
+{
+  "name": "ZDSM 紫微动态系统分析",
+  "version": "1.0.0",
+  "type": "interpretation_skill",
+  "language": "zh-CN",
+  "description": "将结构化紫微斗数命盘转换为系统级、分层、可验证、去重的本命/年度/短周期分析。",
+  "entrypoint": "SKILL.md",
+  "separation_of_concerns": {
+    "chart_engine": "upstream",
+    "interpretation_engine": "this_skill",
+    "renderer": "downstream"
+  },
+  "default_prediction_mode": "trend",
+  "default_report_mode": "plain",
+  "evidence_tags": [
+    "T",
+    "S",
+    "M",
+    "E"
+  ],
+  "confidence_levels": [
+    "high",
+    "medium",
+    "low",
+    "reject"
+  ]
+}

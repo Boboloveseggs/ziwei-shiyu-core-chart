@@ -1,0 +1,15 @@
+﻿source,target,edge_type,label,evidence_type
+命宫,官禄宫,functional,执行/选择 → 生产角色,M
+官禄宫,财帛宫,functional,成果 → 价值交换,M
+财帛宫,田宅宫,functional,现金/资源 → 长期存量,M
+官禄宫,子女宫,functional,项目/问题 → 输出/作品,M
+子女宫,田宅宫,functional,输出 → 沉淀资产,M
+交友宫,官禄宫,functional,信息/引荐 → 工作机会,M
+迁移宫,官禄宫,functional,外部环境 → 职业反馈,M
+父母宫,官禄宫,functional,规则/资格 → 职业角色,M
+官禄宫,福德宫,functional,工作负荷 → 内在消耗,M
+福德宫,疾厄宫,functional,精神负荷 → 恢复系统,M
+疾厄宫,命宫,functional,恢复状态 → 行动能力,M
+福德宫,夫妻宫,functional,内在稳定 → 关系承接,M
+交友宫,夫妻宫,functional,社群 → 关系/合作入口,M
+夫妻宫,财帛宫,functional,绑定关系 → 成本/资源交换,M

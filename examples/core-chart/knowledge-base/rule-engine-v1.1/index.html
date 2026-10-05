@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ZDSM Rule Engine</title>
+<style>
+:root{--bg:#09111f;--panel:#10192c;--line:#263653;--text:#eef4ff;--muted:#95a5c3;--accent:#58d5ef}
+*{box-sizing:border-box}body{margin:0;background:#09111f;color:var(--text);font-family:system-ui,-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif}
+header{padding:20px 24px;border-bottom:1px solid var(--line);background:#0c1425}h1{margin:0;font-size:22px}header p{margin:5px 0 0;color:var(--muted);font-size:13px}
+main{display:grid;grid-template-columns:400px 1fr;gap:16px;padding:16px}.panel{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:15px}
+textarea{width:100%;height:580px;background:#07101e;color:#dce7fa;border:1px solid #2d4167;border-radius:11px;padding:11px;font:12px/1.5 ui-monospace,monospace}
+button{padding:9px 12px;border:1px solid #355580;border-radius:9px;background:#19345a;color:#fff;cursor:pointer}.actions{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}
+#status{font-size:12px;color:var(--muted)}#summary{padding:13px 14px;border-left:3px solid var(--accent);background:#0b1527;border-radius:10px;line-height:1.7}
+#cards{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-top:11px}.card-mini{background:#0b1527;border:1px solid #243653;border-radius:11px;padding:10px}.card-mini span,.card-mini small{display:block;color:var(--muted);font-size:11px}.card-mini b{display:block;font-size:19px;margin:4px 0}
+svg{width:100%;min-height:480px;background:#08111f;border-radius:13px;border:1px solid #22324f;margin-top:10px}
+.bar-row{display:grid;grid-template-columns:50px 1fr 42px;gap:8px;align-items:center;margin:7px 0}.bar-name,.bar-value{font-size:12px;color:#b7c4db}.bar-track{height:8px;background:#1a2942;border-radius:9px;overflow:hidden}.bar-fill{height:100%;background:#58d5ef}
+pre{max-height:320px;overflow:auto;background:#07101e;padding:10px;border-radius:10px;color:#bcd0ef;font-size:11px}
+@media(max-width:950px){main{grid-template-columns:1fr}textarea{height:420px}#cards{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+<header><h1>ZDSM Rule Engine V1.1</h1><p>命盘 JSON → 规则计算 → 系统角色识别 → 简化系统图 · 全程不调用 AI</p></header>
+<main>
+<section class="panel">
+  <b>命盘输入</b>
+  <div class="actions"><button id="sample">载入示例</button><button id="run">生成系统图</button><button id="download">导出结果</button></div>
+  <textarea id="input"></textarea>
+  <div id="status"></div>
+</section>
+<section>
+  <div class="panel">
+    <b>系统摘要</b>
+    <div id="summary" style="margin-top:9px"></div>
+    <div id="cards"></div>
+  </div>
+  <div class="panel" style="margin-top:16px">
+    <b>系统图</b>
+    <svg id="diagram"></svg>
+  </div>
+  <div class="panel" style="margin-top:16px">
+    <b>十二宫系统占用度</b>
+    <div id="bars"></div>
+  </div>
+  <div class="panel" style="margin-top:16px">
+    <b>引擎输出 JSON</b>
+    <pre id="jsonout"></pre>
+  </div>
+</section>
+</main>
+<script type="module" src="./src/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,114 @@
+{
+  "target_date": "2026-10-10",
+  "time_window": "09:00-11:00",
+  "calendar_label": "农历丙午年九月初一 · 丁巳日 · 乙巳时",
+  "event_context": "general",
+  "nominal_age": 30,
+  "time_layers": {
+    "decade": {
+      "palace": "福德宫",
+      "computed_upstream": true,
+      "source": "P4/P5 chart engine",
+      "transformations": []
+    },
+    "annual": {
+      "palace": "子女宫",
+      "computed_upstream": true,
+      "source": "P4/P5 chart engine",
+      "transformations": []
+    },
+    "minor_limit": {
+      "palace": "交友宫",
+      "computed_upstream": true,
+      "source": "P4/P5 chart engine",
+      "transformations": []
+    },
+    "monthly": {
+      "palace": "夫妻宫",
+      "stem": "戊",
+      "branch": "未",
+      "computed_upstream": true,
+      "source": "locked monthly convention",
+      "transformations": [
+        {
+          "star": "贪狼",
+          "type": "禄",
+          "target_palace": "财帛宫"
+        },
+        {
+          "star": "太阴",
+          "type": "权",
+          "target_palace": "疾厄宫"
+        },
+        {
+          "star": "右弼",
+          "type": "科",
+          "target_palace": "夫妻宫"
+        },
+        {
+          "star": "天机",
+          "type": "忌",
+          "target_palace": "田宅宫"
+        }
+      ]
+    },
+    "daily": {
+      "palace": "夫妻宫",
+      "stem": "丁",
+      "branch": "未",
+      "computed_upstream": true,
+      "source": "locked daily convention",
+      "transformations": [
+        {
+          "star": "太阴",
+          "type": "禄",
+          "target_palace": "疾厄宫"
+        },
+        {
+          "star": "天同",
+          "type": "权",
+          "target_palace": "兄弟宫"
+        },
+        {
+          "star": "天机",
+          "type": "科",
+          "target_palace": "田宅宫"
+        },
+        {
+          "star": "巨门",
+          "type": "忌",
+          "target_palace": "子女宫"
+        }
+      ]
+    },
+    "hourly": {
+      "palace": "田宅宫",
+      "stem": "乙",
+      "branch": "子",
+      "computed_upstream": true,
+      "source": "locked hourly convention",
+      "transformations": [
+        {
+          "star": "天机",
+          "type": "禄",
+          "target_palace": "田宅宫"
+        },
+        {
+          "star": "天梁",
+          "type": "权",
+          "target_palace": "兄弟宫"
+        },
+        {
+          "star": "紫微",
+          "type": "科",
+          "target_palace": "官禄宫"
+        },
+        {
+          "star": "太阴",
+          "type": "忌",
+          "target_palace": "疾厄宫"
+        }
+      ]
+    }
+  }
+}

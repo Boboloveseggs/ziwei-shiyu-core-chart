@@ -1,0 +1,414 @@
+{
+  "meta": {
+    "engine": "ZDSM Daily/Hourly Runtime",
+    "version": "1.0",
+    "target_date": "2026-10-10",
+    "time_window": "09:00-11:00",
+    "calendar_label": "农历丙午年九月初一 · 丁巳日 · 乙巳时",
+    "event_context": "general",
+    "ai_api_used": false
+  },
+  "layer_chain": [
+    {
+      "layer": "大限",
+      "palace": "福德宫",
+      "role": "内在奖赏 / 精神恢复"
+    },
+    {
+      "layer": "流年",
+      "palace": "子女宫",
+      "role": "生成与输出 / 作品受众"
+    },
+    {
+      "layer": "小限",
+      "palace": "交友宫",
+      "role": "社会网络 / 信息引荐"
+    },
+    {
+      "layer": "流月",
+      "palace": "夫妻宫",
+      "role": "一对一绑定 / 合作协商"
+    },
+    {
+      "layer": "流日",
+      "palace": "夫妻宫",
+      "role": "一对一绑定 / 合作协商"
+    },
+    {
+      "layer": "流时",
+      "palace": "田宅宫",
+      "role": "长期资产 / 文档知识"
+    }
+  ],
+  "networks": {
+    "monthly": {
+      "core": "夫妻宫",
+      "core_role": "一对一绑定 / 合作协商",
+      "trines": [
+        {
+          "palace": "迁移宫",
+          "role": "外部环境 / 平台反馈"
+        },
+        {
+          "palace": "福德宫",
+          "role": "内在奖赏 / 精神恢复"
+        }
+      ],
+      "opposite": {
+        "palace": "官禄宫",
+        "role": "生产角色 / 事业成果"
+      },
+      "nodes": [
+        "夫妻宫",
+        "迁移宫",
+        "福德宫",
+        "官禄宫"
+      ]
+    },
+    "daily": {
+      "core": "夫妻宫",
+      "core_role": "一对一绑定 / 合作协商",
+      "trines": [
+        {
+          "palace": "迁移宫",
+          "role": "外部环境 / 平台反馈"
+        },
+        {
+          "palace": "福德宫",
+          "role": "内在奖赏 / 精神恢复"
+        }
+      ],
+      "opposite": {
+        "palace": "官禄宫",
+        "role": "生产角色 / 事业成果"
+      },
+      "nodes": [
+        "夫妻宫",
+        "迁移宫",
+        "福德宫",
+        "官禄宫"
+      ]
+    },
+    "hourly": {
+      "core": "田宅宫",
+      "core_role": "长期资产 / 文档知识",
+      "trines": [
+        {
+          "palace": "兄弟宫",
+          "role": "同辈协作 / 分工责任"
+        },
+        {
+          "palace": "疾厄宫",
+          "role": "身体负荷 / 恢复系统"
+        }
+      ],
+      "opposite": {
+        "palace": "子女宫",
+        "role": "生成与输出 / 作品受众"
+      },
+      "nodes": [
+        "田宅宫",
+        "兄弟宫",
+        "疾厄宫",
+        "子女宫"
+      ]
+    }
+  },
+  "short_term_support": {
+    "daily": {
+      "layer": "流日",
+      "palace": "夫妻宫",
+      "status": "strong_short_term_signal",
+      "overlap_with_upper": [
+        "夫妻宫",
+        "官禄宫",
+        "福德宫",
+        "迁移宫"
+      ]
+    },
+    "hourly": {
+      "layer": "流时",
+      "palace": "田宅宫",
+      "status": "strong_short_term_signal",
+      "overlap_with_upper": [
+        "兄弟宫",
+        "子女宫",
+        "田宅宫",
+        "疾厄宫"
+      ]
+    }
+  },
+  "resonance_nodes": [
+    {
+      "palace": "田宅宫",
+      "role": "长期资产 / 文档知识",
+      "level": "一级共振",
+      "evidence": [
+        "流时直接激活",
+        "本命天机化科",
+        "流月天机化忌",
+        "流日天机化科",
+        "流时天机化禄"
+      ],
+      "independent_layers": 5
+    },
+    {
+      "palace": "疾厄宫",
+      "role": "身体负荷 / 恢复系统",
+      "level": "一级共振",
+      "evidence": [
+        "本命太阴化禄",
+        "流月太阴化权",
+        "流日太阴化禄",
+        "流时太阴化忌"
+      ],
+      "independent_layers": 4
+    },
+    {
+      "palace": "兄弟宫",
+      "role": "同辈协作 / 分工责任",
+      "level": "二级共振",
+      "evidence": [
+        "本命天同化权",
+        "流日天同化权",
+        "流时天梁化权"
+      ],
+      "independent_layers": 3
+    },
+    {
+      "palace": "夫妻宫",
+      "role": "一对一绑定 / 合作协商",
+      "level": "二级共振",
+      "evidence": [
+        "流月直接激活",
+        "流日直接激活",
+        "流月右弼化科"
+      ],
+      "independent_layers": 3
+    },
+    {
+      "palace": "子女宫",
+      "role": "生成与输出 / 作品受众",
+      "level": "二级共振",
+      "evidence": [
+        "流年直接激活",
+        "本命巨门化忌",
+        "流日巨门化忌"
+      ],
+      "independent_layers": 3
+    },
+    {
+      "palace": "财帛宫",
+      "role": "价值交换 / 收入支出",
+      "level": "三级提示",
+      "evidence": [
+        "流月贪狼化禄"
+      ],
+      "independent_layers": 1
+    },
+    {
+      "palace": "交友宫",
+      "role": "社会网络 / 信息引荐",
+      "level": "三级提示",
+      "evidence": [
+        "小限直接激活"
+      ],
+      "independent_layers": 1
+    },
+    {
+      "palace": "官禄宫",
+      "role": "生产角色 / 事业成果",
+      "level": "三级提示",
+      "evidence": [
+        "流时紫微化科"
+      ],
+      "independent_layers": 1
+    },
+    {
+      "palace": "福德宫",
+      "role": "内在奖赏 / 精神恢复",
+      "level": "三级提示",
+      "evidence": [
+        "大限直接激活"
+      ],
+      "independent_layers": 1
+    }
+  ],
+  "transformation_trajectories": [
+    {
+      "star": "天机",
+      "sequence": "科→忌→科→禄",
+      "pattern": "摩擦向整理/资源转化",
+      "steps": [
+        {
+          "layer": "本命",
+          "star": "天机",
+          "type": "科",
+          "target_palace": "田宅宫"
+        },
+        {
+          "layer": "流月",
+          "star": "天机",
+          "type": "忌",
+          "target_palace": "田宅宫"
+        },
+        {
+          "layer": "流日",
+          "star": "天机",
+          "type": "科",
+          "target_palace": "田宅宫"
+        },
+        {
+          "layer": "流时",
+          "star": "天机",
+          "type": "禄",
+          "target_palace": "田宅宫"
+        }
+      ],
+      "process": "本命：整理、规范、可见或认证增强（田宅宫） → 流月：黏着、反复、卡点或成本增加（田宅宫） → 流日：整理、规范、可见或认证增强（田宅宫） → 流时：资源进入、可用性提高（田宅宫）",
+      "interpretation": "天机呈现先有反复或卡点、后逐步转向整理或可用结果的过程。"
+    },
+    {
+      "star": "太阴",
+      "sequence": "禄→权→禄→忌",
+      "pattern": "资源/推动后出现成本",
+      "steps": [
+        {
+          "layer": "本命",
+          "star": "太阴",
+          "type": "禄",
+          "target_palace": "疾厄宫"
+        },
+        {
+          "layer": "流月",
+          "star": "太阴",
+          "type": "权",
+          "target_palace": "疾厄宫"
+        },
+        {
+          "layer": "流日",
+          "star": "太阴",
+          "type": "禄",
+          "target_palace": "疾厄宫"
+        },
+        {
+          "layer": "流时",
+          "star": "太阴",
+          "type": "忌",
+          "target_palace": "疾厄宫"
+        }
+      ],
+      "process": "本命：资源进入、可用性提高（疾厄宫） → 流月：推动、控制或责任加重（疾厄宫） → 流日：资源进入、可用性提高（疾厄宫） → 流时：黏着、反复、卡点或成本增加（疾厄宫）",
+      "interpretation": "太阴前段有资源或推动，短周期末端成本、占用或反复上升。"
+    },
+    {
+      "star": "巨门",
+      "sequence": "忌→忌",
+      "pattern": "忌重复",
+      "steps": [
+        {
+          "layer": "本命",
+          "star": "巨门",
+          "type": "忌",
+          "target_palace": "子女宫"
+        },
+        {
+          "layer": "流日",
+          "star": "巨门",
+          "type": "忌",
+          "target_palace": "子女宫"
+        }
+      ],
+      "process": "本命：黏着、反复、卡点或成本增加（子女宫） → 流日：黏着、反复、卡点或成本增加（子女宫）",
+      "interpretation": "巨门的同一机制被多层重复触发。"
+    },
+    {
+      "star": "天同",
+      "sequence": "权→权",
+      "pattern": "权重复",
+      "steps": [
+        {
+          "layer": "本命",
+          "star": "天同",
+          "type": "权",
+          "target_palace": "兄弟宫"
+        },
+        {
+          "layer": "流日",
+          "star": "天同",
+          "type": "权",
+          "target_palace": "兄弟宫"
+        }
+      ],
+      "process": "本命：推动、控制或责任加重（兄弟宫） → 流日：推动、控制或责任加重（兄弟宫）",
+      "interpretation": "天同的同一机制被多层重复触发。"
+    }
+  ],
+  "bridge_signals": [
+    {
+      "from_layer": "流月",
+      "to_layer": "流日",
+      "star": "右弼",
+      "type": "科",
+      "target_palace": "夫妻宫",
+      "meaning": "流月的右弼化科直接落入流日三方四正网络"
+    },
+    {
+      "from_layer": "流日",
+      "to_layer": "流时",
+      "star": "太阴",
+      "type": "禄",
+      "target_palace": "疾厄宫",
+      "meaning": "流日的太阴化禄直接落入流时三方四正网络"
+    },
+    {
+      "from_layer": "流日",
+      "to_layer": "流时",
+      "star": "天同",
+      "type": "权",
+      "target_palace": "兄弟宫",
+      "meaning": "流日的天同化权直接落入流时三方四正网络"
+    },
+    {
+      "from_layer": "流日",
+      "to_layer": "流时",
+      "star": "天机",
+      "type": "科",
+      "target_palace": "田宅宫",
+      "meaning": "流日的天机化科直接落入流时三方四正网络"
+    },
+    {
+      "from_layer": "流日",
+      "to_layer": "流时",
+      "star": "巨门",
+      "type": "忌",
+      "target_palace": "子女宫",
+      "meaning": "流日的巨门化忌直接落入流时三方四正网络"
+    }
+  ],
+  "summary": "本月焦点在夫妻宫，当天流日再次进入夫妻宫，当前时段流时进入田宅宫。 流月与流日重复命中夫妻宫，说明一对一沟通、合作、承诺与条件确认不是单次闪现，而是月度主题在当天被再次推到前台。 日时之间又通过天机化科落田宅、巨门化忌落子女等形成桥接；其中天机呈现“科→忌→科→禄”跨层过程，应按反复—整理—形成可用成果的顺序理解。",
+  "window_assessment": {
+    "event_context": "general",
+    "event_label": "一般事务",
+    "final_focus_palace": "田宅宫",
+    "final_focus_role": "长期资产 / 文档知识",
+    "context_network_overlap": [
+      "田宅宫"
+    ],
+    "more_suitable_for": [
+      "写文档",
+      "整理方案",
+      "归档知识",
+      "把沟通结果落成长期资产"
+    ],
+    "watch_out_for": [
+      "流日巨门化忌落子女宫：该环节更容易反复、占用时间或增加成本。",
+      "流时太阴化忌落疾厄宫：该环节更容易反复、占用时间或增加成本。"
+    ],
+    "execution_tactic": "先把沟通或想法结构化，再落成文字、文件、方案或可复用成果。"
+  },
+  "quality_gate": {
+    "status": "pass",
+    "issues": []
+  }
+}

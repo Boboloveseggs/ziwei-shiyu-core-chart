@@ -1,0 +1,88 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ZDSM Time Layers Input",
+  "type": "object",
+  "properties": {
+    "decade": {
+      "$ref": "#/$defs/layer"
+    },
+    "annual": {
+      "$ref": "#/$defs/layer"
+    },
+    "minor_limit": {
+      "$ref": "#/$defs/layer"
+    },
+    "monthly": {
+      "$ref": "#/$defs/layer"
+    },
+    "daily": {
+      "$ref": "#/$defs/layer"
+    },
+    "hourly": {
+      "$ref": "#/$defs/layer"
+    }
+  },
+  "$defs": {
+    "layer": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "palace": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "branch": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "stem": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "transformations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "star",
+              "type"
+            ],
+            "properties": {
+              "star": {
+                "type": "string"
+              },
+              "type": {
+                "enum": [
+                  "禄",
+                  "权",
+                  "科",
+                  "忌"
+                ]
+              },
+              "target_palace": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        },
+        "source": {
+          "type": "string"
+        },
+        "computed_upstream": {
+          "type": "boolean"
+        }
+      }
+    }
+  }
+}

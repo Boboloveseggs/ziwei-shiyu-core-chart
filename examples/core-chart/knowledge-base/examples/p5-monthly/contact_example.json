@@ -1,0 +1,16 @@
+{
+  "contact_title": "对报告还有疑问？",
+  "contact_text": "如果你希望结合现实经历进一步核对，可以联系人工解读。",
+  "channels": [
+    {
+      "type": "wechat",
+      "label": "微信",
+      "value": "部署时读取P4/config/contact.json"
+    },
+    {
+      "type": "email",
+      "label": "邮箱",
+      "value": "部署时读取P4/config/contact.json"
+    }
+  ]
+}

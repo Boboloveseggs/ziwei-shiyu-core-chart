@@ -1,0 +1,90 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Release tag, for example v2.6.1
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    env:
+      RELEASE_TAG: ${{ inputs.tag || github.ref_name }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ env.RELEASE_TAG }}
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: yarn
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Run tests
+        run: yarn test --runInBand
+
+      - name: Build with Webpack
+        run: yarn build:umd
+
+      - name: Extract release notes from changelog
+        shell: bash
+        run: |
+          awk -v version="${RELEASE_TAG}" '
+            $0 == "## " version {
+              found = 1
+              next
+            }
+
+            found && /^## / {
+              exit
+            }
+
+            found {
+              print
+            }
+
+            END {
+              if (!found) {
+                exit 1
+              }
+            }
+          ' CHANGELOG.md > release-notes.md
+
+          if [[ ! -s release-notes.md ]]; then
+            echo "CHANGELOG.md does not contain release notes for ${RELEASE_TAG}"
+            exit 1
+          fi
+
+      - name: Package UMD files
+        run: tar -czf iztro-min-js.tar.gz dist/
+
+      - name: Create or update GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if gh release view "${RELEASE_TAG}" >/dev/null 2>&1; then
+            gh release upload "${RELEASE_TAG}" \
+              iztro-min-js.tar.gz \
+              --clobber
+          else
+            gh release create "${RELEASE_TAG}" \
+              iztro-min-js.tar.gz \
+              --verify-tag \
+              --title "${RELEASE_TAG}" \
+              --notes-file release-notes.md
+          fi

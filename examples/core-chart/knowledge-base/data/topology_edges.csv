@@ -1,0 +1,13 @@
+﻿from_palace,to_palace,edge_type
+命宫,官禄宫,trine
+命宫,财帛宫,trine
+命宫,迁移宫,opposite
+兄弟宫,田宅宫,trine
+兄弟宫,疾厄宫,trine
+兄弟宫,交友宫,opposite
+夫妻宫,福德宫,trine
+夫妻宫,迁移宫,trine
+夫妻宫,官禄宫,opposite
+子女宫,父母宫,trine
+子女宫,交友宫,trine
+子女宫,田宅宫,opposite

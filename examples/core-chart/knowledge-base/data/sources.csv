@@ -1,0 +1,4 @@
+﻿source_id,title,author,source_type,school,citation,edition,page_or_section,raw_excerpt,reliability_note,file_ref,url
+SRC-PROJECT-001,合并扫描_OCR文字_人工校对版,,user_project_source,,项目资料：合并扫描_OCR文字_人工校对版.txt,人工校对版,卷一相关章节；扫描页10、40-42、53-58等,,主项目来源；仍存在少量OCR字形疑点，需与第二来源交叉核验。,file_00000000ef9c71f592435bf6ce6c73ab,
+SRC-WS-QUANSHU-001,紫微斗數全書/全覽,,classical_text,全書系,維基文庫《紫微斗數全書/全覽》,Wikisource transcription,卷一、卷三；諸星問答、談星要論、諸星同垣等,,用于交叉核对庙旺、主星/辅煞传统规则；保留古籍自身时代性与版本问题。,,https://zh.wikisource.org/zh-hant/紫微斗數全書/全覽
+SRC-WIKI-FOUR-001,紫微斗数（四化版本差异整理）,,website,版本对照,Wikipedia 紫微斗数条目：安四化星,,安四化星,,仅用于提示《全集》《全书》在庚、壬等干存在版本差异；解释层不可混用。,,https://zh.wikipedia.org/wiki/紫微斗数

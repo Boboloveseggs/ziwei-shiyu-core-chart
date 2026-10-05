@@ -1,0 +1,108 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ZDSM Chart Input",
+  "type": "object",
+  "required": [
+    "houses"
+  ],
+  "properties": {
+    "meta": {
+      "type": "object"
+    },
+    "houses": {
+      "type": "object",
+      "required": [
+        "命宫",
+        "兄弟",
+        "夫妻",
+        "子女",
+        "财帛",
+        "疾厄",
+        "迁移",
+        "交友",
+        "官禄",
+        "田宅",
+        "福德",
+        "父母"
+      ],
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "main": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "name"
+              ],
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "state": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "aux": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "malefic": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "transforms": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "type"
+              ],
+              "properties": {
+                "star": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string"
+                },
+                "dir": {
+                  "enum": [
+                    "in",
+                    "out",
+                    null
+                  ]
+                }
+              }
+            }
+          },
+          "body": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    "timing": {
+      "type": "object",
+      "properties": {
+        "decade": {
+          "type": "object"
+        },
+        "year": {
+          "type": "object"
+        },
+        "smallLimit": {
+          "type": "object"
+        },
+        "transforms": {
+          "type": "array"
+        }
+      }
+    }
+  }
+}

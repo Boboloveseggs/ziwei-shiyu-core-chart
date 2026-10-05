@@ -1,0 +1,13 @@
+﻿name,category,modern_meaning,tier
+博士,support,聪明;学习;信息吸收,detail_only
+力士,drive,执行;权责;推动,detail_only
+青龙,support,喜气;顺畅;支持,detail_only
+小耗,friction,小额消耗;零碎损耗,detail_only
+将军,drive,主导;执行;竞争,detail_only
+奏书,support,文书;表达;呈报;信息,detail_only
+蜚廉,friction,疏离;流动;不稳定,detail_only
+喜神,support,喜庆;正反馈;愉悦,detail_only
+病符,health_detail,健康/恢复提醒，不单独诊断,detail_only
+大耗,friction,较大资源消耗;支出/损耗提醒,detail_only
+伏兵,friction,隐性阻力;未公开问题,detail_only
+官府,friction,规则;手续;争议;程序成本,detail_only

@@ -1,0 +1,28 @@
+{
+  "version": "1.4-P3",
+  "pipeline_closed_loop": true,
+  "components": [
+    "natal_rule_engine",
+    "time_gating_engine",
+    "claim_generator",
+    "conclusion_ownership",
+    "deduplicator",
+    "confidence_classifier",
+    "validation_object_generator",
+    "distinctiveness_checker",
+    "action_canonicalizer",
+    "plain_renderer",
+    "professional_renderer",
+    "quality_gate"
+  ],
+  "example_quality_gate": {
+    "status": "pass",
+    "issues": []
+  },
+  "example_counts": {
+    "core_conclusions": 10,
+    "actions": 10,
+    "distinctive_signatures": 3,
+    "validation_objects": 10
+  }
+}

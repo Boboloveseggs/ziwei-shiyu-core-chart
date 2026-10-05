@@ -1,0 +1,25 @@
+{
+  "version": "1.2-P1",
+  "counts": {
+    "star_palace_rules": 168,
+    "source_explicit": 166,
+    "partial_ocr": 0,
+    "model_projection_only": 2,
+    "main_star_colocations": 24,
+    "all_main_star_pairs": 91,
+    "possible_colocation_pairs": 24
+  },
+  "runtime": {
+    "non_ai_engine": "engine/analyze_chart.py",
+    "example_input": "examples/example_chart_1997_05_18_full.json",
+    "example_output_json": "examples/example_output_1997_05_18.json",
+    "example_output_text": "examples/example_output_1997_05_18.txt",
+    "sqlite": "data/zdsm_p1.sqlite"
+  },
+  "policy": {
+    "traditional_and_modern_separated": true,
+    "impossible_main_star_colocations_blocked": true,
+    "chart_calculation_upstream_only": true,
+    "medical_diagnosis_from_chart": false
+  }
+}

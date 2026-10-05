@@ -1,0 +1,34 @@
+{
+  "main_axes": [
+    "身体",
+    "事业",
+    "钱",
+    "爱情/关系"
+  ],
+  "relationship_modules": [
+    "朋友/社群/同行",
+    "兄弟姐妹/同辈/团队",
+    "父母/亲人/长辈",
+    "爱人/伴侣",
+    "合作方/客户/上级",
+    "晚辈/学生/下属/粉丝/受众"
+  ],
+  "dedup": {
+    "max_full_explanations_per_conclusion": 1,
+    "annual_overview_max_summary_mentions": 1,
+    "actions_merge_synonyms": true
+  },
+  "distinctiveness": {
+    "minimum_unique_chart_judgments": 3,
+    "must_include": [
+      "特殊组合",
+      "与模板不同原因",
+      "现实验证"
+    ]
+  },
+  "ending": {
+    "grabs": 3,
+    "red_lines": 3,
+    "reality_indicators": 3
+  }
+}

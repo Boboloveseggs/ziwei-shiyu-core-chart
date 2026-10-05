@@ -1,0 +1,19 @@
+{
+  "request_id": "demo-2026-10-10-am",
+  "analysis_scope": "date_window",
+  "target_datetime": "2026-10-10T09:00:00+08:00/2026-10-10T11:00:00+08:00",
+  "prediction_mode": "trend",
+  "report_mode": "professional",
+  "context": {
+    "event_type": "unspecified",
+    "known_exposure_conditions": []
+  },
+  "required_layers": [
+    "natal",
+    "decade",
+    "annual",
+    "monthly",
+    "daily",
+    "hourly"
+  ]
+}

@@ -1,0 +1,222 @@
+{
+  "meta": {
+    "engine": "ZDSM Monthly Runtime",
+    "version": "1.0",
+    "target_month": "2026-10",
+    "calendar_label": "公历2026年10月 / 农历九月",
+    "prediction_mode": "trend",
+    "ai_api_used": false
+  },
+  "layer_chain": [
+    {
+      "layer": "大限",
+      "palace": "福德宫",
+      "role": "内在奖赏 / 精神恢复"
+    },
+    {
+      "layer": "流年",
+      "palace": "子女宫",
+      "role": "生成与输出 / 作品受众"
+    },
+    {
+      "layer": "小限",
+      "palace": "交友宫",
+      "role": "社会网络 / 信息引荐"
+    },
+    {
+      "layer": "流月",
+      "palace": "夫妻宫",
+      "role": "一对一绑定 / 合作协商"
+    }
+  ],
+  "monthly_core_network": {
+    "core": "夫妻宫",
+    "core_role": "一对一绑定 / 合作协商",
+    "trines": [
+      {
+        "palace": "迁移宫",
+        "role": "外部环境 / 平台反馈"
+      },
+      {
+        "palace": "福德宫",
+        "role": "内在奖赏 / 精神恢复"
+      }
+    ],
+    "opposite": {
+      "palace": "官禄宫",
+      "role": "生产角色 / 事业成果"
+    },
+    "interpretation_rule": "流月命宫是本月注意力与事件入口；三合宫提供同一事件系统的资源/承接；对宫体现拉扯、外部要求或需要协调的另一端。"
+  },
+  "transformations": [
+    {
+      "layer": "流月",
+      "star": "贪狼",
+      "type": "禄",
+      "target_palace": "财帛宫",
+      "meaning": "资源、机会、注意力或可获得性增加"
+    },
+    {
+      "layer": "流月",
+      "star": "太阴",
+      "type": "权",
+      "target_palace": "疾厄宫",
+      "meaning": "推动、责任、控制或占用增强"
+    },
+    {
+      "layer": "流月",
+      "star": "右弼",
+      "type": "科",
+      "target_palace": "夫妻宫",
+      "meaning": "整理、规范、可见、认证或缓冲增强"
+    },
+    {
+      "layer": "流月",
+      "star": "天机",
+      "type": "忌",
+      "target_palace": "田宅宫",
+      "meaning": "黏着、反复、卡点、成本或难脱手增加"
+    }
+  ],
+  "resonance_nodes": [
+    {
+      "palace": "兄弟宫",
+      "role": "同辈协作 / 分工责任",
+      "level": "三级提示",
+      "evidence": [
+        "本命化权"
+      ]
+    },
+    {
+      "palace": "夫妻宫",
+      "role": "一对一绑定 / 合作协商",
+      "level": "二级共振",
+      "evidence": [
+        "流月直接激活",
+        "流月 右弼化科"
+      ]
+    },
+    {
+      "palace": "子女宫",
+      "role": "生成与输出 / 作品受众",
+      "level": "二级共振",
+      "evidence": [
+        "流年直接激活",
+        "本命化忌"
+      ]
+    },
+    {
+      "palace": "财帛宫",
+      "role": "价值交换 / 收入支出",
+      "level": "三级提示",
+      "evidence": [
+        "流月 贪狼化禄"
+      ]
+    },
+    {
+      "palace": "疾厄宫",
+      "role": "身体负荷 / 恢复系统",
+      "level": "二级共振",
+      "evidence": [
+        "流月 太阴化权",
+        "本命化禄"
+      ]
+    },
+    {
+      "palace": "交友宫",
+      "role": "社会网络 / 信息引荐",
+      "level": "三级提示",
+      "evidence": [
+        "小限直接激活"
+      ]
+    },
+    {
+      "palace": "田宅宫",
+      "role": "长期资产 / 知识存量",
+      "level": "二级共振",
+      "evidence": [
+        "流月 天机化忌",
+        "本命化科"
+      ]
+    },
+    {
+      "palace": "福德宫",
+      "role": "内在奖赏 / 精神恢复",
+      "level": "三级提示",
+      "evidence": [
+        "大限直接激活"
+      ]
+    }
+  ],
+  "key_nodes": {
+    "core_focus": {
+      "palace": "夫妻宫",
+      "role": "一对一绑定 / 合作协商",
+      "reason": "流月命宫直接落入该宫"
+    },
+    "opportunity_node": {
+      "palace": "夫妻宫",
+      "role": "一对一绑定 / 合作协商",
+      "reason": [
+        "流月右弼化科命中本月四宫网络"
+      ]
+    },
+    "bottleneck_node": {
+      "palace": "官禄宫",
+      "role": "生产角色 / 事业成果",
+      "reason": [
+        "对宫为本月默认协调压力端"
+      ]
+    },
+    "opposite_tension": {
+      "palace": "官禄宫",
+      "role": "生产角色 / 事业成果",
+      "reason": "流月命宫对宫"
+    }
+  },
+  "monthly_summary": "在大限福德宫的十年背景下，今年重点落在流年子女宫；本月流月命宫进入夫妻宫，三方牵动迁移宫、福德宫，对宫为官禄宫。本月核心看夫妻宫，机会承接重点看夫妻宫，官禄宫是最需要控制成本的节点。",
+  "axes": {
+    "身体": {
+      "relevance": "重点",
+      "touched_palaces": [
+        "迁移宫",
+        "福德宫"
+      ],
+      "summary": "本月身体轴由迁移宫、福德宫牵动；按本命结构+月四化解释。"
+    },
+    "事业": {
+      "relevance": "重点",
+      "touched_palaces": [
+        "官禄宫",
+        "迁移宫"
+      ],
+      "summary": "本月事业轴由官禄宫、迁移宫牵动；按本命结构+月四化解释。"
+    },
+    "钱": {
+      "relevance": "重点",
+      "touched_palaces": [
+        "官禄宫",
+        "福德宫",
+        "迁移宫"
+      ],
+      "summary": "本月钱轴由官禄宫、福德宫、迁移宫牵动；按本命结构+月四化解释。"
+    },
+    "爱情/关系": {
+      "relevance": "重点",
+      "touched_palaces": [
+        "夫妻宫",
+        "福德宫"
+      ],
+      "summary": "本月爱情/关系轴由夫妻宫、福德宫牵动；按本命结构+月四化解释。"
+    }
+  },
+  "monthly_actions": [
+    "把本月最重要的决策、时间和注意力优先放在夫妻宫对应的现实事项。",
+    "主动利用夫妻宫的资源与承接条件，把机会变成可确认、可交付或可沉淀的结果。",
+    "遇到官禄宫相关事项时先做规则、边界和成本检查。"
+  ],
+  "quality_gate": {
+    "status": "pass",
+    "issues": []
+  }
+}

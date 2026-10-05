@@ -1,0 +1,119 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ZDSM Monthly Runtime Request",
+  "type": "object",
+  "required": [
+    "target_month",
+    "nominal_age",
+    "time_layers"
+  ],
+  "properties": {
+    "target_month": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}$"
+    },
+    "nominal_age": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "calendar_label": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "report_mode": {
+      "enum": [
+        "plain",
+        "professional"
+      ]
+    },
+    "time_layers": {
+      "type": "object",
+      "required": [
+        "decade",
+        "annual",
+        "monthly"
+      ],
+      "properties": {
+        "decade": {
+          "$ref": "#/$defs/layer"
+        },
+        "annual": {
+          "$ref": "#/$defs/layer"
+        },
+        "minor_limit": {
+          "$ref": "#/$defs/layer"
+        },
+        "monthly": {
+          "$ref": "#/$defs/layer"
+        }
+      }
+    },
+    "context": {
+      "type": [
+        "object",
+        "null"
+      ]
+    }
+  },
+  "$defs": {
+    "layer": {
+      "type": "object",
+      "required": [
+        "palace",
+        "computed_upstream"
+      ],
+      "properties": {
+        "palace": {
+          "type": "string"
+        },
+        "branch": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "stem": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "transformations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "star",
+              "type",
+              "target_palace"
+            ],
+            "properties": {
+              "star": {
+                "type": "string"
+              },
+              "type": {
+                "enum": [
+                  "禄",
+                  "权",
+                  "科",
+                  "忌"
+                ]
+              },
+              "target_palace": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "computed_upstream": {
+          "type": "boolean"
+        },
+        "source": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

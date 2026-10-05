@@ -1,0 +1,14 @@
+{
+  "source_id": "SRC-001",
+  "title": "示例来源",
+  "author": null,
+  "source_type": "user_project_source",
+  "school": null,
+  "citation": "请填写书名/章节/页码",
+  "edition": null,
+  "page_or_section": null,
+  "raw_excerpt": "这里保存尽量短的原始规则摘录，不保存整章。",
+  "reliability_note": "示例",
+  "file_ref": null,
+  "url": null
+}

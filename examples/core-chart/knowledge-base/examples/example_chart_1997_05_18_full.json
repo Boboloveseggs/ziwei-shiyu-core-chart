@@ -1,0 +1,409 @@
+{
+  "profile": {
+    "profile_id": "main_1997_05_18",
+    "gender": "女",
+    "solar_datetime": "1997-05-18T16:28:00+08:00",
+    "true_solar_datetime": "1997-05-18T16:31:00+08:00",
+    "lunar_datetime": "丁丑年四月十二日申时",
+    "five_element_bureau": "土五局",
+    "ming_master": "文曲",
+    "body_master": "天相",
+    "body_palace": "官禄宫"
+  },
+  "conventions": {
+    "chart_source": "文墨天机",
+    "chart_school": "三合盘(天盘)",
+    "self_transform_semantics": "↓离心自化；↑向心自化，从对宫化入"
+  },
+  "palaces": [
+    {
+      "name": "田宅宫",
+      "stem_branch": "壬子",
+      "major_stars": [
+        {
+          "name": "天机",
+          "state": "庙",
+          "natal_transformation": "生年科",
+          "self_transform": "↑权"
+        }
+      ],
+      "aux_stars": [
+        {
+          "name": "文曲",
+          "state": "得"
+        }
+      ],
+      "decade": "35-44",
+      "minor_limit_ages": [
+        8,
+        20,
+        32,
+        44,
+        56
+      ],
+      "annual_ages": [
+        12,
+        24,
+        36,
+        48,
+        60
+      ]
+    },
+    {
+      "name": "官禄宫",
+      "stem_branch": "癸丑",
+      "is_body_palace": true,
+      "major_stars": [
+        {
+          "name": "紫微",
+          "state": "庙"
+        },
+        {
+          "name": "破军",
+          "state": "旺",
+          "self_transform": "↓禄"
+        }
+      ],
+      "aux_stars": [],
+      "decade": "45-54",
+      "minor_limit_ages": [
+        7,
+        19,
+        31,
+        43,
+        55
+      ],
+      "annual_ages": [
+        1,
+        13,
+        25,
+        37,
+        49
+      ]
+    },
+    {
+      "name": "交友宫",
+      "stem_branch": "壬寅",
+      "major_stars": [],
+      "aux_stars": [
+        {
+          "name": "文昌",
+          "state": "陷"
+        }
+      ],
+      "decade": "55-64",
+      "minor_limit_ages": [
+        6,
+        18,
+        30,
+        42,
+        54
+      ],
+      "annual_ages": [
+        2,
+        14,
+        26,
+        38,
+        50
+      ]
+    },
+    {
+      "name": "迁移宫",
+      "stem_branch": "癸卯",
+      "major_stars": [
+        {
+          "name": "天府",
+          "state": "得地"
+        }
+      ],
+      "aux_stars": [
+        {
+          "name": "地空",
+          "state": "平"
+        }
+      ],
+      "decade": "65-74",
+      "minor_limit_ages": [
+        5,
+        17,
+        29,
+        41,
+        53
+      ],
+      "annual_ages": [
+        3,
+        15,
+        27,
+        39,
+        51
+      ]
+    },
+    {
+      "name": "疾厄宫",
+      "stem_branch": "甲辰",
+      "major_stars": [
+        {
+          "name": "太阴",
+          "state": "陷",
+          "natal_transformation": "生年禄",
+          "self_transform": "↑科"
+        }
+      ],
+      "aux_stars": [],
+      "decade": "75-84",
+      "minor_limit_ages": [
+        4,
+        16,
+        28,
+        40,
+        52
+      ],
+      "annual_ages": [
+        4,
+        16,
+        28,
+        40,
+        52
+      ]
+    },
+    {
+      "name": "财帛宫",
+      "stem_branch": "乙巳",
+      "major_stars": [
+        {
+          "name": "廉贞",
+          "state": "陷"
+        },
+        {
+          "name": "贪狼",
+          "state": "陷"
+        }
+      ],
+      "aux_stars": [
+        {
+          "name": "陀罗",
+          "state": "陷"
+        }
+      ],
+      "decade": "85-94",
+      "minor_limit_ages": [
+        3,
+        15,
+        27,
+        39,
+        51
+      ],
+      "annual_ages": [
+        5,
+        17,
+        29,
+        41,
+        53
+      ]
+    },
+    {
+      "name": "子女宫",
+      "stem_branch": "丙午",
+      "major_stars": [
+        {
+          "name": "巨门",
+          "state": "旺",
+          "natal_transformation": "生年忌"
+        }
+      ],
+      "aux_stars": [
+        {
+          "name": "禄存",
+          "state": "庙"
+        },
+        {
+          "name": "铃星",
+          "state": "庙"
+        }
+      ],
+      "decade": "95-104",
+      "minor_limit_ages": [
+        2,
+        14,
+        26,
+        38,
+        50
+      ],
+      "annual_ages": [
+        6,
+        18,
+        30,
+        42,
+        54
+      ]
+    },
+    {
+      "name": "夫妻宫",
+      "stem_branch": "丁未",
+      "major_stars": [
+        {
+          "name": "天相",
+          "state": "得地"
+        }
+      ],
+      "aux_stars": [
+        {
+          "name": "左辅",
+          "state": "庙"
+        },
+        {
+          "name": "右弼",
+          "state": "庙"
+        },
+        {
+          "name": "擎羊",
+          "state": "庙"
+        },
+        {
+          "name": "地劫",
+          "state": "平"
+        }
+      ],
+      "decade": "105-114",
+      "minor_limit_ages": [
+        1,
+        13,
+        25,
+        37,
+        49
+      ],
+      "annual_ages": [
+        7,
+        19,
+        31,
+        43,
+        55
+      ]
+    },
+    {
+      "name": "兄弟宫",
+      "stem_branch": "戊申",
+      "major_stars": [
+        {
+          "name": "天同",
+          "state": "旺",
+          "natal_transformation": "生年权"
+        },
+        {
+          "name": "天梁",
+          "state": "陷",
+          "self_transform": "↑禄"
+        }
+      ],
+      "aux_stars": [],
+      "decade": "115-124",
+      "minor_limit_ages": [
+        12,
+        24,
+        36,
+        48,
+        60
+      ],
+      "annual_ages": [
+        8,
+        20,
+        32,
+        44,
+        56
+      ]
+    },
+    {
+      "name": "命宫",
+      "stem_branch": "己酉",
+      "major_stars": [
+        {
+          "name": "武曲",
+          "state": "利",
+          "self_transform": "↓禄"
+        },
+        {
+          "name": "七杀",
+          "state": "旺"
+        }
+      ],
+      "aux_stars": [
+        {
+          "name": "天钺",
+          "state": "庙"
+        }
+      ],
+      "decade": "5-14",
+      "minor_limit_ages": [
+        11,
+        23,
+        35,
+        47,
+        59
+      ],
+      "annual_ages": [
+        9,
+        21,
+        33,
+        45,
+        57
+      ]
+    },
+    {
+      "name": "父母宫",
+      "stem_branch": "庚戌",
+      "major_stars": [
+        {
+          "name": "太阳",
+          "state": "不",
+          "self_transform": "↓禄;↑忌"
+        }
+      ],
+      "aux_stars": [],
+      "decade": "15-24",
+      "minor_limit_ages": [
+        10,
+        22,
+        34,
+        46,
+        58
+      ],
+      "annual_ages": [
+        10,
+        22,
+        34,
+        46,
+        58
+      ]
+    },
+    {
+      "name": "福德宫",
+      "stem_branch": "辛亥",
+      "major_stars": [],
+      "aux_stars": [
+        {
+          "name": "天魁",
+          "state": "旺"
+        },
+        {
+          "name": "火星",
+          "state": "利"
+        }
+      ],
+      "decade": "25-34",
+      "minor_limit_ages": [
+        9,
+        21,
+        33,
+        45,
+        57
+      ],
+      "annual_ages": [
+        11,
+        23,
+        35,
+        47,
+        59
+      ]
+    }
+  ]
+}

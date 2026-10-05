@@ -1,0 +1,139 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ZDSM Rule Card",
+  "type": "object",
+  "required": [
+    "rule_id",
+    "rule_type",
+    "conditions",
+    "effects",
+    "evidence",
+    "status"
+  ],
+  "properties": {
+    "rule_id": {
+      "type": "string"
+    },
+    "rule_type": {
+      "enum": [
+        "major_star_function",
+        "palace_function",
+        "star_palace_rule",
+        "star_interaction",
+        "temple_state",
+        "transformation_rule",
+        "topology_rule",
+        "timing_rule",
+        "minor_star_rule",
+        "report_fragment",
+        "conflict_rule"
+      ]
+    },
+    "title": {
+      "type": "string"
+    },
+    "conditions": {
+      "type": "object"
+    },
+    "effects": {
+      "type": "object",
+      "properties": {
+        "core_function": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "interaction_operator": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "state_effect": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "possible_manifestations": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "do_not_infer": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "evidence": {
+      "type": "object",
+      "required": [
+        "type"
+      ],
+      "properties": {
+        "type": {
+          "enum": [
+            "T",
+            "S",
+            "M",
+            "E"
+          ]
+        },
+        "source_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "notes": {
+          "type": "string"
+        }
+      }
+    },
+    "confidence": {
+      "enum": [
+        "core",
+        "high",
+        "medium",
+        "low",
+        "detail_only"
+      ]
+    },
+    "status": {
+      "enum": [
+        "active",
+        "experimental",
+        "deprecated",
+        "rejected"
+      ]
+    },
+    "validation": {
+      "type": "object",
+      "properties": {
+        "falsifiable": {
+          "type": "boolean"
+        },
+        "observable_indicators": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "disconfirming_observations": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "notes": {
+      "type": "string"
+    }
+  }
+}

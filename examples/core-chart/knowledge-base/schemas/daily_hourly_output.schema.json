@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ZDSM Daily Hourly Runtime Output",
+  "type": "object",
+  "required": [
+    "meta",
+    "layer_chain",
+    "networks",
+    "resonance_nodes",
+    "transformation_trajectories",
+    "window_assessment",
+    "quality_gate"
+  ],
+  "properties": {
+    "meta": {
+      "type": "object"
+    },
+    "layer_chain": {
+      "type": "array"
+    },
+    "networks": {
+      "type": "object"
+    },
+    "resonance_nodes": {
+      "type": "array"
+    },
+    "transformation_trajectories": {
+      "type": "array"
+    },
+    "bridge_signals": {
+      "type": "array"
+    },
+    "window_assessment": {
+      "type": "object"
+    },
+    "quality_gate": {
+      "type": "object"
+    }
+  }
+}

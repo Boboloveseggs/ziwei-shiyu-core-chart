@@ -1,0 +1,28 @@
+{
+  "version": "1.3-P2",
+  "capabilities": {
+    "decade_from_chart_age_ranges": true,
+    "annual_from_chart_age_lists": true,
+    "minor_limit_from_chart_age_lists": true,
+    "monthly_requires_upstream_when_convention_unlocked": true,
+    "daily_requires_upstream_when_convention_unlocked": true,
+    "hourly_requires_upstream_when_convention_unlocked": true,
+    "changsheng_calculation": true,
+    "boshi_calculation": true,
+    "minor_star_detail_layer": true,
+    "time_gating": true
+  },
+  "counts": {
+    "changsheng": 12,
+    "boshi": 12,
+    "taisui": 12,
+    "year_branch_stars": 14,
+    "minor_detail_rules": 24,
+    "year14_placement_rules_explicitly_encoded": 7
+  },
+  "safety_rules": {
+    "minor_stars_cannot_override_core_structure": true,
+    "short_cycle_cannot_create_major_event": true,
+    "health_symbols_do_not_diagnose": true
+  }
+}

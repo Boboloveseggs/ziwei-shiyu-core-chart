@@ -1,0 +1,105 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ZDSM Analysis Output",
+  "type": "object",
+  "required": [
+    "system_map",
+    "conclusions",
+    "quality_gate"
+  ],
+  "properties": {
+    "system_map": {
+      "type": "object"
+    },
+    "conclusion_ownership": {
+      "type": "array"
+    },
+    "conclusions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "topic",
+          "core_tendency",
+          "confidence",
+          "evidence_trace"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "topic": {
+            "type": "string"
+          },
+          "core_tendency": {
+            "type": "string"
+          },
+          "possible_manifestations": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "reality_checks": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "disconfirming_conditions": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "confidence": {
+            "enum": [
+              "high",
+              "medium",
+              "low"
+            ]
+          },
+          "evidence_trace": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          },
+          "owner_section": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "annual_report": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "validation_objects": {
+      "type": "array"
+    },
+    "quality_gate": {
+      "type": "object",
+      "required": [
+        "status"
+      ],
+      "properties": {
+        "status": {
+          "enum": [
+            "pass",
+            "fail"
+          ]
+        },
+        "issues": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

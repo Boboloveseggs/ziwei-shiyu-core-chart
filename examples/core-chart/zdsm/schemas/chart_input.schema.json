@@ -1,0 +1,229 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ZDSM Chart Input",
+  "type": "object",
+  "required": [
+    "profile",
+    "conventions",
+    "palaces"
+  ],
+  "properties": {
+    "profile": {
+      "type": "object",
+      "required": [
+        "gender",
+        "solar_datetime"
+      ],
+      "properties": {
+        "profile_id": {
+          "type": "string"
+        },
+        "gender": {
+          "type": "string"
+        },
+        "solar_datetime": {
+          "type": "string"
+        },
+        "true_solar_datetime": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "lunar_datetime": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "four_pillars": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "five_element_bureau": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "ming_master": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "body_master": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "body_palace": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "conventions": {
+      "type": "object",
+      "required": [
+        "chart_source",
+        "chart_school"
+      ],
+      "properties": {
+        "chart_source": {
+          "type": "string"
+        },
+        "chart_school": {
+          "type": "string"
+        },
+        "sihua_table_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "self_transform_semantics": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "monthly_method": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "daily_method": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "hourly_method": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "true_solar_time_used": {
+          "type": "boolean"
+        }
+      }
+    },
+    "palaces": {
+      "type": "array",
+      "minItems": 12,
+      "maxItems": 12,
+      "items": {
+        "type": "object",
+        "required": [
+          "name",
+          "stem_branch",
+          "major_stars"
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "stem_branch": {
+            "type": "string"
+          },
+          "is_body_palace": {
+            "type": "boolean"
+          },
+          "major_stars": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/star"
+            }
+          },
+          "aux_stars": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/star"
+            }
+          },
+          "minor_stars": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/star"
+            }
+          },
+          "decade": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "minor_limit_ages": {
+            "type": "array",
+            "items": {
+              "type": "integer"
+            }
+          },
+          "annual_ages": {
+            "type": "array",
+            "items": {
+              "type": "integer"
+            }
+          }
+        }
+      }
+    },
+    "time_layers": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "request": {
+      "type": [
+        "object",
+        "null"
+      ]
+    }
+  },
+  "$defs": {
+    "star": {
+      "type": "object",
+      "required": [
+        "name"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "state": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "natal_transformation": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "self_transform": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "notes": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    }
+  }
+}

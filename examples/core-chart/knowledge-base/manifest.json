@@ -1,0 +1,15 @@
+{
+  "name": "ZDSM Knowledge Base Starter",
+  "version": "1.0.0",
+  "purpose": "Non-AI rule collection and execution data layer for Zi Wei Dou Shu analysis",
+  "includes": [
+    "JSON schemas",
+    "CSV templates",
+    "starter datasets",
+    "SQLite schema",
+    "starter SQLite database",
+    "validation script",
+    "collection guide",
+    "priority plan"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "version": "1.5-P4-local",
+  "ai_api_used": false,
+  "human_contact_only": true,
+  "local_pipeline_closed_loop": true,
+  "visual_system_map": {
+    "nodes": 12,
+    "edge_count_in_example": 32,
+    "traditional_topology": true,
+    "functional_edges": true,
+    "self_transform_edges": true,
+    "time_activation_on_nodes": true
+  },
+  "outputs": [
+    "report.json",
+    "report.md",
+    "system_map.json",
+    "system_map.html"
+  ]
+}

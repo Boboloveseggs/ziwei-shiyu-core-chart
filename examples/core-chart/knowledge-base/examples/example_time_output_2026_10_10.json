@@ -1,0 +1,199 @@
+{
+  "time_layers": {
+    "decade": {
+      "palace": "福德宫",
+      "source": "chart.age_ranges"
+    },
+    "annual": {
+      "palace": "子女宫",
+      "source": "chart.annual_ages"
+    },
+    "minor_limit": {
+      "palace": "交友宫",
+      "source": "chart.minor_limit_ages"
+    },
+    "monthly": {
+      "palace": "夫妻宫",
+      "branch": "未",
+      "stem": null,
+      "transformations": [],
+      "source": "upstream_locked_convention",
+      "computed_upstream": true
+    },
+    "daily": {
+      "palace": "夫妻宫",
+      "branch": "未",
+      "stem": "丁",
+      "transformations": [
+        {
+          "star": "太阴",
+          "type": "禄",
+          "target_palace": "疾厄宫"
+        },
+        {
+          "star": "天同",
+          "type": "权",
+          "target_palace": "兄弟宫"
+        },
+        {
+          "star": "天机",
+          "type": "科",
+          "target_palace": "田宅宫"
+        },
+        {
+          "star": "巨门",
+          "type": "忌",
+          "target_palace": "子女宫"
+        }
+      ],
+      "source": "upstream_locked_convention",
+      "computed_upstream": true
+    },
+    "hourly": {
+      "palace": "田宅宫",
+      "branch": "子",
+      "stem": "乙",
+      "transformations": [
+        {
+          "star": "天机",
+          "type": "禄",
+          "target_palace": "田宅宫"
+        },
+        {
+          "star": "天梁",
+          "type": "权",
+          "target_palace": "兄弟宫"
+        },
+        {
+          "star": "紫微",
+          "type": "科",
+          "target_palace": "官禄宫"
+        },
+        {
+          "star": "太阴",
+          "type": "忌",
+          "target_palace": "疾厄宫"
+        }
+      ],
+      "source": "upstream_locked_convention",
+      "computed_upstream": true
+    }
+  },
+  "activation_trace": [
+    {
+      "layer": "decade",
+      "palace": "福德宫",
+      "authority_rank": 1,
+      "transformations": [],
+      "source": "chart.age_ranges"
+    },
+    {
+      "layer": "annual",
+      "palace": "子女宫",
+      "authority_rank": 2,
+      "transformations": [],
+      "source": "chart.annual_ages"
+    },
+    {
+      "layer": "minor_limit",
+      "palace": "交友宫",
+      "authority_rank": 3,
+      "transformations": [],
+      "source": "chart.minor_limit_ages"
+    },
+    {
+      "layer": "monthly",
+      "palace": "夫妻宫",
+      "authority_rank": 4,
+      "transformations": [],
+      "source": "upstream_locked_convention"
+    },
+    {
+      "layer": "daily",
+      "palace": "夫妻宫",
+      "authority_rank": 5,
+      "transformations": [
+        {
+          "star": "太阴",
+          "type": "禄",
+          "target_palace": "疾厄宫"
+        },
+        {
+          "star": "天同",
+          "type": "权",
+          "target_palace": "兄弟宫"
+        },
+        {
+          "star": "天机",
+          "type": "科",
+          "target_palace": "田宅宫"
+        },
+        {
+          "star": "巨门",
+          "type": "忌",
+          "target_palace": "子女宫"
+        }
+      ],
+      "source": "upstream_locked_convention"
+    },
+    {
+      "layer": "hourly",
+      "palace": "田宅宫",
+      "authority_rank": 6,
+      "transformations": [
+        {
+          "star": "天机",
+          "type": "禄",
+          "target_palace": "田宅宫"
+        },
+        {
+          "star": "天梁",
+          "type": "权",
+          "target_palace": "兄弟宫"
+        },
+        {
+          "star": "紫微",
+          "type": "科",
+          "target_palace": "官禄宫"
+        },
+        {
+          "star": "太阴",
+          "type": "忌",
+          "target_palace": "疾厄宫"
+        }
+      ],
+      "source": "upstream_locked_convention"
+    }
+  ],
+  "same_palace_resonance": {
+    "夫妻宫": [
+      "monthly",
+      "daily"
+    ]
+  },
+  "short_term_gating": [
+    {
+      "layer": "monthly",
+      "palace": "夫妻宫",
+      "status": "weak_short_term_signal",
+      "reason": "does_not_repeat_upper_layer_node"
+    },
+    {
+      "layer": "daily",
+      "palace": "夫妻宫",
+      "status": "weak_short_term_signal",
+      "reason": "does_not_repeat_upper_layer_node"
+    },
+    {
+      "layer": "hourly",
+      "palace": "田宅宫",
+      "status": "weak_short_term_signal",
+      "reason": "does_not_repeat_upper_layer_node"
+    }
+  ],
+  "policy": {
+    "shorter_cycle_has_less_authority": true,
+    "monthly_daily_hourly_must_be_supplied_upstream_if_convention_not_locked": true,
+    "single_short_cycle_signal_cannot_create_major_event": true
+  }
+}

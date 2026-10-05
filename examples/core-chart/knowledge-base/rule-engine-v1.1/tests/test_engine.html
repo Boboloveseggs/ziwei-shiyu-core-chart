@@ -1,0 +1,24 @@
+<!doctype html><meta charset="utf-8">
+<title>ZDSM tests</title>
+<pre id="out"></pre>
+<script type="module">
+import { analyzeChart } from "../src/engine.js";
+const out=document.querySelector("#out");
+const chart=await (await fetch("../data/sample_chart.json")).json();
+const r=analyzeChart(chart);
+const tests=[
+  ["有 engine", !!r.engine],
+  ["有 processor", !!r.processor],
+  ["processor 为官禄", r.processor.name==="官禄"],
+  ["storage 为田宅", r.storage.name==="田宅"],
+  ["至少一个输出", r.outputs.length>=1],
+  ["增长循环闭合到 processor", r.growthLoop.at(-1)===r.processor.name],
+  ["恢复循环含福德", r.recoveryLoop.includes("福德")],
+  ["恢复循环含疾厄", r.recoveryLoop.includes("疾厄")],
+  ["无 NaN", r.scores.every(x=>Number.isFinite(x.strength)&&Number.isFinite(x.friction))]
+];
+let pass=0;
+out.textContent=tests.map(([n,ok])=>`${ok?"PASS":"FAIL"}  ${n}`).join("\n");
+pass=tests.filter(x=>x[1]).length;
+out.textContent+=`\n\n${pass}/${tests.length} passed`;
+</script>

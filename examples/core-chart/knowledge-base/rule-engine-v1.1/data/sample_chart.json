@@ -1,0 +1,279 @@
+{
+  "meta": {
+    "name": "1997-05-18 主盘",
+    "gender": "女",
+    "solar": "1997-05-18 16:28",
+    "lunar": "丁丑年四月十二申时",
+    "bureau": "土五局"
+  },
+  "houses": {
+    "命宫": {
+      "main": [
+        {
+          "name": "武曲",
+          "state": "利"
+        },
+        {
+          "name": "七杀",
+          "state": "旺"
+        }
+      ],
+      "aux": [
+        "天钺"
+      ],
+      "malefic": [],
+      "transforms": [
+        {
+          "star": "武曲",
+          "type": "自化禄",
+          "dir": "out"
+        }
+      ],
+      "body": false
+    },
+    "兄弟": {
+      "main": [
+        {
+          "name": "天同",
+          "state": "旺"
+        },
+        {
+          "name": "天梁",
+          "state": "陷"
+        }
+      ],
+      "aux": [
+        "天喜",
+        "八座"
+      ],
+      "malefic": [],
+      "transforms": [
+        {
+          "star": "天同",
+          "type": "生年权"
+        },
+        {
+          "star": "天梁",
+          "type": "向心禄",
+          "dir": "in"
+        }
+      ],
+      "body": false
+    },
+    "夫妻": {
+      "main": [
+        {
+          "name": "天相",
+          "state": "得"
+        }
+      ],
+      "aux": [
+        "左辅",
+        "右弼"
+      ],
+      "malefic": [
+        "擎羊",
+        "地劫",
+        "天虚"
+      ],
+      "transforms": [],
+      "body": false
+    },
+    "子女": {
+      "main": [
+        {
+          "name": "巨门",
+          "state": "旺"
+        }
+      ],
+      "aux": [
+        "禄存",
+        "三台"
+      ],
+      "malefic": [
+        "铃星",
+        "大耗"
+      ],
+      "transforms": [
+        {
+          "star": "巨门",
+          "type": "生年忌"
+        }
+      ],
+      "body": false
+    },
+    "财帛": {
+      "main": [
+        {
+          "name": "廉贞",
+          "state": "陷"
+        },
+        {
+          "name": "贪狼",
+          "state": "陷"
+        }
+      ],
+      "aux": [],
+      "malefic": [
+        "陀罗",
+        "天哭"
+      ],
+      "transforms": [],
+      "body": false
+    },
+    "疾厄": {
+      "main": [
+        {
+          "name": "太阴",
+          "state": "陷"
+        }
+      ],
+      "aux": [],
+      "malefic": [
+        "天姚"
+      ],
+      "transforms": [
+        {
+          "star": "太阴",
+          "type": "生年禄"
+        },
+        {
+          "star": "太阴",
+          "type": "向心科",
+          "dir": "in"
+        }
+      ],
+      "body": false
+    },
+    "迁移": {
+      "main": [
+        {
+          "name": "天府",
+          "state": "得"
+        }
+      ],
+      "aux": [],
+      "malefic": [
+        "地空",
+        "截空"
+      ],
+      "transforms": [],
+      "body": false
+    },
+    "交友": {
+      "main": [],
+      "aux": [
+        "文昌",
+        "红鸾",
+        "天官",
+        "台辅"
+      ],
+      "malefic": [
+        "天空",
+        "截空",
+        "劫煞",
+        "孤辰"
+      ],
+      "transforms": [],
+      "body": false
+    },
+    "官禄": {
+      "main": [
+        {
+          "name": "紫微",
+          "state": "庙"
+        },
+        {
+          "name": "破军",
+          "state": "旺"
+        }
+      ],
+      "aux": [],
+      "malefic": [
+        "破碎"
+      ],
+      "transforms": [
+        {
+          "star": "破军",
+          "type": "自化禄",
+          "dir": "out"
+        }
+      ],
+      "body": true
+    },
+    "田宅": {
+      "main": [
+        {
+          "name": "天机",
+          "state": "庙"
+        }
+      ],
+      "aux": [
+        "文曲"
+      ],
+      "malefic": [],
+      "transforms": [
+        {
+          "star": "天机",
+          "type": "生年科"
+        },
+        {
+          "star": "天机",
+          "type": "向心权",
+          "dir": "in"
+        }
+      ],
+      "body": false
+    },
+    "福德": {
+      "main": [],
+      "aux": [
+        "天魁",
+        "天马"
+      ],
+      "malefic": [
+        "火星"
+      ],
+      "transforms": [],
+      "body": false
+    },
+    "父母": {
+      "main": [
+        {
+          "name": "太阳",
+          "state": "不"
+        }
+      ],
+      "aux": [
+        "天贵",
+        "封诰",
+        "解神"
+      ],
+      "malefic": [],
+      "transforms": [
+        {
+          "star": "太阳",
+          "type": "自化禄",
+          "dir": "out"
+        },
+        {
+          "star": "太阳",
+          "type": "向心忌",
+          "dir": "in"
+        }
+      ],
+      "body": false
+    }
+  },
+  "timing": {
+    "decade": {
+      "palace": "福德"
+    },
+    "year": {
+      "palace": "子女"
+    },
+    "smallLimit": {
+      "palace": "交友"
+    }
+  }
+}

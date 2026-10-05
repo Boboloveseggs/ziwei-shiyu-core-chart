@@ -1,0 +1,21 @@
+{
+  "principles": [
+    "不做吉凶加减总分",
+    "相反信号优先拆分为不同维度，而非平均",
+    "主星定功能；庙旺陷定状态；辅煞改条件；四化改方向；运限改激活度",
+    "低权重信息不得无条件推翻高权重结构",
+    "禄与忌可以同存，分别描述资源增加与成本黏着",
+    "空宫借对宫仅作参考，必须联读三方，不使用固定百分比"
+  ],
+  "priority": [
+    "major_star_function",
+    "major_star_combination",
+    "temple_state",
+    "traditional_topology",
+    "major_aux_malefic",
+    "natal_transformations",
+    "school_specific_flow",
+    "time_activation",
+    "minor_stars"
+  ]
+}

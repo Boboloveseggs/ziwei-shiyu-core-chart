@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ZDSM Monthly Runtime Output",
+  "type": "object",
+  "required": [
+    "meta",
+    "layer_chain",
+    "monthly_core_network",
+    "transformations",
+    "resonance_nodes",
+    "key_nodes",
+    "axes",
+    "monthly_actions",
+    "quality_gate"
+  ],
+  "properties": {
+    "meta": {
+      "type": "object"
+    },
+    "layer_chain": {
+      "type": "array"
+    },
+    "monthly_core_network": {
+      "type": "object"
+    },
+    "transformations": {
+      "type": "array"
+    },
+    "resonance_nodes": {
+      "type": "array"
+    },
+    "key_nodes": {
+      "type": "object"
+    },
+    "axes": {
+      "type": "object"
+    },
+    "monthly_actions": {
+      "type": "array"
+    },
+    "quality_gate": {
+      "type": "object"
+    }
+  }
+}

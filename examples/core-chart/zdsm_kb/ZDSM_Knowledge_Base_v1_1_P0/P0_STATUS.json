@@ -1,0 +1,17 @@
+{
+  "version": "1.1-P0",
+  "counts": {
+    "main_star_temple_state_rows": 168,
+    "aux_temple_state_rows": 84,
+    "four_transformation_rows": 30,
+    "high_priority_auxiliary_function_rows": 13,
+    "major_interaction_rules": 27,
+    "source_audit_items": 4
+  },
+  "default_recommendations": {
+    "main_temple_table": "QUANSHU_MAIN_14_V1",
+    "sihua": "USE_UPSTREAM_CHART_ENGINE_RESULT",
+    "fallback_sihua_table_for_project_source": "PROJECT_BOOK_V1",
+    "unresolved_aux_state_policy": "ignore_state_gate_when_state_is_未定"
+  }
+}

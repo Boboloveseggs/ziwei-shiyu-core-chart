@@ -1,0 +1,19 @@
+{
+  "mode": "human_only",
+  "show_contact_after_report": true,
+  "contact_title": "对报告还有疑问？",
+  "contact_text": "如果你希望结合现实经历进一步核对，可以联系人工解读。",
+  "channels": [
+    {
+      "type": "wechat",
+      "label": "微信",
+      "value": "Thanks1900ss"
+    },
+    {
+      "type": "email",
+      "label": "邮箱",
+      "value": "bobominitt@gmail.com"
+    }
+  ],
+  "ai_api_enabled": false
+}

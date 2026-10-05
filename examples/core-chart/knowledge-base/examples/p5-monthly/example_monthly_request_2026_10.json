@@ -1,0 +1,52 @@
+{
+  "target_month": "2026-10",
+  "nominal_age": 30,
+  "calendar_label": "公历2026年10月 / 农历九月",
+  "report_mode": "professional",
+  "time_layers": {
+    "decade": {
+      "palace": "福德宫",
+      "computed_upstream": true,
+      "source": "P4 chart engine"
+    },
+    "annual": {
+      "palace": "子女宫",
+      "computed_upstream": true,
+      "source": "P4 chart engine"
+    },
+    "minor_limit": {
+      "palace": "交友宫",
+      "computed_upstream": true,
+      "source": "P4 chart engine"
+    },
+    "monthly": {
+      "palace": "夫妻宫",
+      "branch": "未",
+      "stem": "戊",
+      "computed_upstream": true,
+      "source": "locked monthly convention",
+      "transformations": [
+        {
+          "star": "贪狼",
+          "type": "禄",
+          "target_palace": "财帛宫"
+        },
+        {
+          "star": "太阴",
+          "type": "权",
+          "target_palace": "疾厄宫"
+        },
+        {
+          "star": "右弼",
+          "type": "科",
+          "target_palace": "夫妻宫"
+        },
+        {
+          "star": "天机",
+          "type": "忌",
+          "target_palace": "田宅宫"
+        }
+      ]
+    }
+  }
+}

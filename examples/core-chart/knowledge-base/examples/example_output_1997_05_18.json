@@ -1,0 +1,470 @@
+{
+  "profile": {
+    "profile_id": "main_1997_05_18",
+    "gender": "女",
+    "solar_datetime": "1997-05-18T16:28:00+08:00",
+    "true_solar_datetime": "1997-05-18T16:31:00+08:00",
+    "lunar_datetime": "丁丑年四月十二日申时",
+    "five_element_bureau": "土五局",
+    "ming_master": "文曲",
+    "body_master": "天相",
+    "body_palace": "官禄宫"
+  },
+  "palaces": [
+    {
+      "palace": "田宅宫",
+      "major_star_rules": [
+        {
+          "star": "天机",
+          "state": "庙",
+          "state_effect": "核心功能表达充分，通常更容易稳定发挥，但仍需看三方与煞曜。",
+          "core_effect": "在「存量与基础设施」这一模块，天机优先通过计算、规划、调整、适应处理问题，并作用于固定资产、知识库、作品库。",
+          "possible_manifestations": [
+            "长期资产/知识库更容易通过计算、规划、调整积累",
+            "除房产外，也可观察知识、作品、流程和可重复使用资源的沉淀"
+          ],
+          "risk_pattern": "若状态失调或受到高摩擦星曜/化忌反复触发，更需要观察反复修改、犹豫、变化过多是否在该领域形成额外成本。",
+          "source_status": "source_explicit",
+          "confidence": "high"
+        }
+      ],
+      "combination": null,
+      "auxiliary": [
+        {
+          "star": "文曲",
+          "operator": "support",
+          "function": "才艺;口才;表达;符号加工",
+          "state": "得"
+        }
+      ],
+      "transformations": [
+        {
+          "star": "天机",
+          "layer": "natal",
+          "type": "科",
+          "meaning": "整理;规范;可见;认证;缓冲"
+        },
+        {
+          "star": "天机",
+          "layer": "school_specific_self_transform",
+          "type": "↑权",
+          "warning": "仅按上游排盘器提供的自化符号解释，不在本引擎内重新计算。"
+        }
+      ]
+    },
+    {
+      "palace": "官禄宫",
+      "major_star_rules": [
+        {
+          "star": "紫微",
+          "state": "庙",
+          "state_effect": "核心功能表达充分，通常更容易稳定发挥，但仍需看三方与煞曜。",
+          "core_effect": "在「生产与角色」这一模块，紫微优先通过统筹、中心化、权责配置、资源调度处理问题，并作用于成果、责任、职业身份。",
+          "possible_manifestations": [
+            "职业生产方式更适合调用统筹、中心化、权责配置",
+            "职业形态要结合身宫、命宫、财帛和迁移判断，不由单宫定职业"
+          ],
+          "risk_pattern": "若状态失调或受到高摩擦星曜/化忌反复触发，更需要观察控制过度、孤立、过度承担是否在该领域形成额外成本。",
+          "source_status": "source_explicit",
+          "confidence": "high"
+        },
+        {
+          "star": "破军",
+          "state": "旺",
+          "state_effect": "核心功能表达较强，容易成为该领域的显著机制。",
+          "core_effect": "在「生产与角色」这一模块，破军优先通过拆解、重构、更新、非连续变化处理问题，并作用于成果、责任、职业身份。",
+          "possible_manifestations": [
+            "职业生产方式更适合调用拆解、重构、更新",
+            "职业形态要结合身宫、命宫、财帛和迁移判断，不由单宫定职业"
+          ],
+          "risk_pattern": "若状态失调或受到高摩擦星曜/化忌反复触发，更需要观察反复推倒重来、资源浪费、不稳定是否在该领域形成额外成本。",
+          "source_status": "source_explicit",
+          "confidence": "high"
+        }
+      ],
+      "combination": {
+        "stars": [
+          "紫微",
+          "破军"
+        ],
+        "operator": "reconfiguration",
+        "effect": "统筹与重构结合，适合改造旧结构、项目重组与从0到1。",
+        "confidence": "high"
+      },
+      "auxiliary": [],
+      "transformations": [
+        {
+          "star": "破军",
+          "layer": "school_specific_self_transform",
+          "type": "↓禄",
+          "warning": "仅按上游排盘器提供的自化符号解释，不在本引擎内重新计算。"
+        }
+      ]
+    },
+    {
+      "palace": "交友宫",
+      "major_star_rules": [],
+      "combination": null,
+      "auxiliary": [
+        {
+          "star": "文昌",
+          "operator": "support",
+          "function": "文书;学习;文字表达;规范化输出",
+          "state": "陷"
+        }
+      ],
+      "transformations": []
+    },
+    {
+      "palace": "迁移宫",
+      "major_star_rules": [
+        {
+          "star": "天府",
+          "state": "得地",
+          "state_effect": "功能与位置较适配，通常可较顺地发挥。",
+          "core_effect": "在「外部环境接口」这一模块，天府优先通过储存、管理、维持、资源库存处理问题，并作用于社会反馈、移动、适应。",
+          "possible_manifestations": [
+            "进入陌生环境时更容易使用储存、管理、维持来适应",
+            "外部平台是否真正兑现资源，需要结合迁移三方与现实条件"
+          ],
+          "risk_pattern": "若状态失调或受到高摩擦星曜/化忌反复触发，更需要观察保守、囤积、害怕失去是否在该领域形成额外成本。",
+          "source_status": "source_explicit",
+          "confidence": "high"
+        }
+      ],
+      "combination": null,
+      "auxiliary": [],
+      "transformations": []
+    },
+    {
+      "palace": "疾厄宫",
+      "major_star_rules": [
+        {
+          "star": "太阴",
+          "state": "陷",
+          "state_effect": "控制成本较高；不等于功能不存在，而是更容易出现失调或高代价表达。",
+          "core_effect": "在「身体负荷与修复」这一模块，太阴优先通过内部积累、安全、滋养、居住/资产处理问题，并作用于症状、恢复、体能。",
+          "possible_manifestations": [
+            "身体与恢复管理更容易受到内部积累、安全、滋养这种行为模式影响",
+            "只描述负荷、恢复与暴露条件，不据此诊断具体疾病"
+          ],
+          "risk_pattern": "若状态失调或受到高摩擦星曜/化忌反复触发，更需要观察内耗、被动、过度防御是否在该领域形成额外成本。",
+          "source_status": "source_explicit",
+          "confidence": "high"
+        }
+      ],
+      "combination": null,
+      "auxiliary": [],
+      "transformations": [
+        {
+          "star": "太阴",
+          "layer": "natal",
+          "type": "禄",
+          "meaning": "增加;流入;吸引;资源化;可获得性"
+        },
+        {
+          "star": "太阴",
+          "layer": "school_specific_self_transform",
+          "type": "↑科",
+          "warning": "仅按上游排盘器提供的自化符号解释，不在本引擎内重新计算。"
+        }
+      ]
+    },
+    {
+      "palace": "财帛宫",
+      "major_star_rules": [
+        {
+          "star": "廉贞",
+          "state": "陷",
+          "state_effect": "控制成本较高；不等于功能不存在，而是更容易出现失调或高代价表达。",
+          "core_effect": "在「价值交换」这一模块，廉贞优先通过规则、边界、权责、欲望管理处理问题，并作用于收入、消费、资源配置。",
+          "possible_manifestations": [
+            "价值交换更倾向依赖规则、边界、权责",
+            "需把“能创造价值”和“能稳定捕获价值”分开判断"
+          ],
+          "risk_pattern": "若状态失调或受到高摩擦星曜/化忌反复触发，更需要观察越界、权责冲突、欲望与约束拉扯是否在该领域形成额外成本。",
+          "source_status": "model_projection_only",
+          "confidence": "model_only"
+        },
+        {
+          "star": "贪狼",
+          "state": "陷",
+          "state_effect": "控制成本较高；不等于功能不存在，而是更容易出现失调或高代价表达。",
+          "core_effect": "在「价值交换」这一模块，贪狼优先通过欲望、探索、扩张、连接处理问题，并作用于收入、消费、资源配置。",
+          "possible_manifestations": [
+            "价值交换更倾向依赖欲望、探索、扩张",
+            "需把“能创造价值”和“能稳定捕获价值”分开判断"
+          ],
+          "risk_pattern": "若状态失调或受到高摩擦星曜/化忌反复触发，更需要观察贪多、上头、注意力分散是否在该领域形成额外成本。",
+          "source_status": "source_explicit",
+          "confidence": "high"
+        }
+      ],
+      "combination": {
+        "stars": [
+          "廉贞",
+          "贪狼"
+        ],
+        "operator": "amplification",
+        "effect": "规则边界、欲望与扩张相互放大，创造与社交动力强，也需要更强边界控制。",
+        "confidence": "high"
+      },
+      "auxiliary": [
+        {
+          "star": "陀罗",
+          "operator": "disruption",
+          "function": "拖延;纠缠;慢性摩擦;反复成本",
+          "state": "陷"
+        }
+      ],
+      "transformations": []
+    },
+    {
+      "palace": "子女宫",
+      "major_star_rules": [
+        {
+          "star": "巨门",
+          "state": "旺",
+          "state_effect": "核心功能表达较强，容易成为该领域的显著机制。",
+          "core_effect": "在「生成与输出」这一模块，巨门优先通过辨析、质疑、解释、信息处理处理问题，并作用于作品、教学、学生/下属。",
+          "possible_manifestations": [
+            "作品、教学或受众关系会突出辨析、质疑、解释",
+            "表达输出是否可持续，需要看反馈成本与后续沉淀"
+          ],
+          "risk_pattern": "若状态失调或受到高摩擦星曜/化忌反复触发，更需要观察怀疑过度、争论、反复解释是否在该领域形成额外成本。",
+          "source_status": "source_explicit",
+          "confidence": "high"
+        }
+      ],
+      "combination": null,
+      "auxiliary": [
+        {
+          "star": "禄存",
+          "operator": "support",
+          "function": "稳定资源;持有;积累;存量",
+          "state": "庙"
+        },
+        {
+          "star": "铃星",
+          "operator": "amplification",
+          "function": "持续张力;高刺激;强化;波动",
+          "state": "庙"
+        }
+      ],
+      "transformations": [
+        {
+          "star": "巨门",
+          "layer": "natal",
+          "type": "忌",
+          "meaning": "黏着;反复;卡点;成本;难脱手"
+        }
+      ]
+    },
+    {
+      "palace": "夫妻宫",
+      "major_star_rules": [
+        {
+          "star": "天相",
+          "state": "得地",
+          "state_effect": "功能与位置较适配，通常可较顺地发挥。",
+          "core_effect": "在「双人绑定/合作接口」这一模块，天相优先通过协调、程序、授权、秩序维护处理问题，并作用于协商、边界、稳定度。",
+          "possible_manifestations": [
+            "一对一关系里更在意协调、程序、授权",
+            "合作与亲密关系都要观察双方是否能把约定落实为稳定行为"
+          ],
+          "risk_pattern": "若状态失调或受到高摩擦星曜/化忌反复触发，更需要观察过度迎合规则、依赖认可是否在该领域形成额外成本。",
+          "source_status": "source_explicit",
+          "confidence": "high"
+        }
+      ],
+      "combination": null,
+      "auxiliary": [
+        {
+          "star": "左辅",
+          "operator": "support",
+          "function": "协作;辅佐;组织资源;执行支持",
+          "state": "庙"
+        },
+        {
+          "star": "右弼",
+          "operator": "support",
+          "function": "协作;辅佐;机动支持;执行支持",
+          "state": "庙"
+        },
+        {
+          "star": "擎羊",
+          "operator": "disruption",
+          "function": "切割;直接竞争;硬冲突;高强度摩擦",
+          "state": "庙"
+        },
+        {
+          "star": "地劫",
+          "operator": "decoupling",
+          "function": "资源损耗;断裂;成果被削弱;去耦",
+          "state": "平"
+        }
+      ],
+      "transformations": []
+    },
+    {
+      "palace": "兄弟宫",
+      "major_star_rules": [
+        {
+          "star": "天同",
+          "state": "旺",
+          "state_effect": "核心功能表达较强，容易成为该领域的显著机制。",
+          "core_effect": "在「横向近关系/同辈协作」这一模块，天同优先通过缓冲、舒适、协调、恢复处理问题，并作用于合作、比较、人情责任。",
+          "possible_manifestations": [
+            "同辈/团队互动更容易围绕缓冲、舒适、协调形成分工",
+            "人情与责任会通过合作、比较体现"
+          ],
+          "risk_pattern": "若状态失调或受到高摩擦星曜/化忌反复触发，更需要观察回避压力、惰性、过度求稳是否在该领域形成额外成本。",
+          "source_status": "source_explicit",
+          "confidence": "high"
+        },
+        {
+          "star": "天梁",
+          "state": "陷",
+          "state_effect": "控制成本较高；不等于功能不存在，而是更容易出现失调或高代价表达。",
+          "core_effect": "在「横向近关系/同辈协作」这一模块，天梁优先通过保护、修复、原则、风险缓冲处理问题，并作用于合作、比较、人情责任。",
+          "possible_manifestations": [
+            "同辈/团队互动更容易围绕保护、修复、原则形成分工",
+            "人情与责任会通过合作、比较体现"
+          ],
+          "risk_pattern": "若状态失调或受到高摩擦星曜/化忌反复触发，更需要观察说教、替人承担、责任过重是否在该领域形成额外成本。",
+          "source_status": "source_explicit",
+          "confidence": "high"
+        }
+      ],
+      "combination": {
+        "stars": [
+          "天同",
+          "天梁"
+        ],
+        "operator": "buffering",
+        "effect": "缓冲恢复与保护原则结合，增强稳定、照料和风险缓冲。",
+        "confidence": "high"
+      },
+      "auxiliary": [],
+      "transformations": [
+        {
+          "star": "天同",
+          "layer": "natal",
+          "type": "权",
+          "meaning": "推动;控制;责任;占用;驱动力"
+        },
+        {
+          "star": "天梁",
+          "layer": "school_specific_self_transform",
+          "type": "↑禄",
+          "warning": "仅按上游排盘器提供的自化符号解释，不在本引擎内重新计算。"
+        }
+      ]
+    },
+    {
+      "palace": "命宫",
+      "major_star_rules": [
+        {
+          "star": "武曲",
+          "state": "利",
+          "state_effect": "功能有可用性，但仍需要组合条件支持。",
+          "core_effect": "在「核心自我调节」这一模块，武曲优先通过执行、量化、资源处置、结果导向处理问题，并作用于选择方式、行为风格。",
+          "possible_manifestations": [
+            "遇到问题时更容易以执行、量化、资源处置作为默认行为策略",
+            "长期自我风格会围绕资源处置、结果导向形成辨识度"
+          ],
+          "risk_pattern": "若状态失调或受到高摩擦星曜/化忌反复触发，更需要观察刚硬、工具化、只看结果是否在该领域形成额外成本。",
+          "source_status": "source_explicit",
+          "confidence": "high"
+        },
+        {
+          "star": "七杀",
+          "state": "旺",
+          "state_effect": "核心功能表达较强，容易成为该领域的显著机制。",
+          "core_effect": "在「核心自我调节」这一模块，七杀优先通过决断、切割、竞争、危机行动处理问题，并作用于选择方式、行为风格。",
+          "possible_manifestations": [
+            "遇到问题时更容易以决断、切割、竞争作为默认行为策略",
+            "长期自我风格会围绕危机行动、突破形成辨识度"
+          ],
+          "risk_pattern": "若状态失调或受到高摩擦星曜/化忌反复触发，更需要观察激进、强推、高波动是否在该领域形成额外成本。",
+          "source_status": "source_explicit",
+          "confidence": "high"
+        }
+      ],
+      "combination": {
+        "stars": [
+          "武曲",
+          "七杀"
+        ],
+        "operator": "amplification",
+        "effect": "执行与高压决断相互放大，行动快、抗压强，同时控制成本和冲突风险上升。",
+        "confidence": "high"
+      },
+      "auxiliary": [
+        {
+          "star": "天钺",
+          "operator": "support",
+          "function": "机会渠道;外部帮助;关系支持",
+          "state": "庙"
+        }
+      ],
+      "transformations": [
+        {
+          "star": "武曲",
+          "layer": "school_specific_self_transform",
+          "type": "↓禄",
+          "warning": "仅按上游排盘器提供的自化符号解释，不在本引擎内重新计算。"
+        }
+      ]
+    },
+    {
+      "palace": "父母宫",
+      "major_star_rules": [
+        {
+          "star": "太阳",
+          "state": "不",
+          "state_effect": "状态来源缩写未标准化，暂不据此扩展结论。",
+          "core_effect": "在「纵向权威与制度接口」这一模块，太阳优先通过外显、贡献、公共角色、可见度处理问题，并作用于支持、规训、评价。",
+          "possible_manifestations": [
+            "与父母、长辈、上级、机构和规则互动时更突出外显、贡献、公共角色",
+            "现实中要区分情绪支持、资源、规训、评价和资格五种作用"
+          ],
+          "risk_pattern": "若状态失调或受到高摩擦星曜/化忌反复触发，更需要观察过度承担、证明自己、外界评价消耗是否在该领域形成额外成本。",
+          "source_status": "source_explicit",
+          "confidence": "high"
+        }
+      ],
+      "combination": null,
+      "auxiliary": [],
+      "transformations": [
+        {
+          "star": "太阳",
+          "layer": "school_specific_self_transform",
+          "type": "↓禄;↑忌",
+          "warning": "仅按上游排盘器提供的自化符号解释，不在本引擎内重新计算。"
+        }
+      ]
+    },
+    {
+      "palace": "福德宫",
+      "major_star_rules": [],
+      "combination": null,
+      "auxiliary": [
+        {
+          "star": "天魁",
+          "operator": "support",
+          "function": "机会渠道;外部帮助;资格/提携资源",
+          "state": "旺"
+        },
+        {
+          "star": "火星",
+          "operator": "amplification",
+          "function": "突发;加速;高强度放大;波动",
+          "state": "利"
+        }
+      ],
+      "transformations": []
+    }
+  ],
+  "warnings": []
+}

@@ -1,0 +1,22 @@
+{
+  "name": "ZDSM P6 Daily Hourly Runtime Supplement",
+  "version": "1.0.0",
+  "requires": [
+    "ZDSM P4 Local",
+    "ZDSM P5 Monthly Runtime"
+  ],
+  "replace_existing": false,
+  "ai_api_required": false,
+  "human_contact_only": true,
+  "adds": [
+    "daily runtime",
+    "hourly runtime",
+    "per-layer trines/opposition",
+    "short-term support gating",
+    "multi-layer resonance",
+    "transformation trajectories",
+    "cross-layer bridge detection",
+    "event-context adapter",
+    "daily/hourly renderer"
+  ]
+}

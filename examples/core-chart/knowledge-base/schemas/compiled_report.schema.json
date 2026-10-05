@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ZDSM Compiled Report",
+  "type": "object",
+  "required": [
+    "meta",
+    "annual_causal_chain",
+    "conclusion_ownership",
+    "sections",
+    "actions",
+    "ending",
+    "validation_objects",
+    "quality_gate"
+  ],
+  "properties": {
+    "meta": {
+      "type": "object"
+    },
+    "annual_causal_chain": {
+      "type": "object"
+    },
+    "conclusion_ownership": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "claim_id",
+          "owner_section",
+          "summary"
+        ],
+        "properties": {
+          "claim_id": {
+            "type": "string"
+          },
+          "owner_section": {
+            "type": "string"
+          },
+          "summary": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "sections": {
+      "type": "object"
+    },
+    "actions": {
+      "type": "array"
+    },
+    "ending": {
+      "type": "object"
+    },
+    "validation_objects": {
+      "type": "array"
+    },
+    "distinctive_signatures": {
+      "type": "array"
+    },
+    "quality_gate": {
+      "type": "object"
+    }
+  }
+}

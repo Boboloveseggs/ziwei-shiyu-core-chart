@@ -1,0 +1,78 @@
+{
+  "analysis_scope": "date_window",
+  "nominal_age": 30,
+  "target_datetime": "2026-10-10T09:00:00+08:00/2026-10-10T11:00:00+08:00",
+  "time_layers": {
+    "monthly": {
+      "palace": "夫妻宫",
+      "branch": "未",
+      "stem": null,
+      "transformations": [],
+      "source": "upstream_locked_convention",
+      "computed_upstream": true
+    },
+    "daily": {
+      "palace": "夫妻宫",
+      "branch": "未",
+      "stem": "丁",
+      "transformations": [
+        {
+          "star": "太阴",
+          "type": "禄",
+          "target_palace": "疾厄宫"
+        },
+        {
+          "star": "天同",
+          "type": "权",
+          "target_palace": "兄弟宫"
+        },
+        {
+          "star": "天机",
+          "type": "科",
+          "target_palace": "田宅宫"
+        },
+        {
+          "star": "巨门",
+          "type": "忌",
+          "target_palace": "子女宫"
+        }
+      ],
+      "source": "upstream_locked_convention",
+      "computed_upstream": true
+    },
+    "hourly": {
+      "palace": "田宅宫",
+      "branch": "子",
+      "stem": "乙",
+      "transformations": [
+        {
+          "star": "天机",
+          "type": "禄",
+          "target_palace": "田宅宫"
+        },
+        {
+          "star": "天梁",
+          "type": "权",
+          "target_palace": "兄弟宫"
+        },
+        {
+          "star": "紫微",
+          "type": "科",
+          "target_palace": "官禄宫"
+        },
+        {
+          "star": "太阴",
+          "type": "忌",
+          "target_palace": "疾厄宫"
+        }
+      ],
+      "source": "upstream_locked_convention",
+      "computed_upstream": true
+    }
+  },
+  "context": {
+    "event_type": "unspecified"
+  },
+  "report_mode": "professional",
+  "prediction_mode": "trend"
+}

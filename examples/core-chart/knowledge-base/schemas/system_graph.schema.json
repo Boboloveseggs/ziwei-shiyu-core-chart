@@ -1,0 +1,109 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ZDSM Twelve-Palace System Graph",
+  "type": "object",
+  "required": [
+    "meta",
+    "nodes",
+    "edges",
+    "active_layers",
+    "legend"
+  ],
+  "properties": {
+    "meta": {
+      "type": "object"
+    },
+    "nodes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "palace",
+          "branch",
+          "role",
+          "stars",
+          "system_tags"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "palace": {
+            "type": "string"
+          },
+          "branch": {
+            "type": "string"
+          },
+          "role": {
+            "type": "string"
+          },
+          "stars": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          },
+          "system_tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "activation_layers": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "claim_refs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "edges": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "source",
+          "target",
+          "edge_type"
+        ],
+        "properties": {
+          "source": {
+            "type": "string"
+          },
+          "target": {
+            "type": "string"
+          },
+          "edge_type": {
+            "type": "string"
+          },
+          "label": {
+            "type": "string"
+          },
+          "layers": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "evidence_type": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "active_layers": {
+      "type": "object"
+    },
+    "legend": {
+      "type": "object"
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "authority_order": [
+    "natal",
+    "decade",
+    "annual",
+    "minor_limit",
+    "monthly",
+    "daily",
+    "hourly"
+  ],
+  "rule": "下一级只能细化上一级，不能凭空创造上一级不存在的主题",
+  "short_cycle_requires": [
+    "上层已有同主题结构或激活",
+    "当前层再次命中同一节点/边/功能",
+    "若要落到具体事件，现实中必须存在暴露条件"
+  ],
+  "fallback": "不满足时只输出 weak_short_term_signal"
+}

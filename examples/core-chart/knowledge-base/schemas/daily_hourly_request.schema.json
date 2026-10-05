@@ -1,0 +1,127 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ZDSM Daily Hourly Runtime Request",
+  "type": "object",
+  "required": [
+    "target_date",
+    "nominal_age",
+    "time_layers"
+  ],
+  "properties": {
+    "target_date": {
+      "type": "string"
+    },
+    "time_window": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "calendar_label": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "event_context": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "nominal_age": {
+      "type": "integer"
+    },
+    "time_layers": {
+      "type": "object",
+      "required": [
+        "decade",
+        "annual",
+        "monthly",
+        "daily"
+      ],
+      "properties": {
+        "decade": {
+          "$ref": "#/$defs/layer"
+        },
+        "annual": {
+          "$ref": "#/$defs/layer"
+        },
+        "minor_limit": {
+          "$ref": "#/$defs/layer"
+        },
+        "monthly": {
+          "$ref": "#/$defs/layer"
+        },
+        "daily": {
+          "$ref": "#/$defs/layer"
+        },
+        "hourly": {
+          "$ref": "#/$defs/layer"
+        }
+      }
+    }
+  },
+  "$defs": {
+    "layer": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "required": [
+        "palace",
+        "computed_upstream"
+      ],
+      "properties": {
+        "palace": {
+          "type": "string"
+        },
+        "stem": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "branch": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "computed_upstream": {
+          "type": "boolean"
+        },
+        "source": {
+          "type": "string"
+        },
+        "transformations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "star",
+              "type",
+              "target_palace"
+            ],
+            "properties": {
+              "star": {
+                "type": "string"
+              },
+              "type": {
+                "enum": [
+                  "禄",
+                  "权",
+                  "科",
+                  "忌"
+                ]
+              },
+              "target_palace": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

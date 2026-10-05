@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ZDSM Source Record",
+  "type": "object",
+  "required": [
+    "source_id",
+    "title",
+    "source_type",
+    "citation"
+  ],
+  "properties": {
+    "source_id": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "author": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "source_type": {
+      "enum": [
+        "classical_text",
+        "modern_book",
+        "school_material",
+        "academic",
+        "website",
+        "user_project_source"
+      ]
+    },
+    "school": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "citation": {
+      "type": "string"
+    },
+    "edition": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "page_or_section": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "raw_excerpt": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "reliability_note": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "file_ref": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "url": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  }
+}

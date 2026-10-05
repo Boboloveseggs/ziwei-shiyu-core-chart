@@ -1,0 +1,25 @@
+{
+  "profile": {
+    "profile_id": "main_1997_05_18",
+    "gender": "女",
+    "solar_datetime": "1997-05-18T16:28:00+08:00",
+    "true_solar_datetime": "1997-05-18T16:31:00+08:00",
+    "lunar_datetime": "丁丑年四月十二日申时",
+    "four_pillars": "丁丑 乙巳 庚申 甲申",
+    "five_element_bureau": "土五局",
+    "ming_master": "文曲",
+    "body_master": "天相",
+    "body_palace": "官禄宫"
+  },
+  "conventions": {
+    "chart_source": "文墨天机",
+    "chart_school": "三合盘(天盘)",
+    "sihua_table_id": "由上游排盘器提供",
+    "self_transform_semantics": "↓离心自化；↑向心自化，从对宫化入",
+    "monthly_method": "由上游排盘器提供",
+    "daily_method": "由上游排盘器提供",
+    "hourly_method": "由上游排盘器提供",
+    "true_solar_time_used": true
+  },
+  "note": "完整十二宫数据建议由 parser 从文墨输出自动转为 chart_input.schema.json。此文件只作为接口示例，不重复硬编码整张盘。"
+}

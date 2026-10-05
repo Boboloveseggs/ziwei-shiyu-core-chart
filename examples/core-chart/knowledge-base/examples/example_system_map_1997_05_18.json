@@ -1,0 +1,710 @@
+{
+  "meta": {
+    "engine": "ZDSM",
+    "version": "1.5-P4-local",
+    "profile": {
+      "profile_id": "main_1997_05_18",
+      "gender": "女",
+      "solar_datetime": "1997-05-18T16:28:00+08:00",
+      "true_solar_datetime": "1997-05-18T16:31:00+08:00",
+      "lunar_datetime": "丁丑年四月十二日申时",
+      "five_element_bureau": "土五局",
+      "ming_master": "文曲",
+      "body_master": "天相",
+      "body_palace": "官禄宫"
+    },
+    "principle": "每张命盘都是十二宫节点 + 传统拓扑 + 功能边 + 四化/自化 + 时间激活构成的个体系统图"
+  },
+  "nodes": [
+    {
+      "id": "田宅宫",
+      "palace": "田宅宫",
+      "branch": "子",
+      "stem_branch": "壬子",
+      "role": "存量与基础设施",
+      "stars": [
+        {
+          "name": "天机",
+          "state": "庙",
+          "natal_transformation": "生年科",
+          "self_transform": "↑权"
+        }
+      ],
+      "aux_stars": [
+        {
+          "name": "文曲",
+          "state": "得"
+        }
+      ],
+      "system_tags": [
+        "长期资产节点"
+      ],
+      "activation_layers": [
+        "流时"
+      ],
+      "claim_refs": [
+        "CLM-c92539e730"
+      ]
+    },
+    {
+      "id": "官禄宫",
+      "palace": "官禄宫",
+      "branch": "丑",
+      "stem_branch": "癸丑",
+      "role": "生产与角色",
+      "stars": [
+        {
+          "name": "紫微",
+          "state": "庙"
+        },
+        {
+          "name": "破军",
+          "state": "旺",
+          "self_transform": "↓禄"
+        }
+      ],
+      "aux_stars": [],
+      "system_tags": [
+        "身宫",
+        "中央处理器",
+        "重构节点"
+      ],
+      "activation_layers": [],
+      "claim_refs": [
+        "CLM-338521a60a",
+        "CLM-b37743986c",
+        "CLM-3ea8e46bdc"
+      ]
+    },
+    {
+      "id": "交友宫",
+      "palace": "交友宫",
+      "branch": "寅",
+      "stem_branch": "壬寅",
+      "role": "社会网络",
+      "stars": [],
+      "aux_stars": [
+        {
+          "name": "文昌",
+          "state": "陷"
+        }
+      ],
+      "system_tags": [],
+      "activation_layers": [
+        "小限"
+      ],
+      "claim_refs": [
+        "CLM-4b22b2d922"
+      ]
+    },
+    {
+      "id": "迁移宫",
+      "palace": "迁移宫",
+      "branch": "卯",
+      "stem_branch": "癸卯",
+      "role": "外部环境接口",
+      "stars": [
+        {
+          "name": "天府",
+          "state": "得地"
+        }
+      ],
+      "aux_stars": [
+        {
+          "name": "地空",
+          "state": "平"
+        }
+      ],
+      "system_tags": [],
+      "activation_layers": [],
+      "claim_refs": []
+    },
+    {
+      "id": "疾厄宫",
+      "palace": "疾厄宫",
+      "branch": "辰",
+      "stem_branch": "甲辰",
+      "role": "身体负荷与修复",
+      "stars": [
+        {
+          "name": "太阴",
+          "state": "陷",
+          "natal_transformation": "生年禄",
+          "self_transform": "↑科"
+        }
+      ],
+      "aux_stars": [],
+      "system_tags": [
+        "恢复节点"
+      ],
+      "activation_layers": [],
+      "claim_refs": [
+        "CLM-338521a60a"
+      ]
+    },
+    {
+      "id": "财帛宫",
+      "palace": "财帛宫",
+      "branch": "巳",
+      "stem_branch": "乙巳",
+      "role": "价值交换",
+      "stars": [
+        {
+          "name": "廉贞",
+          "state": "陷"
+        },
+        {
+          "name": "贪狼",
+          "state": "陷"
+        }
+      ],
+      "aux_stars": [
+        {
+          "name": "陀罗",
+          "state": "陷"
+        }
+      ],
+      "system_tags": [
+        "价值捕获瓶颈"
+      ],
+      "activation_layers": [],
+      "claim_refs": [
+        "CLM-b358bda963",
+        "CLM-3ea8e46bdc"
+      ]
+    },
+    {
+      "id": "子女宫",
+      "palace": "子女宫",
+      "branch": "午",
+      "stem_branch": "丙午",
+      "role": "生成与输出",
+      "stars": [
+        {
+          "name": "巨门",
+          "state": "旺",
+          "natal_transformation": "生年忌"
+        }
+      ],
+      "aux_stars": [
+        {
+          "name": "禄存",
+          "state": "庙"
+        },
+        {
+          "name": "铃星",
+          "state": "庙"
+        }
+      ],
+      "system_tags": [
+        "输出接口",
+        "反馈摩擦节点"
+      ],
+      "activation_layers": [
+        "流年"
+      ],
+      "claim_refs": [
+        "CLM-c92539e730",
+        "CLM-aa06a9fa25"
+      ]
+    },
+    {
+      "id": "夫妻宫",
+      "palace": "夫妻宫",
+      "branch": "未",
+      "stem_branch": "丁未",
+      "role": "双人绑定/合作接口",
+      "stars": [
+        {
+          "name": "天相",
+          "state": "得地"
+        }
+      ],
+      "aux_stars": [
+        {
+          "name": "左辅",
+          "state": "庙"
+        },
+        {
+          "name": "右弼",
+          "state": "庙"
+        },
+        {
+          "name": "擎羊",
+          "state": "庙"
+        },
+        {
+          "name": "地劫",
+          "state": "平"
+        }
+      ],
+      "system_tags": [],
+      "activation_layers": [
+        "流月",
+        "流日"
+      ],
+      "claim_refs": [
+        "CLM-ba4d28cefa"
+      ]
+    },
+    {
+      "id": "兄弟宫",
+      "palace": "兄弟宫",
+      "branch": "申",
+      "stem_branch": "戊申",
+      "role": "横向近关系/同辈协作",
+      "stars": [
+        {
+          "name": "天同",
+          "state": "旺",
+          "natal_transformation": "生年权"
+        },
+        {
+          "name": "天梁",
+          "state": "陷",
+          "self_transform": "↑禄"
+        }
+      ],
+      "aux_stars": [],
+      "system_tags": [],
+      "activation_layers": [],
+      "claim_refs": [
+        "CLM-f26ea2f1be"
+      ]
+    },
+    {
+      "id": "命宫",
+      "palace": "命宫",
+      "branch": "酉",
+      "stem_branch": "己酉",
+      "role": "核心自我调节",
+      "stars": [
+        {
+          "name": "武曲",
+          "state": "利",
+          "self_transform": "↓禄"
+        },
+        {
+          "name": "七杀",
+          "state": "旺"
+        }
+      ],
+      "aux_stars": [
+        {
+          "name": "天钺",
+          "state": "庙"
+        }
+      ],
+      "system_tags": [
+        "发动机",
+        "执行节点"
+      ],
+      "activation_layers": [],
+      "claim_refs": [
+        "CLM-b37743986c"
+      ]
+    },
+    {
+      "id": "父母宫",
+      "palace": "父母宫",
+      "branch": "戌",
+      "stem_branch": "庚戌",
+      "role": "纵向权威与制度接口",
+      "stars": [
+        {
+          "name": "太阳",
+          "state": "不",
+          "self_transform": "↓禄;↑忌"
+        }
+      ],
+      "aux_stars": [],
+      "system_tags": [],
+      "activation_layers": [],
+      "claim_refs": [
+        "CLM-29af033a78",
+        "CLM-3ea8e46bdc"
+      ]
+    },
+    {
+      "id": "福德宫",
+      "palace": "福德宫",
+      "branch": "亥",
+      "stem_branch": "辛亥",
+      "role": "内部奖赏与恢复",
+      "stars": [],
+      "aux_stars": [
+        {
+          "name": "天魁",
+          "state": "旺"
+        },
+        {
+          "name": "火星",
+          "state": "利"
+        }
+      ],
+      "system_tags": [],
+      "activation_layers": [
+        "大限"
+      ],
+      "claim_refs": [
+        "CLM-338521a60a"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "source": "命宫",
+      "target": "官禄宫",
+      "edge_type": "trine",
+      "label": "三合",
+      "layers": [
+        "natal"
+      ],
+      "evidence_type": "T"
+    },
+    {
+      "source": "命宫",
+      "target": "财帛宫",
+      "edge_type": "trine",
+      "label": "三合",
+      "layers": [
+        "natal"
+      ],
+      "evidence_type": "T"
+    },
+    {
+      "source": "命宫",
+      "target": "迁移宫",
+      "edge_type": "opposite",
+      "label": "对宫",
+      "layers": [
+        "natal"
+      ],
+      "evidence_type": "T"
+    },
+    {
+      "source": "兄弟宫",
+      "target": "田宅宫",
+      "edge_type": "trine",
+      "label": "三合",
+      "layers": [
+        "natal"
+      ],
+      "evidence_type": "T"
+    },
+    {
+      "source": "兄弟宫",
+      "target": "疾厄宫",
+      "edge_type": "trine",
+      "label": "三合",
+      "layers": [
+        "natal"
+      ],
+      "evidence_type": "T"
+    },
+    {
+      "source": "兄弟宫",
+      "target": "交友宫",
+      "edge_type": "opposite",
+      "label": "对宫",
+      "layers": [
+        "natal"
+      ],
+      "evidence_type": "T"
+    },
+    {
+      "source": "夫妻宫",
+      "target": "福德宫",
+      "edge_type": "trine",
+      "label": "三合",
+      "layers": [
+        "natal"
+      ],
+      "evidence_type": "T"
+    },
+    {
+      "source": "夫妻宫",
+      "target": "迁移宫",
+      "edge_type": "trine",
+      "label": "三合",
+      "layers": [
+        "natal"
+      ],
+      "evidence_type": "T"
+    },
+    {
+      "source": "夫妻宫",
+      "target": "官禄宫",
+      "edge_type": "opposite",
+      "label": "对宫",
+      "layers": [
+        "natal"
+      ],
+      "evidence_type": "T"
+    },
+    {
+      "source": "子女宫",
+      "target": "父母宫",
+      "edge_type": "trine",
+      "label": "三合",
+      "layers": [
+        "natal"
+      ],
+      "evidence_type": "T"
+    },
+    {
+      "source": "子女宫",
+      "target": "交友宫",
+      "edge_type": "trine",
+      "label": "三合",
+      "layers": [
+        "natal"
+      ],
+      "evidence_type": "T"
+    },
+    {
+      "source": "子女宫",
+      "target": "田宅宫",
+      "edge_type": "opposite",
+      "label": "对宫",
+      "layers": [
+        "natal"
+      ],
+      "evidence_type": "T"
+    },
+    {
+      "source": "命宫",
+      "target": "官禄宫",
+      "edge_type": "functional",
+      "label": "执行/选择 → 生产角色",
+      "layers": [
+        "natal"
+      ],
+      "evidence_type": "M"
+    },
+    {
+      "source": "官禄宫",
+      "target": "财帛宫",
+      "edge_type": "functional",
+      "label": "成果 → 价值交换",
+      "layers": [
+        "natal"
+      ],
+      "evidence_type": "M"
+    },
+    {
+      "source": "财帛宫",
+      "target": "田宅宫",
+      "edge_type": "functional",
+      "label": "现金/资源 → 长期存量",
+      "layers": [
+        "natal"
+      ],
+      "evidence_type": "M"
+    },
+    {
+      "source": "官禄宫",
+      "target": "子女宫",
+      "edge_type": "functional",
+      "label": "项目/问题 → 输出/作品",
+      "layers": [
+        "natal"
+      ],
+      "evidence_type": "M"
+    },
+    {
+      "source": "子女宫",
+      "target": "田宅宫",
+      "edge_type": "functional",
+      "label": "输出 → 沉淀资产",
+      "layers": [
+        "natal"
+      ],
+      "evidence_type": "M"
+    },
+    {
+      "source": "交友宫",
+      "target": "官禄宫",
+      "edge_type": "functional",
+      "label": "信息/引荐 → 工作机会",
+      "layers": [
+        "natal"
+      ],
+      "evidence_type": "M"
+    },
+    {
+      "source": "迁移宫",
+      "target": "官禄宫",
+      "edge_type": "functional",
+      "label": "外部环境 → 职业反馈",
+      "layers": [
+        "natal"
+      ],
+      "evidence_type": "M"
+    },
+    {
+      "source": "父母宫",
+      "target": "官禄宫",
+      "edge_type": "functional",
+      "label": "规则/资格 → 职业角色",
+      "layers": [
+        "natal"
+      ],
+      "evidence_type": "M"
+    },
+    {
+      "source": "官禄宫",
+      "target": "福德宫",
+      "edge_type": "functional",
+      "label": "工作负荷 → 内在消耗",
+      "layers": [
+        "natal"
+      ],
+      "evidence_type": "M"
+    },
+    {
+      "source": "福德宫",
+      "target": "疾厄宫",
+      "edge_type": "functional",
+      "label": "精神负荷 → 恢复系统",
+      "layers": [
+        "natal"
+      ],
+      "evidence_type": "M"
+    },
+    {
+      "source": "疾厄宫",
+      "target": "命宫",
+      "edge_type": "functional",
+      "label": "恢复状态 → 行动能力",
+      "layers": [
+        "natal"
+      ],
+      "evidence_type": "M"
+    },
+    {
+      "source": "福德宫",
+      "target": "夫妻宫",
+      "edge_type": "functional",
+      "label": "内在稳定 → 关系承接",
+      "layers": [
+        "natal"
+      ],
+      "evidence_type": "M"
+    },
+    {
+      "source": "交友宫",
+      "target": "夫妻宫",
+      "edge_type": "functional",
+      "label": "社群 → 关系/合作入口",
+      "layers": [
+        "natal"
+      ],
+      "evidence_type": "M"
+    },
+    {
+      "source": "夫妻宫",
+      "target": "财帛宫",
+      "edge_type": "functional",
+      "label": "绑定关系 → 成本/资源交换",
+      "layers": [
+        "natal"
+      ],
+      "evidence_type": "M"
+    },
+    {
+      "source": "田宅宫",
+      "target": "田宅宫",
+      "edge_type": "self_transform",
+      "label": "天机 ↑权",
+      "layers": [
+        "natal"
+      ],
+      "evidence_type": "S"
+    },
+    {
+      "source": "官禄宫",
+      "target": "官禄宫",
+      "edge_type": "self_transform",
+      "label": "破军 ↓禄",
+      "layers": [
+        "natal"
+      ],
+      "evidence_type": "S"
+    },
+    {
+      "source": "疾厄宫",
+      "target": "疾厄宫",
+      "edge_type": "self_transform",
+      "label": "太阴 ↑科",
+      "layers": [
+        "natal"
+      ],
+      "evidence_type": "S"
+    },
+    {
+      "source": "兄弟宫",
+      "target": "兄弟宫",
+      "edge_type": "self_transform",
+      "label": "天梁 ↑禄",
+      "layers": [
+        "natal"
+      ],
+      "evidence_type": "S"
+    },
+    {
+      "source": "命宫",
+      "target": "命宫",
+      "edge_type": "self_transform",
+      "label": "武曲 ↓禄",
+      "layers": [
+        "natal"
+      ],
+      "evidence_type": "S"
+    },
+    {
+      "source": "父母宫",
+      "target": "父母宫",
+      "edge_type": "self_transform",
+      "label": "太阳 ↓禄;↑忌",
+      "layers": [
+        "natal"
+      ],
+      "evidence_type": "S"
+    }
+  ],
+  "active_layers": {
+    "福德宫": [
+      "大限"
+    ],
+    "交友宫": [
+      "小限"
+    ],
+    "子女宫": [
+      "流年"
+    ],
+    "夫妻宫": [
+      "流月",
+      "流日"
+    ],
+    "田宅宫": [
+      "流时"
+    ]
+  },
+  "legend": {
+    "node_tags": {
+      "发动机": "核心行动与决策来源",
+      "中央处理器": "统筹、职业与高阶重构节点",
+      "价值捕获瓶颈": "价值交换/留存需要重点优化",
+      "长期资产节点": "知识、作品、流程、存量资产",
+      "输出接口": "作品、表达、教学、受众",
+      "恢复节点": "负荷与恢复"
+    },
+    "edge_types": {
+      "trine": "传统三合",
+      "opposite": "传统对宫",
+      "functional": "ZDSM现代功能链",
+      "self_transform": "流派特定自化"
+    }
+  }
+}

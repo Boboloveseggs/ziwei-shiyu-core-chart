@@ -1,0 +1,30 @@
+{
+  "amplification": {
+    "zh": "增强",
+    "definition": "放大既有核心功能，不自动等于吉或凶"
+  },
+  "support": {
+    "zh": "支援",
+    "definition": "提高实现条件、协作、工具或资源可获得性"
+  },
+  "buffering": {
+    "zh": "缓冲",
+    "definition": "降低失控概率，使强烈功能更可管理"
+  },
+  "disruption": {
+    "zh": "干扰",
+    "definition": "增加摩擦、波动、冲突或控制成本"
+  },
+  "decoupling": {
+    "zh": "去耦",
+    "definition": "输入/投入与结果之间发生脱节或落空"
+  },
+  "reconfiguration": {
+    "zh": "重构",
+    "definition": "组合后产生新运行策略，不等于单星相加"
+  },
+  "gating": {
+    "zh": "门控",
+    "definition": "决定其他交互是否稳定发挥；庙旺陷常在此层"
+  }
+}

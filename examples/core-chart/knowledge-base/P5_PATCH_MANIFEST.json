@@ -1,0 +1,17 @@
+{
+  "name": "ZDSM P5 Monthly Runtime Supplement",
+  "version": "1.0.0",
+  "requires": "ZDSM P4 Local v1.5 or compatible",
+  "replace_p4": false,
+  "ai_api_required": false,
+  "human_contact_only": true,
+  "files_to_add": [
+    "engine/monthly_runtime.py",
+    "engine/render_monthly_dashboard.py",
+    "schemas/monthly_request.schema.json",
+    "schemas/monthly_output.schema.json",
+    "data/monthly_runtime_config.json",
+    "docs/INSTALL_FOR_WEBSITE_AI.md"
+  ],
+  "integration_rule": "merge_preserving_existing_p4_files"
+}

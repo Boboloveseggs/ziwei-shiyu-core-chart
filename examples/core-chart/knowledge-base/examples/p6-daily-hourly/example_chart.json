@@ -1,0 +1,212 @@
+{
+  "profile": {
+    "profile_id": "main_1997_05_18",
+    "gender": "女",
+    "solar_datetime": "1997-05-18T16:28:00+08:00",
+    "lunar_datetime": "丁丑年四月十二日申时"
+  },
+  "palaces": [
+    {
+      "name": "田宅宫",
+      "stem_branch": "壬子",
+      "major_stars": [
+        {
+          "name": "天机",
+          "state": "庙",
+          "natal_transformation": "生年科"
+        }
+      ],
+      "aux_stars": [
+        {
+          "name": "文曲",
+          "state": "得"
+        }
+      ]
+    },
+    {
+      "name": "官禄宫",
+      "stem_branch": "癸丑",
+      "major_stars": [
+        {
+          "name": "紫微",
+          "state": "庙"
+        },
+        {
+          "name": "破军",
+          "state": "旺"
+        }
+      ],
+      "aux_stars": []
+    },
+    {
+      "name": "交友宫",
+      "stem_branch": "壬寅",
+      "major_stars": [],
+      "aux_stars": [
+        {
+          "name": "文昌",
+          "state": "陷"
+        }
+      ]
+    },
+    {
+      "name": "迁移宫",
+      "stem_branch": "癸卯",
+      "major_stars": [
+        {
+          "name": "天府",
+          "state": "得地"
+        }
+      ],
+      "aux_stars": [
+        {
+          "name": "地空",
+          "state": "平"
+        }
+      ]
+    },
+    {
+      "name": "疾厄宫",
+      "stem_branch": "甲辰",
+      "major_stars": [
+        {
+          "name": "太阴",
+          "state": "陷",
+          "natal_transformation": "生年禄"
+        }
+      ],
+      "aux_stars": []
+    },
+    {
+      "name": "财帛宫",
+      "stem_branch": "乙巳",
+      "major_stars": [
+        {
+          "name": "廉贞",
+          "state": "陷"
+        },
+        {
+          "name": "贪狼",
+          "state": "陷"
+        }
+      ],
+      "aux_stars": [
+        {
+          "name": "陀罗",
+          "state": "陷"
+        }
+      ]
+    },
+    {
+      "name": "子女宫",
+      "stem_branch": "丙午",
+      "major_stars": [
+        {
+          "name": "巨门",
+          "state": "旺",
+          "natal_transformation": "生年忌"
+        }
+      ],
+      "aux_stars": [
+        {
+          "name": "禄存",
+          "state": "庙"
+        },
+        {
+          "name": "铃星",
+          "state": "庙"
+        }
+      ]
+    },
+    {
+      "name": "夫妻宫",
+      "stem_branch": "丁未",
+      "major_stars": [
+        {
+          "name": "天相",
+          "state": "得地"
+        }
+      ],
+      "aux_stars": [
+        {
+          "name": "左辅",
+          "state": "庙"
+        },
+        {
+          "name": "右弼",
+          "state": "庙"
+        },
+        {
+          "name": "擎羊",
+          "state": "庙"
+        },
+        {
+          "name": "地劫",
+          "state": "平"
+        }
+      ]
+    },
+    {
+      "name": "兄弟宫",
+      "stem_branch": "戊申",
+      "major_stars": [
+        {
+          "name": "天同",
+          "state": "旺",
+          "natal_transformation": "生年权"
+        },
+        {
+          "name": "天梁",
+          "state": "陷"
+        }
+      ],
+      "aux_stars": []
+    },
+    {
+      "name": "命宫",
+      "stem_branch": "己酉",
+      "major_stars": [
+        {
+          "name": "武曲",
+          "state": "利"
+        },
+        {
+          "name": "七杀",
+          "state": "旺"
+        }
+      ],
+      "aux_stars": [
+        {
+          "name": "天钺",
+          "state": "庙"
+        }
+      ]
+    },
+    {
+      "name": "父母宫",
+      "stem_branch": "庚戌",
+      "major_stars": [
+        {
+          "name": "太阳",
+          "state": "不"
+        }
+      ],
+      "aux_stars": []
+    },
+    {
+      "name": "福德宫",
+      "stem_branch": "辛亥",
+      "major_stars": [],
+      "aux_stars": [
+        {
+          "name": "天魁",
+          "state": "旺"
+        },
+        {
+          "name": "火星",
+          "state": "利"
+        }
+      ]
+    }
+  ]
+}
