@@ -17,7 +17,7 @@
 
 这不是一个追求功能越多越好的平台。它首先是我自己会长期打开的工具，也是一份可以离线保存、不会因为某个外部服务变化就突然不能用的版本。
 
-> ⭐ 如果这个项目也刚好帮你省下了反复查盘的时间，欢迎[点一个 Star](https://github.com/Boboloveseggs/ziwei-shiyu-core-chart)。网页免费使用，愿意支持后续维护的话，文末也放了自愿支持入口。
+> ⭐ 如果这个项目也刚好帮你省下了反复查盘的时间，欢迎[点一个 Star](https://github.com/Boboloveseggs/ziwei-shiyu-core-chart)。
 
 ![十二宫命盘、四化箭头与五级运限](docs/screenshots/01-main-chart.png)
 
@@ -122,15 +122,6 @@ node tools/dev-server.cjs 8000
 点一个 Star 就已经是很直接的支持，也能让我知道这套整理方式确实有人用得上：
 
 👉 [给紫微时域点一个 Star](https://github.com/Boboloveseggs/ziwei-shiyu-core-chart)
-
-如果它帮你省下了时间，也欢迎自愿支持后续维护。金额随意，不影响任何功能。
-
-<table>
-  <tr>
-    <td align="center"><img src="assets/donate-wechat.jpg" width="260" alt="微信支付收款码" /><br />微信支付</td>
-    <td align="center"><img src="assets/donate-alipay.jpg" width="260" alt="支付宝收款码" /><br />支付宝</td>
-  </tr>
-</table>
 
 人工核对：微信 `Thanks1900ss`　邮箱 `bobominitt@gmail.com`
 
