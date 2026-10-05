@@ -571,10 +571,9 @@
         escapeHtml(route.starName) + ' → ' + escapeHtml(route.targetName) + (route.isSelf ? ' · 自化' : '') + '</span></li>';
     }).join('') : '<li class="mobile-route-empty">当前层暂无四化路线</li>';
     els.mobileRelationMap.innerHTML = '<header class="mobile-relation-heading"><div><span>' + escapeHtml(transitSelectionText()) +
-      '</span><h3>' + escapeHtml(main.name) + '的关系网</h3></div><p>点任一宫可切换主宫</p></header>' +
+      '</span><h3>' + escapeHtml(main.name) + ' · 四正关系</h3></div><p>点宫位切换</p></header>' +
       '<div class="mobile-relation-network"><div class="mobile-relation-main">' +
       mobileRelationCard(runtime.selectedPalaceIndex, 'main', focusLabel) + '</div>' +
-      '<div class="mobile-relation-axis"><span></span><b>三方四正</b><span></span></div>' +
       '<div class="mobile-relation-related">' +
       mobileRelationCard(runtime.relationRoles.wealth, 'wealth', '财帛位') +
       mobileRelationCard(runtime.relationRoles.opposite, 'opposite', '对宫') +

@@ -320,12 +320,11 @@ footer p { color: var(--muted); font-size: 11px; }
 }
 @media (max-width: 600px) {
   .masthead, main, footer { width: 100%; padding-inline: 0; }
-  .masthead { min-height: 60px; padding: 12px; gap: 8px; }
-  .masthead h1 { font-size: 21px; }
-  .profile-tools { gap: 6px; flex-wrap: wrap; }
-  .profile-tools > span { flex-basis: 100%; }
-  .profile-tools > span { max-width: 145px; font-size: 10px; text-align: right; }
-  .profile-tools button { padding: 6px 7px; font-size: 12px; }
+  .masthead { min-height: 52px; padding: 7px 10px; gap: 8px; }
+  .masthead h1 { font-size: 19px; letter-spacing: .06em; }
+  .profile-tools { gap: 5px; flex-wrap: nowrap; }
+  .profile-tools > span { display: none; }
+  .profile-tools button { min-height: 34px; padding: 5px 7px; font-size: 11px; }
   .workspace-nav { padding: 0; border-inline: 0; }
   .workspace-nav button { flex: 1; min-width: 0; min-height: 46px; font-size: 14px; }
   .result, .monthly-sheet, .daily-sheet, .system-sheet, .report-sheet { padding: 12px 10px 20px; border-inline: 0; }
@@ -337,36 +336,37 @@ footer p { color: var(--muted); font-size: 11px; }
   .chart-section .section-heading { padding-inline: 3px; gap: 6px; }
   .chart-section h2 { font-size: 13px; }
   .legend { gap: 8px; font-size: 10px; }
-  .mobile-relation-map { display: block; margin: 0 2px 12px; border: 1px solid #b8c8d9; border-radius: 9px; background: #f8fbff; overflow: hidden; }
-  .mobile-relation-heading { display: flex; align-items: end; justify-content: space-between; gap: 12px; padding: 13px 14px 10px; border-bottom: 1px solid #dce5ef; background: #fff; }
+  .mobile-relation-map { display: block; margin: 0 2px 8px; border: 1px solid #b8c8d9; border-radius: 8px; background: #f8fbff; overflow: hidden; }
+  .mobile-relation-heading { display: flex; min-height: 48px; align-items: center; justify-content: space-between; gap: 10px; padding: 8px 11px; border-bottom: 1px solid #dce5ef; background: #fff; }
   .mobile-relation-heading span { color: #68788a; font-size: 10px; }
-  .mobile-relation-heading h3 { margin: 2px 0 0; color: #294966; font: 700 17px/1.35 "STZhongsong", "Songti SC", SimSun, serif; }
-  .mobile-relation-heading p { margin: 0 0 2px; color: #758394; font-size: 10px; white-space: nowrap; }
-  .mobile-relation-network { position: relative; padding: 13px 12px 12px; }
-  .mobile-relation-main { width: min(72%, 260px); margin: 0 auto; }
-  .mobile-relation-axis { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 8px; margin: 8px 12px; color: #7690a9; }
-  .mobile-relation-axis span { height: 1px; background: #b9cadb; }
-  .mobile-relation-axis b { font-size: 10px; font-weight: 500; letter-spacing: .12em; }
-  .mobile-relation-related { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 7px; }
-  .mobile-relation-card { display: grid; width: 100%; min-width: 0; min-height: 86px; align-content: start; justify-items: start; gap: 3px; padding: 9px 8px; border: 1px solid #cbd8e5; border-radius: 7px; color: var(--ink); background: #fff; text-align: left; cursor: pointer; }
-  .mobile-relation-card.role-main { min-height: 96px; padding: 11px 12px; border-color: #73a6d3; background: var(--focus-fill); box-shadow: inset 0 0 0 1px rgba(38,117,191,.18); }
+  .mobile-relation-heading h3 { margin: 1px 0 0; color: #294966; font: 700 16px/1.25 "STZhongsong", "Songti SC", SimSun, serif; }
+  .mobile-relation-heading p { margin: 0; color: #758394; font-size: 9px; white-space: nowrap; }
+  .mobile-relation-network { position: relative; display: grid; grid-template-columns: minmax(112px,.82fr) minmax(0,1.18fr); gap: 7px; padding: 9px 9px 7px; }
+  .mobile-relation-main { display: flex; min-width: 0; }
+  .mobile-relation-related { display: grid; min-width: 0; grid-template-rows: repeat(3,minmax(0,1fr)); gap: 5px; }
+  .mobile-relation-card { display: grid; width: 100%; min-width: 0; min-height: 0; align-content: center; justify-items: start; gap: 1px; padding: 5px 7px; border: 1px solid #cbd8e5; border-radius: 6px; color: var(--ink); background: #fff; text-align: left; cursor: pointer; }
+  .mobile-relation-card.role-main { min-height: 118px; padding: 9px 10px; border-color: #73a6d3; background: var(--focus-fill); box-shadow: inset 0 0 0 1px rgba(38,117,191,.18); }
   .mobile-relation-card.role-opposite { background: var(--opposite-fill); }
   .mobile-relation-card.role-wealth, .mobile-relation-card.role-career { background: var(--trine-fill); }
-  .mobile-relation-role { color: #4d7193; font-size: 9px; font-weight: 700; }
-  .mobile-relation-card strong { color: #294966; font: 700 15px/1.3 var(--ui-font); }
-  .mobile-relation-card.role-main strong { font-size: 18px; }
-  .mobile-relation-stars { width: 100%; overflow: hidden; color: #a93444; font: 600 12px/1.4 "STZhongsong", "Songti SC", SimSun, serif; text-overflow: ellipsis; white-space: nowrap; }
-  .mobile-relation-card small { display: -webkit-box; overflow: hidden; color: #607287; font-size: 9px; line-height: 1.35; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
-  .mobile-flight-routes { margin: 0 12px 12px; padding: 10px; border: 1px solid #d4dfeb; border-radius: 7px; background: #fff; }
-  .mobile-flight-routes header { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; margin-bottom: 7px; }
+  .mobile-relation-role { color: #4d7193; font-size: 8px; font-weight: 700; }
+  .mobile-relation-card strong { color: #294966; font: 700 13px/1.2 var(--ui-font); }
+  .mobile-relation-card.role-main strong { margin-block: 2px; font-size: 19px; }
+  .mobile-relation-stars { width: 100%; overflow: hidden; color: #a93444; font: 600 11px/1.3 "STZhongsong", "Songti SC", SimSun, serif; text-overflow: ellipsis; white-space: nowrap; }
+  .mobile-relation-card small { width: 100%; overflow: hidden; color: #607287; font-size: 8px; line-height: 1.3; text-overflow: ellipsis; white-space: nowrap; }
+  .mobile-relation-related .mobile-relation-card { grid-template-columns: auto auto minmax(0,1fr); align-items: baseline; align-content: center; column-gap: 5px; }
+  .mobile-relation-related .mobile-relation-role { min-width: 31px; }
+  .mobile-relation-related .mobile-relation-stars { text-align: right; }
+  .mobile-relation-related .mobile-relation-card small { display: none; }
+  .mobile-flight-routes { margin: 0 9px 9px; padding: 7px 8px 8px; border: 1px solid #d4dfeb; border-radius: 6px; background: #fff; }
+  .mobile-flight-routes header { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; margin-bottom: 4px; }
   .mobile-flight-routes header strong { color: #385675; font-size: 11px; }
-  .mobile-flight-routes header span { color: #7b8998; font-size: 9px; }
-  .mobile-flight-routes ul { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 5px 10px; margin: 0; padding: 0; list-style: none; }
-  .mobile-flight-routes li { display: grid; grid-template-columns: 15px minmax(0,1fr); gap: 4px; align-items: baseline; min-width: 0; font-size: 10px; }
-  .mobile-flight-routes li b { font-size: 11px; }
+  .mobile-flight-routes header span { color: #7b8998; font-size: 8px; }
+  .mobile-flight-routes ul { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 3px 9px; margin: 0; padding: 0; list-style: none; }
+  .mobile-flight-routes li { display: grid; grid-template-columns: 14px minmax(0,1fr); gap: 3px; align-items: baseline; min-width: 0; font-size: 9px; }
+  .mobile-flight-routes li b { font-size: 10px; }
   .mobile-flight-routes li span { overflow: hidden; color: #4d5f72; text-overflow: ellipsis; white-space: nowrap; }
   .mobile-route-empty { grid-column: 1 / -1 !important; color: var(--muted); }
-  .mobile-chart-caption { display: block; margin: 0 2px 5px; }
+  .mobile-chart-caption { display: block; margin: 0 2px 4px; }
   .mobile-chart-toggle { display: flex; width: 100%; align-items: baseline; justify-content: space-between; gap: 8px; padding: 10px 12px; border: 1px solid #cad7e4; border-radius: 7px; background: #fff; text-align: left; cursor: pointer; }
   .mobile-chart-toggle strong { color: #344f70; font-size: 12px; }
   .mobile-chart-toggle span { color: var(--muted); font-size: 10px; }

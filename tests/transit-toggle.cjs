@@ -46,6 +46,21 @@ async function run(browser, width) {
     await page.click('#chart-form button[type="submit"]');
     await page.waitForSelector('#result:not([hidden])');
 
+    if (width <= 600) {
+      const mobileLayout = await page.evaluate(() => ({
+        mapHeight: Math.round(document.querySelector('.mobile-relation-map').getBoundingClientRect().height),
+        transitTop: Math.round(document.querySelector('.transit-browser').getBoundingClientRect().top),
+        chartVisible: getComputedStyle(document.querySelector('.chart-scroll-shell')).visibility,
+      }));
+      assert(mobileLayout.mapHeight <= 300, '手机关系图不应过长');
+      assert(mobileLayout.transitTop <= 530, '手机首屏应尽早露出运限选择');
+      assert.equal(mobileLayout.chartVisible, 'hidden', '完整十二宫默认应收起');
+      await page.click('#mobile-chart-toggle');
+      assert.equal(await page.locator('#mobile-chart-toggle').getAttribute('aria-expanded'), 'true');
+      assert.equal(await page.locator('.chart-scroll-shell').evaluate((el) => getComputedStyle(el).visibility), 'visible');
+      await page.click('#mobile-chart-toggle');
+    }
+
     // Independently use the existing engine, not the UI's computed state.
     const expected = await page.evaluate(() => {
       const value = (id) => document.getElementById(id).value;
