@@ -94,7 +94,8 @@ async function run(browser, width) {
     await page.keyboard.press('Enter');
     await verifyScope(page, 'daily', expected);
     await page.locator('#hourly-options [data-value="5"]').click();
-    await page.locator('.palace').first().click();
+    if (width <= 600) await page.locator('.mobile-relation-card').first().click();
+    else await page.locator('.palace').first().click();
     assert.equal(await page.locator('#chart-grid').getAttribute('data-scope'), 'manual');
     await page.locator('#hourly-options .selected').click();
     await verifyScope(page, 'daily', expected);

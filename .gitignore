@@ -5,3 +5,7 @@ test-results/
 *.tmp
 Thumbs.db
 .DS_Store
+private/
+private-rules/
+private-cases/
+research-notes/

@@ -82,6 +82,7 @@ async function prepareChart(page) {
 
   const mobile = await browser.newPage({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 1 });
   await prepareChart(mobile);
+  await mobile.screenshot({ path: path.join(outputDir, '10-mobile-viewport.png') });
   await mobile.locator('.chart-section').screenshot({ path: path.join(outputDir, '07-mobile-chart.png') });
 
   console.log(JSON.stringify({ status: 'pass', outputDir, files: fs.readdirSync(outputDir).sort() }, null, 2));
