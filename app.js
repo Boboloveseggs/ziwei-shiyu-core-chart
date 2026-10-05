@@ -547,41 +547,6 @@
       '</dl>' + flightSummary() + '</section>';
   }
 
-  function mobileRelationCard(palaceIndex, role, label) {
-    var palace = runtime.chart.palaces[palaceIndex];
-    if (!palace) return '';
-    var majorStars = (palace.majorStars || []).map(function (star) { return escapeHtml(star.name); }).join('、') || '空宫';
-    var scope = runtime.transitLevel === 'natal' ? null : runtime.horoscope[runtime.transitLevel];
-    var scopePalace = scope && scope.palaceNames ? scope.palaceNames[palaceIndex] : '';
-    var scopeStars = scope && scope.stars && scope.stars[palaceIndex] ? scope.stars[palaceIndex] : [];
-    var scopeText = scopeStars.length ? scopeStars.map(function (star) { return escapeHtml(star.name); }).join('、') : '无流曜';
-    return '<button type="button" class="mobile-relation-card role-' + role + '" data-mobile-palace-index="' + palaceIndex + '" ' +
-      'aria-label="查看' + escapeHtml(label + palace.name) + '"><span class="mobile-relation-role">' + escapeHtml(label) + '</span>' +
-      '<strong>' + escapeHtml(palace.name) + '</strong><span class="mobile-relation-stars">' + majorStars + '</span>' +
-      (scopePalace ? '<small>' + escapeHtml(scopeDisplayName(runtime.transitLevel) + '·' + scopePalace) + '｜' + scopeText + '</small>' : '') +
-      '</button>';
-  }
-
-  function renderMobileRelationMap() {
-    if (!els.mobileRelationMap || runtime.selectedPalaceIndex == null) return;
-    var main = runtime.chart.palaces[runtime.selectedPalaceIndex];
-    var focusLabel = runtime.activeScopeLevel === 'manual' ? '所选本宫' : scopeDisplayName(runtime.activeScopeLevel) + '主宫';
-    var routeHtml = runtime.flightRoutes.length ? runtime.flightRoutes.map(function (route) {
-      return '<li class="flight-text-' + route.key + '"><b>' + route.mutagen + '</b><span>' +
-        escapeHtml(route.starName) + ' → ' + escapeHtml(route.targetName) + (route.isSelf ? ' · 自化' : '') + '</span></li>';
-    }).join('') : '<li class="mobile-route-empty">当前层暂无四化路线</li>';
-    els.mobileRelationMap.innerHTML = '<header class="mobile-relation-heading"><div><span>' + escapeHtml(transitSelectionText()) +
-      '</span><h3>' + escapeHtml(main.name) + ' · 四正关系</h3></div><p>点宫位切换</p></header>' +
-      '<div class="mobile-relation-network"><div class="mobile-relation-main">' +
-      mobileRelationCard(runtime.selectedPalaceIndex, 'main', focusLabel) + '</div>' +
-      '<div class="mobile-relation-related">' +
-      mobileRelationCard(runtime.relationRoles.wealth, 'wealth', '财帛位') +
-      mobileRelationCard(runtime.relationRoles.opposite, 'opposite', '对宫') +
-      mobileRelationCard(runtime.relationRoles.career, 'career', '官禄位') + '</div></div>' +
-      '<section class="mobile-flight-routes"><header><strong>' + escapeHtml(runtime.flightRoutes.length ? runtime.flightRoutes[0].sourceLabel : main.name) +
-      '四化流向</strong><span>禄 · 权 · 科 · 忌</span></header><ul>' + routeHtml + '</ul></section>';
-  }
-
   function renderFacts(chart, horoscope, input) {
     var method = input.algorithm === 'zhongzhou' ? '中州派' : '通行版本';
     var divideLabels = { normal: '农历正月初一', exact: '立春' };
@@ -739,7 +704,6 @@
       return palaceCard(palace, runtime.horoscope);
     }).join('') + centerPanel(runtime.chart, runtime.horoscope, runtime.input) +
       '<svg class="flight-overlay" data-flight-overlay="true" aria-hidden="true"></svg>';
-    renderMobileRelationMap();
     renderFlightOverlay();
     window.requestAnimationFrame(renderFlightOverlay);
     renderKnowledgePanel();
@@ -1119,8 +1083,6 @@
     els.methodLine = byId('method-line');
     els.generatedAt = byId('generated-at');
     els.chartGrid = byId('chart-grid');
-    els.mobileRelationMap = byId('mobile-relation-map');
-    els.mobileChartToggle = byId('mobile-chart-toggle');
     els.scopeTable = byId('scope-table');
     els.auditTable = byId('audit-table');
     els.selectionSummary = byId('selection-summary');
@@ -1182,18 +1144,6 @@
         event.preventDefault();
         selectPalace(Number(palace.dataset.palaceIndex));
       }
-    });
-    if (els.mobileRelationMap) els.mobileRelationMap.addEventListener('click', function (event) {
-      var palace = event.target.closest('[data-mobile-palace-index]');
-      if (palace) selectPalace(Number(palace.dataset.mobilePalaceIndex));
-    });
-    if (els.mobileChartToggle) els.mobileChartToggle.addEventListener('click', function () {
-      var section = els.mobileChartToggle.closest('.chart-section');
-      var expanded = section.classList.toggle('mobile-chart-expanded');
-      els.mobileChartToggle.setAttribute('aria-expanded', String(expanded));
-      els.mobileChartToggle.querySelector('strong').textContent = expanded ? '收起完整十二宫' : '查看完整十二宫';
-      els.mobileChartToggle.querySelector('span').textContent = expanded ? '左右滑动查看宫位与四化箭头' : '展开后左右滑动查看宫位与四化箭头';
-      if (expanded) window.requestAnimationFrame(renderFlightOverlay);
     });
     window.addEventListener('resize', function () {
       if (!runtime.chart) return;

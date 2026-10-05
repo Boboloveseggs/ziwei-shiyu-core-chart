@@ -48,17 +48,13 @@ async function run(browser, width) {
 
     if (width <= 600) {
       const mobileLayout = await page.evaluate(() => ({
-        mapHeight: Math.round(document.querySelector('.mobile-relation-map').getBoundingClientRect().height),
+        chartHeight: Math.round(document.querySelector('#chart-grid').getBoundingClientRect().height),
         transitTop: Math.round(document.querySelector('.transit-browser').getBoundingClientRect().top),
         chartVisible: getComputedStyle(document.querySelector('.chart-scroll-shell')).visibility,
       }));
-      assert(mobileLayout.mapHeight <= 300, '手机关系图不应过长');
-      assert(mobileLayout.transitTop <= 530, '手机首屏应尽早露出运限选择');
-      assert.equal(mobileLayout.chartVisible, 'hidden', '完整十二宫默认应收起');
-      await page.click('#mobile-chart-toggle');
-      assert.equal(await page.locator('#mobile-chart-toggle').getAttribute('aria-expanded'), 'true');
-      assert.equal(await page.locator('.chart-scroll-shell').evaluate((el) => getComputedStyle(el).visibility), 'visible');
-      await page.click('#mobile-chart-toggle');
+      assert(mobileLayout.chartHeight <= 450, '手机完整命盘不应过长');
+      assert(mobileLayout.transitTop <= 670, '手机端完整命盘后应尽早出现运限选择');
+      assert.equal(mobileLayout.chartVisible, 'visible', '手机端默认必须显示完整十二宫');
     }
 
     // Independently use the existing engine, not the UI's computed state.
@@ -109,8 +105,7 @@ async function run(browser, width) {
     await page.keyboard.press('Enter');
     await verifyScope(page, 'daily', expected);
     await page.locator('#hourly-options [data-value="5"]').click();
-    if (width <= 600) await page.locator('.mobile-relation-card').first().click();
-    else await page.locator('.palace').first().click();
+    await page.locator('.palace').first().click();
     assert.equal(await page.locator('#chart-grid').getAttribute('data-scope'), 'manual');
     await page.locator('#hourly-options .selected').click();
     await verifyScope(page, 'daily', expected);

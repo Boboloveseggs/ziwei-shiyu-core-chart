@@ -70,7 +70,6 @@ input, select { min-height: 42px; padding: 8px 10px; border-radius: 5px; font-si
 .legend-dot.current { background: var(--focus-fill); }
 .legend-dot.opposite { background: var(--opposite-fill); }
 .legend-dot.trine { background: var(--trine-fill); }
-.mobile-relation-map, .mobile-chart-caption { display: none; }
 .chart-scroll-shell { overflow: visible; }
 .chart-grid { grid-template-rows: repeat(4, minmax(156px, auto)); border-width: 1px; border-color: var(--rule-strong); background: #fff; }
 .palace, .chart-center { border-width: 1px; border-color: var(--rule-strong); padding: 9px 11px; background: #fff; }
@@ -336,74 +335,42 @@ footer p { color: var(--muted); font-size: 11px; }
   .chart-section .section-heading { padding-inline: 3px; gap: 6px; }
   .chart-section h2 { font-size: 13px; }
   .legend { gap: 8px; font-size: 10px; }
-  .mobile-relation-map { display: block; margin: 0 2px 8px; border: 1px solid #b8c8d9; border-radius: 8px; background: #f8fbff; overflow: hidden; }
-  .mobile-relation-heading { display: flex; min-height: 48px; align-items: center; justify-content: space-between; gap: 10px; padding: 8px 11px; border-bottom: 1px solid #dce5ef; background: #fff; }
-  .mobile-relation-heading span { color: #68788a; font-size: 10px; }
-  .mobile-relation-heading h3 { margin: 1px 0 0; color: #294966; font: 700 16px/1.25 "STZhongsong", "Songti SC", SimSun, serif; }
-  .mobile-relation-heading p { margin: 0; color: #758394; font-size: 9px; white-space: nowrap; }
-  .mobile-relation-network { position: relative; display: grid; grid-template-columns: minmax(112px,.82fr) minmax(0,1.18fr); gap: 7px; padding: 9px 9px 7px; }
-  .mobile-relation-main { display: flex; min-width: 0; }
-  .mobile-relation-related { display: grid; min-width: 0; grid-template-rows: repeat(3,minmax(0,1fr)); gap: 5px; }
-  .mobile-relation-card { display: grid; width: 100%; min-width: 0; min-height: 0; align-content: center; justify-items: start; gap: 1px; padding: 5px 7px; border: 1px solid #cbd8e5; border-radius: 6px; color: var(--ink); background: #fff; text-align: left; cursor: pointer; }
-  .mobile-relation-card.role-main { min-height: 118px; padding: 9px 10px; border-color: #73a6d3; background: var(--focus-fill); box-shadow: inset 0 0 0 1px rgba(38,117,191,.18); }
-  .mobile-relation-card.role-opposite { background: var(--opposite-fill); }
-  .mobile-relation-card.role-wealth, .mobile-relation-card.role-career { background: var(--trine-fill); }
-  .mobile-relation-role { color: #4d7193; font-size: 8px; font-weight: 700; }
-  .mobile-relation-card strong { color: #294966; font: 700 13px/1.2 var(--ui-font); }
-  .mobile-relation-card.role-main strong { margin-block: 2px; font-size: 19px; }
-  .mobile-relation-stars { width: 100%; overflow: hidden; color: #a93444; font: 600 11px/1.3 "STZhongsong", "Songti SC", SimSun, serif; text-overflow: ellipsis; white-space: nowrap; }
-  .mobile-relation-card small { width: 100%; overflow: hidden; color: #607287; font-size: 8px; line-height: 1.3; text-overflow: ellipsis; white-space: nowrap; }
-  .mobile-relation-related .mobile-relation-card { grid-template-columns: auto auto minmax(0,1fr); align-items: baseline; align-content: center; column-gap: 5px; }
-  .mobile-relation-related .mobile-relation-role { min-width: 31px; }
-  .mobile-relation-related .mobile-relation-stars { text-align: right; }
-  .mobile-relation-related .mobile-relation-card small { display: none; }
-  .mobile-flight-routes { margin: 0 9px 9px; padding: 7px 8px 8px; border: 1px solid #d4dfeb; border-radius: 6px; background: #fff; }
-  .mobile-flight-routes header { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; margin-bottom: 4px; }
-  .mobile-flight-routes header strong { color: #385675; font-size: 11px; }
-  .mobile-flight-routes header span { color: #7b8998; font-size: 8px; }
-  .mobile-flight-routes ul { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 3px 9px; margin: 0; padding: 0; list-style: none; }
-  .mobile-flight-routes li { display: grid; grid-template-columns: 14px minmax(0,1fr); gap: 3px; align-items: baseline; min-width: 0; font-size: 9px; }
-  .mobile-flight-routes li b { font-size: 10px; }
-  .mobile-flight-routes li span { overflow: hidden; color: #4d5f72; text-overflow: ellipsis; white-space: nowrap; }
-  .mobile-route-empty { grid-column: 1 / -1 !important; color: var(--muted); }
-  .mobile-chart-caption { display: block; margin: 0 2px 4px; }
-  .mobile-chart-toggle { display: flex; width: 100%; align-items: baseline; justify-content: space-between; gap: 8px; padding: 10px 12px; border: 1px solid #cad7e4; border-radius: 7px; background: #fff; text-align: left; cursor: pointer; }
-  .mobile-chart-toggle strong { color: #344f70; font-size: 12px; }
-  .mobile-chart-toggle span { color: var(--muted); font-size: 10px; }
-  .mobile-chart-toggle::after { content: '＋'; flex: 0 0 auto; margin-left: 2px; color: var(--indigo); font-size: 16px; line-height: 1; }
-  .mobile-chart-expanded .mobile-chart-toggle::after { content: '−'; }
-  .chart-scroll-shell { width: calc(100% + 12px); max-height: 0; margin-left: -6px; padding: 0; overflow: hidden; visibility: hidden; opacity: 0; pointer-events: none; overscroll-behavior-x: contain; scrollbar-width: thin; scrollbar-color: #9db6cd #edf2f7; }
-  .mobile-chart-expanded .chart-scroll-shell { max-height: none; padding-bottom: 5px; overflow-x: auto; visibility: visible; opacity: 1; pointer-events: auto; }
-  .chart-grid { min-width: 760px; grid-template-rows: repeat(4,minmax(168px,auto)); }
-  .palace { padding: 7px 4px; gap: 5px; }
-  .palace-stars { gap: 5px 4px; min-height: 48px; }
-  .chart-star { min-width: 14px; gap: 2px; }
-  .chart-star-name { font-size: 13px; }
-  .chart-star-state { min-height: 11px; font-size: 11px; }
-  .chart-star-mutagen { min-width: 13px; font-size: 11px; }
-  .palace-adjectives { gap: 1px 4px; font-size: 11px; line-height: 1.5; }
-  .palace .flight-endpoint { font-size: 11px !important; padding: 1px 2px !important; }
-  .palace .transit-scope-line { font-size: 11px; }
-  .palace .badges { gap: 1px; }
-  .palace .badge { padding: 0 1px; font-size: 11px; }
-  .palace-title h3 { font-size: 13px; }
-  .palace-age { font-size: 11px; }
-  .stem-branch { font-size: 11px; }
-  .landing-marker { width: 12px; height: 14px; font-size: 9px; }
-  .landing-markers { gap: 1px; max-width: 42px; }
-  .chart-center { padding: 12px 9px; gap: 10px; }
-  .chart-center h3 { font-size: 19px; }
-  .view-date { font-size: 10px; }
-  .center-summary { grid-template-columns: 1fr; gap: 6px; }
-  .center-summary div { gap: 6px; }
+  .chart-scroll-shell { width: 100%; max-height: none; margin: 0; padding: 0; overflow: visible; visibility: visible; opacity: 1; pointer-events: auto; }
+  .chart-grid { width: 100%; min-width: 0; grid-template-columns: repeat(4,minmax(0,1fr)); grid-template-rows: repeat(4,110px); }
+  .palace { padding: 3px 2px; gap: 2px; overflow: hidden; }
+  .palace-stars { gap: 2px; min-height: 31px; max-height: 45px; overflow: hidden; }
+  .chart-star { min-width: 10px; gap: 1px; }
+  .chart-star-name { font-size: 10px; }
+  .chart-star-state { min-height: 8px; font-size: 7px; }
+  .chart-star-mutagen { min-width: 9px; padding: 0 1px; font-size: 7px; }
+  .palace-adjectives { display: none; }
+  .palace .flight-endpoints { gap: 1px; }
+  .palace .flight-endpoint { max-width: 100%; overflow: hidden; padding: 0 1px !important; font-size: 7px !important; text-overflow: ellipsis; }
+  .palace .transit-scope-line { gap: 1px; margin-top: 1px; font-size: 7px; line-height: 1.2; }
+  .palace .transit-scope-line span { display: none; }
+  .palace .badges { min-height: 9px; gap: 1px; }
+  .palace .badge { padding: 0 1px; font-size: 7px; }
+  .palace-head { gap: 2px; padding-top: 1px; }
+  .palace-title { gap: 1px; }
+  .palace-title h3 { font-size: 10px; }
+  .palace-age { display: none; }
+  .stem-branch { font-size: 7px; }
+  .landing-marker { width: 10px; height: 11px; font-size: 7px; }
+  .landing-markers { gap: 1px; max-width: 24px; }
+  .chart-center { padding: 6px; gap: 3px; overflow: hidden; }
+  .chart-center h3 { font-size: 14px; line-height: 1.2; }
+  .view-date { font-size: 7px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .center-summary { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 2px 7px; }
+  .center-summary div { display: block; min-width: 0; padding: 0; }
   .center-summary div:nth-child(2), .center-summary div:nth-child(3) { grid-column: auto; }
-  .center-summary dt { min-width: 24px; font-size: 10px; }
-  .center-summary dd { font-size: 12px; overflow-wrap: anywhere; }
-  .flight-summary { padding-top: 8px; }
-  .flight-summary > div strong { font-size: 11px; }
-  .flight-summary ul { grid-template-columns: 1fr; gap: 3px; margin-top: 5px; }
-  .flight-summary li, .flight-summary li b { font-size: 12px; }
-  .flight-path { stroke-width: 1.2; opacity: .38; }
+  .center-summary dt { min-width: 0; font-size: 7px; }
+  .center-summary dd { overflow: hidden; font-size: 8px; text-overflow: ellipsis; white-space: nowrap; }
+  .flight-summary { margin: 0; padding: 4px 0 0; }
+  .flight-summary > div strong { font-size: 8px; }
+  .flight-summary ul { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1px 5px; margin-top: 3px; }
+  .flight-summary li { grid-template-columns: 9px minmax(0,1fr); gap: 1px; }
+  .flight-summary li, .flight-summary li b { overflow: hidden; font-size: 7px; text-overflow: ellipsis; white-space: nowrap; }
+  .flight-path { stroke-width: 1.6; opacity: .64; stroke-dasharray: 4 3; }
   .transit-heading { flex-direction: row; flex-wrap: wrap; gap: 6px; }
   .transit-actions { display: flex; flex: 1; gap: 8px; }
   .transit-actions p { display: none; }
