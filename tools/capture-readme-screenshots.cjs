@@ -42,6 +42,7 @@ async function prepareChart(page) {
   await prepareChart(desktop);
 
   await captureRange(desktop, '.chart-section', '.transit-note', '01-main-chart.png');
+  await desktop.locator('.chart-section').screenshot({ path: path.join(outputDir, '08-palace-network-arrows.png') });
 
   await desktop.click('#goto-yearly');
   await desktop.waitForSelector('#yearly-page:not([hidden])');
