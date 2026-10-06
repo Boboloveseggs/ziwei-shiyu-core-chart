@@ -199,29 +199,54 @@
   }
 
   function axisAnalysis(request, network, resonances) {
-    var monthNodes = new Set([network.core].concat(network.trines.map(function (item) { return item.palace; }), [network.opposite.palace]));
+    var trineNodes = network.trines.map(function (item) { return item.palace; });
+    var monthNodes = new Set([network.core].concat(trineNodes, [network.opposite.palace]));
     var transformations = normalizeTransformations(request);
     var resonanceMap = resonances.reduce(function (result, item) { result[item.palace] = item; return result; }, {});
-    return Object.keys(AXIS).reduce(function (result, axis) {
+    var result = Object.keys(AXIS).reduce(function (output, axis) {
       var palaces = AXIS[axis];
       var touched = palaces.filter(function (palace) { return monthNodes.has(palace); });
       var transHits = transformations.filter(function (item) { return palaces.indexOf(item.target_palace) !== -1; });
+      var monthlyTransHits = transHits.filter(function (item) { return item.layer === '流月'; });
       var resonanceHits = palaces.map(function (palace) { return resonanceMap[palace]; }).filter(function (item) {
         return item && ['一级共振', '二级共振'].indexOf(item.level) !== -1;
+      });
+      var monthlyResonanceHits = resonanceHits.filter(function (item) {
+        return item.evidence.some(function (evidence) { return evidence.indexOf('流月') !== -1; });
       });
       var evidence = touched.map(function (palace) { return '流月四宫网络包含' + palace; })
         .concat(transHits.map(function (item) { return item.layer + ' ' + item.star + '化' + item.type + '→' + item.target_palace; }))
         .concat(resonanceHits.map(function (item) { return item.palace + '为' + item.level; }));
-      var relevance = transHits.length || resonanceHits.length || touched.length >= 2 ? '重点' : touched.length ? '辅助' : '低';
-      result[axis] = {
-        relevance: relevance,
+      var score = (palaces.indexOf(network.core) !== -1 ? 6 : 0) +
+        trineNodes.filter(function (palace) { return palaces.indexOf(palace) !== -1; }).length * 3 +
+        (palaces.indexOf(network.opposite.palace) !== -1 ? 2 : 0) + monthlyTransHits.length * 4 +
+        monthlyResonanceHits.reduce(function (sum, item) { return sum + (item.level === '一级共振' ? 3 : 2); }, 0) +
+        Math.min(1, transHits.length - monthlyTransHits.length);
+      output[axis] = {
+        relevance: '低',
+        rule_score: score,
+        current_month_evidence: monthlyTransHits.length + monthlyResonanceHits.length + touched.length,
         touched_palaces: touched,
         evidence: evidence,
-        summary: relevance === '低' ? '本月不是主要解释轴，不强行扩写。' :
-          '本月' + axis + '轴被' + (touched.join('、') || '相关节点') + '牵动；解释时以这些宫的本命结构为底，再叠加月四化与共振，不用固定剧情。',
+        summary: '',
       };
-      return result;
+      return output;
     }, {});
+    var ordered = Object.keys(result).sort(function (a, b) {
+      return result[b].rule_score - result[a].rule_score || a.localeCompare(b, 'zh-CN');
+    });
+    var topScore = ordered.length ? result[ordered[0]].rule_score : 0;
+    var topTies = ordered.filter(function (axis) { return result[axis].rule_score === topScore && topScore > 0; });
+    ordered.forEach(function (axis, index) {
+      var item = result[axis];
+      if (topTies.length > 1 && topTies.indexOf(axis) !== -1) item.relevance = '并列';
+      else if (index === 0) item.relevance = '主要';
+      else if (index === 1 && item.rule_score >= topScore - 1 && item.current_month_evidence >= 2) item.relevance = '主要';
+      else item.relevance = item.rule_score > 0 ? '辅助' : '低';
+      item.summary = item.relevance === '低' ? '本月没有足够的当期证据，不强行扩写。' :
+        '本月' + axis + '轴由' + (item.touched_palaces.join('、') || '四化落点') + '牵动；先看流月直接证据，再用上层结构解释背景。';
+    });
+    return result;
   }
 
   function monthlySummary(request, network, keyNodes) {
@@ -236,12 +261,16 @@
 
   function monthlyActions(keyNodes, axes) {
     var actions = [
-      '把本月最重要的决策、时间和注意力优先放在' + keyNodes.core_focus.palace + '对应的现实事项，而不是平均分配给所有领域。',
-      '主动利用' + keyNodes.opportunity_node.palace + '的资源与承接条件，把机会变成可确认、可交付或可沉淀的结果。',
-      '遇到' + keyNodes.bottleneck_node.palace + '相关事项时先做规则、边界和成本检查，不因为短期机会直接扩大投入。',
+      '先把' + keyNodes.core_focus.palace + '对应的“' + keyNodes.core_focus.role + '”拆成一件本月必须完成、可以核对结果的事。',
+      '利用' + keyNodes.opportunity_node.palace + '的“' + keyNodes.opportunity_node.role + '”承接机会，优先留下确认、交付或可复用的成果。',
+      '推进' + keyNodes.bottleneck_node.palace + '相关事项前，先检查“' + keyNodes.bottleneck_node.role + '”里的规则、边界与成本。',
     ];
-    ['身体', '事业', '钱', '爱情/关系'].forEach(function (axis) {
-      if (axes[axis].relevance === '重点') actions.push(axis + '是本月重点轴之一；只围绕已被触发的宫位采取行动，不套用全年固定建议。');
+    var mainAxes = ['身体', '事业', '钱', '爱情/关系'].filter(function (axis) {
+      return axes[axis].relevance === '主要' || axes[axis].relevance === '并列';
+    });
+    if (mainAxes.length > 2) actions.push(mainAxes.join('、') + '的当期证据并列，现有规则不能继续排序；按现实问题逐项核对，不强行指定唯一重点。');
+    else mainAxes.forEach(function (axis) {
+      actions.push(axis + '是本月优先解释轴；只围绕' + axes[axis].touched_palaces.join('、') + '已被触发的部分行动。');
     });
     return actions.filter(function (item, index) { return actions.indexOf(item) === index; });
   }

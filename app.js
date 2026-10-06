@@ -29,6 +29,7 @@
     '廿一', '廿二', '廿三', '廿四', '廿五', '廿六', '廿七', '廿八', '廿九', '三十'];
 
   var els = {};
+  var previousCalendarType = 'solar';
   var runtime = {
     chart: null, input: null, horoscope: null, decadals: [], years: [], months: [],
     decadalPosition: 0, yearPosition: 0, monthPosition: 0, day: 1, timeIndex: 0,
@@ -72,7 +73,7 @@
     if (!isTransitIncluded('yearly')) {
       parts.push(runtime.decadals[runtime.decadalPosition].ageRange.join('–') + '岁');
     } else {
-      parts.push(selectedYear().year + '年');
+      parts.push(activeFlowYearItem().year + '年');
       if (isTransitIncluded('monthly')) parts.push(monthLabel(selectedMonth()));
       if (isTransitIncluded('daily')) parts.push(LUNAR_DAYS[runtime.day]);
       if (isTransitIncluded('hourly')) parts.push(TIME_OPTIONS[runtime.timeIndex][0]);
@@ -125,6 +126,43 @@
     var parts = String(value || '').split('-');
     if (parts.length !== 3) return String(value || '');
     return parts[0] + '-' + pad(parts[1]) + '-' + pad(parts[2]);
+  }
+
+  function dateByOffset(value, days) {
+    var date = new Date(normalizeDate(value) + 'T12:00:00');
+    if (Number.isNaN(date.getTime())) return '';
+    date.setDate(date.getDate() + days);
+    return localDateValue(date);
+  }
+
+  function parseDateParts(value) {
+    var match = /^(\d{4})-(\d{2})-(\d{2})$/.exec(String(value || ''));
+    return match ? { year: Number(match[1]), month: Number(match[2]), day: Number(match[3]) } : null;
+  }
+
+  function validateSolarBirthDate(value) {
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(value) || localDateValue(new Date(value + 'T12:00:00')) !== value) {
+      throw new Error('请选择有效的公历出生日期。');
+    }
+  }
+
+  function validateLunarBirthDate(value, isLeapMonth) {
+    var parts = parseDateParts(value);
+    if (!parts || parts.month < 1 || parts.month > 12 || parts.day < 1 || parts.day > 30) {
+      throw new Error('农历出生日期请按 YYYY-MM-DD 输入，例如 2023-02-30。');
+    }
+    var converted;
+    try {
+      converted = window.iztro.astro.byLunar(value, 6, '女', Boolean(isLeapMonth), false, 'zh-CN');
+    } catch (error) {
+      throw new Error('这个农历日期不存在，请核对月份、日期和闰月选项。');
+    }
+    var raw = converted && converted.rawDates && converted.rawDates.lunarDate;
+    if (!raw || raw.lunarYear !== parts.year || raw.lunarMonth !== parts.month || raw.lunarDay !== parts.day ||
+        Boolean(raw.isLeap) !== Boolean(isLeapMonth)) {
+      throw new Error('这个农历日期不存在，请核对月份、日期和闰月选项。');
+    }
+    return converted;
   }
 
   function hourToTimeIndex(hour) {
@@ -607,6 +645,15 @@
   function selectedYear() { return runtime.years[runtime.yearPosition]; }
   function selectedMonth() { return runtime.months[runtime.monthPosition]; }
 
+  function activeFlowYearItem() {
+    var selected = selectedYear();
+    var scope = runtime.horoscope && runtime.horoscope.yearly;
+    if (!scope) return selected;
+    return runtime.years.find(function (item) {
+      return item.heavenlyStem === scope.heavenlyStem && item.earthlyBranch === scope.earthlyBranch;
+    }) || selected;
+  }
+
   function monthLabel(item) {
     var label = LUNAR_MONTHS[item.month - 1] || item.month + '月';
     if (item.isLeapMonth) label = '闰' + label;
@@ -630,6 +677,15 @@
     return runtime.dateCache[key];
   }
 
+  function selectedMonthSolarRange() {
+    var year = selectedYear().year;
+    var month = selectedMonth();
+    return {
+      start: lunarDateToSolar(year, month, month.dayRange[0]),
+      end: lunarDateToSolar(year, month, month.dayRange[1]),
+    };
+  }
+
   function dayMeta(day) {
     var year = selectedYear().year;
     var month = selectedMonth();
@@ -644,10 +700,10 @@
     return runtime.dayMetaCache[key];
   }
 
-  function transitOption(level, value, selected, primary, secondary, title) {
+  function transitOption(level, value, selected, primary, secondary, title, extraClass) {
     selected = selected && isTransitIncluded(level);
     if (selected) title = (title ? title + '；' : '') + '再次点击取消，返回' + SCOPE_DISPLAY_NAMES[parentTransitLevel(level)] + '盘';
-    return '<button type="button" class="transit-option option-' + level + (selected ? ' selected' : '') + '" ' +
+    return '<button type="button" class="transit-option option-' + level + (selected ? ' selected' : '') + (extraClass ? ' ' + extraClass : '') + '" ' +
       'data-level="' + level + '" data-value="' + value + '" role="option" aria-selected="' + (selected ? 'true' : 'false') + '"' +
       (title ? ' title="' + escapeHtml(title) + '"' : '') + '><strong>' + escapeHtml(primary) + '</strong><span>' + escapeHtml(secondary) + '</span></button>';
   }
@@ -658,9 +714,16 @@
         item.childhood ? '童限 · 起限前' : item.palaceName + ' · ' + transitStemBranch(item), item.yearRange.join('–') + '年');
     }).join('');
 
+    var activeYear = activeFlowYearItem();
     els.yearlyOptions.innerHTML = runtime.years.map(function (item, index) {
-      return transitOption('yearly', index, index === runtime.yearPosition, item.year + '年',
-        transitStemBranch(item) + ' · 虚岁' + item.age, '选择' + item.year + '年');
+      var isCalendarContainer = index === runtime.yearPosition;
+      var differsAtBoundary = isCalendarContainer && activeYear.year !== item.year;
+      var isActiveFlowYear = item.year === activeYear.year;
+      return transitOption('yearly', index, isActiveFlowYear, item.year + (differsAtBoundary ? '农历年' : '年'),
+        isActiveFlowYear ? transitStemBranch(runtime.horoscope.yearly) + ' · 当前流年' :
+          differsAtBoundary ? transitStemBranch(item) + ' · 当前流月容器' : transitStemBranch(item) + ' · 虚岁' + item.age,
+        differsAtBoundary ? '当前日期仍属农历' + item.year + '年，但流年已按设置进入' + activeYear.year + '年' : '选择' + item.year + '年',
+        differsAtBoundary ? 'calendar-container' : '');
     }).join('');
 
     els.monthlyOptions.innerHTML = runtime.months.map(function (item, index) {
@@ -681,7 +744,9 @@
       return transitOption('hourly', index, index === runtime.timeIndex, item[0], transitStemBranch(hourly), item[1]);
     }).join('');
 
-    els.selectionSummary.textContent = transitSelectionText() + (isTransitIncluded('daily') ? '｜公历 ' + runtime.input.targetDate : '');
+    var boundaryNote = activeYear.year !== selectedYear().year ? '｜流月归属农历' + selectedYear().year + '年' : '';
+    els.selectionSummary.textContent = transitSelectionText() + boundaryNote +
+      (isTransitIncluded('daily') ? '｜公历 ' + runtime.input.targetDate : '');
     ensureTransitSelectionVisible();
   }
 
@@ -856,7 +921,9 @@
     try {
       if (transitLevelIndex(level) < 0) return;
       var currentValues = {
-        decadal: runtime.decadalPosition, yearly: runtime.yearPosition, monthly: runtime.monthPosition,
+        decadal: runtime.decadalPosition,
+        yearly: runtime.years.findIndex(function (item) { return item.year === activeFlowYearItem().year; }),
+        monthly: runtime.monthPosition,
         daily: runtime.day, hourly: runtime.timeIndex,
       };
       if (isTransitIncluded(level) && currentValues[level] === Number(value)) {
@@ -951,6 +1018,8 @@
     runtime.activeScopeLevel = 'manual';
     applyPalaceFocus(index);
     renderInteractiveChart();
+    var details = byId('palace-details');
+    if (details && window.matchMedia('(max-width: 760px)').matches) details.open = true;
   }
 
   function returnToToday() {
@@ -1011,9 +1080,23 @@
     };
   }
 
+  function updateDefaultProfileNote() {
+    var note = byId('default-profile-note');
+    var birthDate = byId('birth-date');
+    var birthTime = byId('birth-time');
+    if (!note || !birthDate || !birthTime) return;
+    note.hidden = els.calendarType.value !== 'solar' || birthDate.value !== birthDate.dataset.defaultValue ||
+      birthTime.value !== birthTime.dataset.defaultValue;
+  }
+
   function validateInput(input) {
-    if (!/^\d{4}-\d{2}-\d{2}$/.test(input.birthDate)) throw new Error('请输入完整的出生日期。');
-    if (!/^\d{4}-\d{2}-\d{2}$/.test(input.targetDate)) throw new Error('请输入完整的查看日期。');
+    if (!window.iztro || !window.iztro.astro) throw new Error('排盘引擎未加载，请刷新页面后重试。');
+    if (input.type === 'lunar') validateLunarBirthDate(input.birthDate, input.isLeapMonth);
+    else validateSolarBirthDate(input.birthDate);
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(input.targetDate) ||
+        localDateValue(new Date(input.targetDate + 'T12:00:00')) !== input.targetDate) {
+      throw new Error('请选择有效的查看日期。');
+    }
   }
 
   function renderChart(event) {
@@ -1064,11 +1147,37 @@
     }
   }
 
-  function toggleLeapMonth() {
+  function toggleLeapMonth(options) {
+    options = options || {};
     var isLunar = els.calendarType.value === 'lunar';
+    var birthDate = byId('birth-date');
+    var nextType = isLunar ? 'lunar' : 'solar';
+    if (nextType === 'lunar') birthDate.type = 'text';
+    if (options.convert !== false && previousCalendarType !== nextType && birthDate.value) {
+      try {
+        if (nextType === 'lunar') {
+          validateSolarBirthDate(birthDate.value);
+          var lunar = window.iztro.astro.bySolar(birthDate.value, 6, '女', false, 'zh-CN').rawDates.lunarDate;
+          birthDate.value = [lunar.lunarYear, pad(lunar.lunarMonth), pad(lunar.lunarDay)].join('-');
+          els.leapMonth.checked = Boolean(lunar.isLeap);
+        } else {
+          birthDate.value = normalizeDate(validateLunarBirthDate(birthDate.value, els.leapMonth.checked).solarDate);
+        }
+      } catch (error) {
+        birthDate.value = '';
+        showStatus(error.message + ' 已切换历法，请重新填写出生日期。', true);
+      }
+    }
+    birthDate.type = isLunar ? 'text' : 'date';
+    birthDate.inputMode = isLunar ? 'numeric' : '';
+    birthDate.placeholder = isLunar ? 'YYYY-MM-DD，例如 2023-02-30' : '';
+    byId('birth-date-hint').textContent = isLunar ?
+      '按农历年-月-日输入；农历三十不会被公历日期控件拦截，闰月请勾选下方选项。' :
+      '公历日期可直接使用日期选择器。';
     els.leapMonthField.classList.toggle('visible', isLunar);
     els.leapMonth.disabled = !isLunar;
     if (!isLunar) els.leapMonth.checked = false;
+    previousCalendarType = nextType;
   }
 
   function init() {
@@ -1102,7 +1211,10 @@
     fillTimeOptions(byId('target-time'), currentTimeIndex);
     byId('daily-target-date').value = localDateValue(now);
     fillDailyTimeOptions(byId('daily-time-window'));
-    toggleLeapMonth();
+    toggleLeapMonth({ convert: false });
+    byId('birth-date').dataset.defaultValue = localDateValue(now);
+    byId('birth-time').dataset.defaultValue = String(currentTimeIndex);
+    updateDefaultProfileNote();
     setWorkspaceView('input');
 
     if (window.ZDSMKnowledge && typeof window.ZDSMKnowledge.load === 'function') {
@@ -1125,7 +1237,9 @@
       renderKnowledgePanel();
     }
 
-    els.calendarType.addEventListener('change', toggleLeapMonth);
+    els.calendarType.addEventListener('change', function () { toggleLeapMonth({ convert: true }); updateDefaultProfileNote(); });
+    byId('birth-date').addEventListener('input', updateDefaultProfileNote);
+    byId('birth-time').addEventListener('change', updateDefaultProfileNote);
     els.form.addEventListener('submit', renderChart);
     byId('transit-picker').addEventListener('click', function (event) {
       var option = event.target.closest('[data-level]');
@@ -1174,6 +1288,81 @@
     }).filter(Boolean);
   }
 
+  function scopeStructure(scope) {
+    if (!scope || !Number.isInteger(scope.index)) return null;
+    var surrounded = runtime.chart.surroundedPalaces(scope.index);
+    return {
+      core: palaceNameAt(runtime.chart, scope.index),
+      network: [scope.index, surrounded.wealth.index, surrounded.career.index, surrounded.opposite.index]
+        .map(function (index) { return palaceNameAt(runtime.chart, index); }),
+      transformations: transformationsForScope(scope),
+    };
+  }
+
+  function renderPeriodChange(contentId, periodId, previousLabel, currentLabel, previousScope, currentScope) {
+    var content = byId(contentId);
+    var period = byId(periodId);
+    if (!content || !period) return;
+    period.textContent = previousLabel + ' → ' + currentLabel;
+    var previous = scopeStructure(previousScope);
+    var current = scopeStructure(currentScope);
+    if (!previous || !current) {
+      content.innerHTML = '<p class="monthly-empty">上期数据不完整，未生成推测对照。</p>';
+      return;
+    }
+    var entered = current.network.filter(function (name) { return previous.network.indexOf(name) === -1; });
+    var left = previous.network.filter(function (name) { return current.network.indexOf(name) === -1; });
+    var previousByType = previous.transformations.reduce(function (result, item) { result[item.type] = item; return result; }, {});
+    var transformationChanges = current.transformations.map(function (item) {
+      var before = previousByType[item.type];
+      if (before && before.star === item.star && before.target_palace === item.target_palace) return null;
+      return item.type + '：' + (before ? before.star + '→' + before.target_palace : '无') + ' → ' + item.star + '→' + item.target_palace;
+    }).filter(Boolean);
+    content.innerHTML = '<div class="period-change-grid">' +
+      '<article><span>核心宫</span><strong>' + escapeHtml(previous.core + ' → ' + current.core) + '</strong><p>' +
+      escapeHtml(previous.core === current.core ? '核心宫延续，重点看同一宫位内部的四化变化。' : '核心宫已换位，现实注意力入口随之改变。') + '</p></article>' +
+      '<article><span>三方四正</span><strong>' + escapeHtml(entered.length ? '新进入 ' + entered.join('、') : '网络成员延续') + '</strong><p>' +
+      escapeHtml(left.length ? '离开本期网络：' + left.join('、') : '没有宫位离开本期网络。') + '</p></article>' +
+      '<article><span>四化落点</span><strong>' + escapeHtml(transformationChanges.length ? transformationChanges.length + '项变化' : '本期延续') + '</strong><p>' +
+      escapeHtml(transformationChanges.join('；') || '四化星与落宫均未变化。') + '</p></article></div>' +
+      '<p class="period-change-note">这里只对照宫位网络与四化落点，不把结构变化换算成吉凶分数。</p>';
+  }
+
+  function renderMonthlyChange() {
+    var currentYear = selectedYear().year;
+    var currentMonth = selectedMonth();
+    var previousYear = currentYear;
+    var previousMonth;
+    if (runtime.monthPosition > 0) previousMonth = runtime.months[runtime.monthPosition - 1];
+    else {
+      previousYear -= 1;
+      var previousMonths = runtime.chart.monthlyList(previousYear, runtime.input.fixLeap);
+      previousMonth = previousMonths[previousMonths.length - 1];
+    }
+    var previousDate = lunarDateToSolar(previousYear, previousMonth, previousMonth.dayRange[1]);
+    if (previousDate < normalizeDate(runtime.chart.solarDate)) {
+      byId('monthly-change-period').textContent = '出生日期之前';
+      byId('monthly-change-content').innerHTML = '<p class="monthly-empty">上一个流月周期早于出生日期，不生成推测对照。</p>';
+      return;
+    }
+    var previousScope = runtime.chart.horoscope(previousDate, runtime.timeIndex).monthly;
+    renderPeriodChange('monthly-change-content', 'monthly-change-period',
+      previousYear + '年' + monthLabel(previousMonth), currentYear + '年' + monthLabel(currentMonth),
+      previousScope, runtime.horoscope.monthly);
+  }
+
+  function renderDailyChange() {
+    var previousDate = dateByOffset(runtime.input.targetDate, -1);
+    if (!previousDate || previousDate < normalizeDate(runtime.chart.solarDate)) {
+      byId('daily-change-period').textContent = '出生日期之前';
+      byId('daily-change-content').innerHTML = '<p class="monthly-empty">前一天早于出生日期，不生成推测对照。</p>';
+      return;
+    }
+    var previousScope = runtime.chart.horoscope(previousDate, runtime.timeIndex).daily;
+    renderPeriodChange('daily-change-content', 'daily-change-period', previousDate, runtime.input.targetDate,
+      previousScope, runtime.horoscope.daily);
+  }
+
   function monthlyLayer(scope, source) {
     if (!scope || !Number.isInteger(scope.index)) return null;
     return {
@@ -1211,10 +1400,13 @@
     };
     var minor = monthlyLayer(runtime.horoscope.age, 'iztro 2.6.1 horoscope.age');
     if (minor) layers.minor_limit = minor;
+    var range = selectedMonthSolarRange();
+    var activeYear = activeFlowYearItem();
     return {
-      target_month: runtime.input.targetDate.slice(0, 7),
-      nominal_age: selectedYear().age,
-      calendar_label: selectedYear().year + '年 · ' + monthLabel(selectedMonth()) + '｜公历 ' + runtime.input.targetDate.slice(0, 7),
+      target_month: selectedYear().year + '-L' + pad(selectedMonth().month) + (selectedMonth().isLeapMonth ? '-leap' : ''),
+      nominal_age: activeYear.age,
+      calendar_label: activeYear.year + '流年 · 农历' + selectedYear().year + '年' + monthLabel(selectedMonth()) +
+        '｜公历 ' + range.start + '—' + range.end,
       report_mode: 'professional',
       time_layers: layers,
       context: { chart_source: 'iztro 2.6.1', knowledge_version: runtime.knowledge ? runtime.knowledge.version : 'P4 Local' },
@@ -1229,6 +1421,15 @@
         (index === runtime.monthPosition ? ' active' : '') + '"><strong>' + escapeHtml(monthLabel(month)) +
         '</strong><span>' + escapeHtml(transitStemBranch(month)) + '</span></button>';
     }).join('');
+    window.requestAnimationFrame(function () { ensureQuickSelectionVisible(container); });
+  }
+
+  function ensureQuickSelectionVisible(container) {
+    if (!container || !container.clientWidth) return;
+    var active = container.querySelector('.active');
+    if (!active) return;
+    container.scrollLeft += active.getBoundingClientRect().left - container.getBoundingClientRect().left -
+      (container.clientWidth - active.clientWidth) / 2;
   }
 
   function renderMonthlyNetwork(network) {
@@ -1282,6 +1483,7 @@
         (item.evidence.length ? '<small>' + escapeHtml(item.evidence.join(' · ')) + '</small>' : '') + '</article>';
     }).join('');
     byId('monthly-actions').innerHTML = output.monthly_actions.map(function (action) { return '<li>' + escapeHtml(action) + '</li>'; }).join('');
+    renderMonthlyChange();
     var contact = (window.ZDSMBundledKnowledge && window.ZDSMBundledKnowledge.contact) || {};
     var channels = usableContactChannels(contact).map(function (channel) {
       return '<li><span>' + escapeHtml(channel.label) + '</span><strong>' + escapeHtml(channel.value) + '</strong></li>';
@@ -1334,16 +1536,17 @@
   function renderYearlyPage() {
     var scope = runtime.horoscope && runtime.horoscope.yearly;
     if (!scope || !Number.isInteger(scope.index)) return;
-    var year = selectedYear();
+    var year = activeFlowYearItem();
     var surrounded = runtime.chart.surroundedPalaces(scope.index);
     var core = palaceNameAt(runtime.chart, scope.index);
     var relation = [surrounded.wealth, surrounded.career, surrounded.opposite];
     byId('yearly-title').textContent = year.year + '年 · 流年运势';
     byId('yearly-quick-options').innerHTML = runtime.years.map(function (item, index) {
       return '<button type="button" data-yearly-index="' + index + '" class="monthly-quick-option' +
-        (index === runtime.yearPosition ? ' active' : '') + '"><strong>' + escapeHtml(item.year + '年') +
+        (item.year === year.year ? ' active' : '') + '"><strong>' + escapeHtml(item.year + '年') +
         '</strong><span>' + escapeHtml(transitStemBranch(item)) + '</span></button>';
     }).join('');
+    window.requestAnimationFrame(function () { ensureQuickSelectionVisible(byId('yearly-quick-options')); });
     byId('yearly-chain').innerHTML = '<div><span>流年入口</span><strong>' + escapeHtml(core) +
       '</strong><small>' + escapeHtml(transitStemBranch(scope)) + '</small></div>' +
       '<span class="monthly-chain-arrow">→</span><div><span>年度任务</span><strong>' +
@@ -1501,6 +1704,7 @@
       return '<li>' + escapeHtml(item) + '</li>';
     }).join('') : '<li>当前窗口没有命中流日／流时化忌或一级共振风险。</li>';
     byId('daily-tactic').textContent = assessment.execution_tactic;
+    renderDailyChange();
 
     var contact = (window.ZDSMBundledKnowledge && window.ZDSMBundledKnowledge.contact) || {};
     var channels = usableContactChannels(contact).map(function (channel) {
@@ -2185,7 +2389,8 @@
       if (field.type === 'checkbox') field.checked = snapshot.input[key];
       else field.value = String(snapshot.input[key]);
     });
-    toggleLeapMonth();
+    toggleLeapMonth({ convert: false });
+    updateDefaultProfileNote();
     if (!renderChart()) throw new Error(els.status.textContent || '命例无法排盘。');
     setTransitLevel(snapshot.transitLevel);
     if (snapshot.focus === 'manual') {

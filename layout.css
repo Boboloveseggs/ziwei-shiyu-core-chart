@@ -221,6 +221,14 @@ input, select { min-height: 42px; padding: 8px 10px; border-radius: 5px; font-si
 .monthly-resonance strong, .monthly-axis strong { font-size: 14px; }
 .monthly-resonance span, .monthly-axis span { font-size: 10px; }
 .monthly-resonance p, .monthly-axis p, .monthly-resonance small, .monthly-axis small { font-size: 12px; }
+.period-change-card > header { padding: 14px 16px; }
+.period-change-card > header span, .period-change-card > header small { font-size: 11px; }
+.period-change-card > header h3 { font-size: 17px; }
+.period-change-grid article { padding: 16px; }
+.period-change-grid span { font-size: 11px; }
+.period-change-grid strong { font-size: 14px; }
+.period-change-grid p { font-size: 12px; }
+.period-change-note { padding: 10px 16px; font-size: 11px; }
 .daily-controls { grid-template-columns: minmax(135px,.9fr) minmax(180px,1.2fr) minmax(160px,1.1fr) auto; padding: 14px; margin-bottom: 18px; border: 1px solid var(--rule); border-radius: 5px; background: #f8fafc; gap: 12px; }
 .daily-controls label { font-size: 12px; gap: 6px; }
 .daily-controls input, .daily-controls select { height: 40px; min-height: 40px; font-size: 13px; border-color: #cbd5e1; background: #fff; }

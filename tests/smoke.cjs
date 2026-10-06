@@ -43,12 +43,15 @@ function assert(condition, message) {
   assert(await page.locator('#palace-details').getAttribute('open') === null, '宫位详情默认应收起');
   const chartLayout = await page.evaluate(() => ({
     chartBottom: document.querySelector('.chart-section').getBoundingClientRect().bottom,
+    detailsTop: document.querySelector('#palace-details').getBoundingClientRect().top,
+    detailsBottom: document.querySelector('#palace-details').getBoundingClientRect().bottom,
     pickerTop: document.querySelector('.transit-browser').getBoundingClientRect().top,
     scrollWidth: document.documentElement.scrollWidth,
     width: innerWidth,
     clippedPalaces: [...document.querySelectorAll('.palace')].filter((el) => el.scrollHeight > el.clientHeight + 2).length,
   }));
-  assert(chartLayout.pickerTop - chartLayout.chartBottom < 25, '运限选择应紧贴命盘');
+  assert(chartLayout.detailsTop - chartLayout.chartBottom < 25, '宫位解读应紧贴命盘');
+  assert(chartLayout.pickerTop - chartLayout.detailsBottom < 25, '运限选择应紧接宫位解读');
   assert(chartLayout.scrollWidth <= chartLayout.width, '页面出现整体横向溢出');
   assert(chartLayout.clippedPalaces === 0, '宫内数据被裁切');
   assert(await page.locator('#yearly-options .selected').evaluate((el) => {
@@ -77,7 +80,7 @@ function assert(condition, message) {
   assert(await page.locator('#system-roles .system-role-card').count() === 7, '系统角色摘要不是 7 项');
   assert(await page.locator('#system-scores .system-score').count() === 12, '系统结构未输出十二宫分数');
   const systemRoleText = await page.locator('#system-roles').innerText();
-  assert(systemRoleText.includes('官禄') && systemRoleText.includes('田宅'), '系统结构未识别官禄处理中枢或田宅积累');
+  assert(systemRoleText.includes('中央处理器') && systemRoleText.includes('长期积累'), '系统结构缺少处理中枢或长期积累角色');
   if (systemScreenshotPath) await page.screenshot({ path: systemScreenshotPath, fullPage: true });
   if (reviewDir) await page.screenshot({ path: path.join(reviewDir, 'system.png'), fullPage: true });
 

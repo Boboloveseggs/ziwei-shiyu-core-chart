@@ -49,11 +49,14 @@ async function run(browser, width) {
     if (width <= 600) {
       const mobileLayout = await page.evaluate(() => ({
         chartHeight: Math.round(document.querySelector('#chart-grid').getBoundingClientRect().height),
+        detailsTop: Math.round(document.querySelector('#palace-details').getBoundingClientRect().top),
+        detailsBottom: Math.round(document.querySelector('#palace-details').getBoundingClientRect().bottom),
         transitTop: Math.round(document.querySelector('.transit-browser').getBoundingClientRect().top),
         chartVisible: getComputedStyle(document.querySelector('.chart-scroll-shell')).visibility,
       }));
       assert(mobileLayout.chartHeight <= 450, '手机完整命盘不应过长');
-      assert(mobileLayout.transitTop <= 670, '手机端完整命盘后应尽早出现运限选择');
+      assert(mobileLayout.detailsTop <= 670, '手机端完整命盘后应尽早出现宫位解读');
+      assert(mobileLayout.transitTop >= mobileLayout.detailsBottom, '运限选择应位于宫位解读之后');
       assert.equal(mobileLayout.chartVisible, 'visible', '手机端默认必须显示完整十二宫');
     }
 

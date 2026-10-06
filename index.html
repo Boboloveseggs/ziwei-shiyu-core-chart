@@ -8,8 +8,8 @@
       content="紫微时域把十二宫、三方四正、四化飞转与年／月／日／时运限组织成可视化系统，支持本地查询流月、流日和流时，无需 AI API。"
     />
     <title>紫微时域 · 核心排盘版</title>
-    <link rel="stylesheet" href="./styles.css?v=29" />
-    <link rel="stylesheet" href="./layout.css?v=3" />
+    <link rel="stylesheet" href="./styles.css?v=30" />
+    <link rel="stylesheet" href="./layout.css?v=4" />
   </head>
   <body>
     <header class="masthead">
@@ -48,6 +48,8 @@
           <p>填写出生资料，开始查看命盘。</p>
         </div>
 
+        <p class="default-profile-note" id="default-profile-note"><strong>当前是默认资料</strong><span>日期和时辰取自你打开网页的这一刻。查看自己的命盘，请先修改出生信息。</span></p>
+
         <form id="chart-form">
           <div class="form-grid">
             <label>
@@ -59,7 +61,8 @@
             </label>
             <label>
               <span>出生日期</span>
-              <input id="birth-date" name="birthDate" type="date" required />
+              <input id="birth-date" name="birthDate" type="date" aria-describedby="birth-date-hint" required />
+              <small id="birth-date-hint" class="field-hint">公历日期可直接使用日期选择器。</small>
             </label>
             <label>
               <span>出生时辰</span>
@@ -126,6 +129,15 @@
           </div>
         </section>
 
+        <details class="disclosure knowledge-section" id="palace-details">
+          <summary><span id="knowledge-title">所选宫位详解</span><small>星曜 · 四化 · 规则依据</small></summary>
+          <div class="disclosure-body">
+            <div class="knowledge-meta"><strong id="knowledge-version">知识库载入中</strong></div>
+            <div id="knowledge-content" class="knowledge-content" aria-live="polite"><div class="knowledge-empty">正在读取知识库。</div></div>
+            <p class="knowledge-caveat">规则说明随所选宫位更新，短周期不覆盖本命结构。</p>
+          </div>
+        </details>
+
         <section class="transit-browser" aria-labelledby="transit-title">
           <div class="section-heading compact transit-heading">
             <div>
@@ -151,7 +163,7 @@
               <div id="decadal-options" class="transit-options" role="listbox" aria-label="选择大限"></div>
             </div>
             <div class="transit-row">
-              <div class="transit-label"><strong>流年</strong><span>公历年份</span></div>
+              <div class="transit-label"><strong>流年</strong><span>运限年份 · 节气分界时会注明农历容器年</span></div>
               <div id="yearly-options" class="transit-options" role="listbox" aria-label="选择流年"></div>
             </div>
             <div class="transit-row">
@@ -169,14 +181,6 @@
           </div>
           <p class="transit-note">再点已选项可取消，返回上一级命盘。月份、日期按农历显示；横向滑动可查看其他选项。</p>
         </section>
-        <details class="disclosure knowledge-section" id="palace-details">
-          <summary><span id="knowledge-title">所选宫位详解</span><small>星曜 · 四化 · 规则依据</small></summary>
-          <div class="disclosure-body">
-            <div class="knowledge-meta"><strong id="knowledge-version">知识库载入中</strong></div>
-            <div id="knowledge-content" class="knowledge-content" aria-live="polite"><div class="knowledge-empty">正在读取知识库。</div></div>
-            <p class="knowledge-caveat">规则说明随所选宫位更新，短周期不覆盖本命结构。</p>
-          </div>
-        </details>
         <details class="disclosure calculation-details"><summary><span>排盘口径</span><small>查看当前设置</small></summary><p id="method-line" class="method-line"></p></details>
       </section>
 
@@ -228,6 +232,11 @@
               <div id="monthly-chain" class="monthly-chain"></div>
             </div>
             <p id="monthly-summary" class="monthly-summary"></p>
+          </section>
+
+          <section class="period-change-card" aria-labelledby="monthly-change-title">
+            <header><div><span>结构对照</span><h3 id="monthly-change-title">与上一个流月周期相比</h3></div><small id="monthly-change-period"></small></header>
+            <div id="monthly-change-content"></div>
           </section>
 
           <section class="monthly-actions-card">
@@ -313,6 +322,10 @@
           <section class="daily-hero">
             <div class="daily-chain-block"><p>当前作用链</p><div id="daily-chain" class="daily-chain"></div></div>
             <div class="daily-summary-block"><span id="daily-calendar-label"></span><p id="daily-summary"></p></div>
+          </section>
+          <section class="period-change-card" aria-labelledby="daily-change-title">
+            <header><div><span>结构对照</span><h3 id="daily-change-title">与前一天相比</h3></div><small id="daily-change-period"></small></header>
+            <div id="daily-change-content"></div>
           </section>
           <section class="daily-assessment-card">
             <header><h3 id="daily-assessment-title">当前重点</h3></header>
@@ -450,7 +463,7 @@
     </main>
 
     <footer>
-      <p>数据来源：iztro 2.6.1（MIT）。本页是排盘数据查看工具，不提供医疗、法律、投资或确定性人生判断。</p>
+      <p>本页是传统文化排盘数据查看工具，仅用于信息整理与个人研究，不提供医疗、法律、投资或确定性人生判断。</p>
     </footer>
 
     <script src="./vendor/iztro-2.6.1.min.js"></script>
@@ -460,6 +473,6 @@
     <script src="./daily-hourly-runtime.js?v=2"></script>
     <script src="./system-engine.js?v=1"></script>
     <script src="./workspace-tools.js?v=1"></script>
-    <script src="./app.js?v=33"></script>
+    <script src="./app.js?v=34"></script>
   </body>
 </html>

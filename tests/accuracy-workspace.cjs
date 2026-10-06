@@ -72,13 +72,16 @@ async function expectedChart(page) {
 
     await generate(page, { target: '2026-10-01' });
     await page.locator('#daily-options .selected').click();
-    assert((await page.locator('.flight-summary').innerText()).includes('巨门 → 子女'));
+    assert((await page.locator('.flight-summary').innerText()).includes('流月四化飞入'));
+    assert.equal(await page.locator('.flight-summary li').count(), 4, '流月应保留完整四化路线');
     assert(!(await page.locator('.flight-summary').innerText()).includes('自化'), '流月飞回主宫不能标作宫干自化');
     for (let index = 0; index < 12; index++) {
       await page.locator(`.palace[data-palace-index="${index}"]`).click();
       const actual = await page.locator('.flight-summary li span').allTextContents();
       const expected = await page.evaluate((palaceIndex) => {
-        const chart = iztro.astro.bySolar('1997-05-18', 8, '女', true, 'zh-CN');
+        const chart = iztro.astro.bySolar(document.getElementById('birth-date').value,
+          Number(document.getElementById('birth-time').value), document.getElementById('gender').value,
+          document.getElementById('fix-leap').checked, 'zh-CN');
         const source = chart.palaces[palaceIndex];
         return iztro.util.getMutagensByHeavenlyStem(source.heavenlyStem).map((star, i) => {
           const target = chart.star(star).palace();

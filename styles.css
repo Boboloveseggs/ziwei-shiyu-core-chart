@@ -126,6 +126,20 @@ main { padding-block: 26px 48px; }
 
 label { display: grid; gap: 6px; color: var(--muted); font-size: 11px; }
 
+.default-profile-note {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin: -4px 0 14px;
+  padding: 10px 12px;
+  border-left: 3px solid var(--indigo);
+  color: var(--muted);
+  background: #edf2f4;
+  font-size: 12px;
+}
+.default-profile-note strong { flex: 0 0 auto; color: var(--ink); }
+.field-hint { display: block; min-height: 2.9em; color: var(--muted); font-size: 10px; line-height: 1.45; }
+
 input,
 select {
   width: 100%;
@@ -448,6 +462,7 @@ button[type="submit"] {
 .transit-option:hover { background: #f3f5f4; }
 .transit-option.selected { color: white; background: var(--ink); box-shadow: inset 0 -4px 0 var(--scope-accent, var(--indigo)); }
 .transit-option.selected span { color: rgba(255, 255, 255, 0.76); }
+.transit-option.calendar-container:not(.selected) { border-color: #aab8c0; background: #f0f4f5; box-shadow: inset 0 -2px #9bb0ba; }
 .option-decadal { --scope-accent: #89949b; }
 .option-yearly { --scope-accent: #4380cf; }
 .option-monthly { --scope-accent: #e1bc32; }
@@ -619,7 +634,7 @@ footer p { margin: 0; }
 .monthly-title .section-kicker { margin: 0; }
 .monthly-nav { display: flex; gap: 7px; margin-left: auto; }
 .monthly-quick-options { display: flex; gap: 5px; padding: 11px 0; overflow-x: auto; scrollbar-width: thin; }
-.monthly-quick-option { flex: 0 0 76px; display: grid; gap: 1px; padding: 6px 8px; border: 1px solid var(--rule); border-radius: 3px; color: var(--muted); background: var(--paper-raised); cursor: pointer; text-align: left; }
+.monthly-quick-option { flex: 0 0 76px; display: grid; align-content: center; gap: 1px; min-height: 44px; padding: 6px 8px; border: 1px solid var(--rule); border-radius: 3px; color: var(--muted); background: var(--paper-raised); cursor: pointer; text-align: left; }
 .monthly-quick-option strong { color: var(--ink); font-size: 11px; }
 .monthly-quick-option span { font-size: 8px; }
 .monthly-quick-option.active { color: #fff; background: var(--indigo); border-color: var(--indigo); box-shadow: inset 0 -3px 0 rgba(255,255,255,.2); }
@@ -691,8 +706,22 @@ footer p { margin: 0; }
 .monthly-resonance p, .monthly-axis p { margin: 4px 0; color: var(--jade); font-size: 8px; }
 .monthly-resonance small, .monthly-axis small { color: var(--muted); font-size: 7px; line-height: 1.5; }
 .monthly-axis.relevance-重点 span { color: #fff; background: var(--indigo); border-color: var(--indigo); }
+.monthly-axis.relevance-主要 span { color: #fff; background: var(--indigo); border-color: var(--indigo); }
+.monthly-axis.relevance-并列 span { color: #334958; background: #dfe9ee; border-color: #9bb2bd; }
 .monthly-axis.relevance-辅助 span { color: #fff; background: var(--jade); border-color: var(--jade); }
 .monthly-empty { margin: 0; padding: 18px; color: var(--muted); font-size: 10px; }
+.period-change-card { margin-top: 12px; border: 1px solid var(--rule); background: var(--paper-raised); }
+.period-change-card > header { display: flex; align-items: end; justify-content: space-between; gap: 16px; padding: 11px 13px; border-bottom: 1px solid var(--rule); }
+.period-change-card > header span { color: var(--indigo); font: 700 9px/1.2 ui-monospace, "Cascadia Mono", Consolas, monospace; letter-spacing: .1em; }
+.period-change-card > header h3 { margin: 2px 0 0; font-size: 15px; }
+.period-change-card > header small { color: var(--muted); font-size: 10px; text-align: right; }
+.period-change-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.period-change-grid article { min-width: 0; padding: 13px; border-right: 1px solid var(--rule); }
+.period-change-grid article:last-child { border-right: 0; }
+.period-change-grid span { display: block; margin-bottom: 5px; color: var(--muted); font-size: 9px; }
+.period-change-grid strong { display: block; overflow-wrap: anywhere; font-size: 13px; }
+.period-change-grid p { margin: 5px 0 0; color: var(--muted); font-size: 10px; line-height: 1.6; }
+.period-change-note { margin: 0; padding: 8px 13px; border-top: 1px solid var(--rule); color: var(--muted); background: #f3f1eb; font-size: 9px; }
 .monthly-actions-card { display: grid; grid-template-columns: 180px minmax(0, 1fr); margin-top: 12px; background: #243b37; color: #f6f1e7; }
 .monthly-actions-card header { padding: 16px; border-right: 1px solid rgba(255,255,255,.14); }
 .monthly-actions-card header p { margin: 0; color: #a9c7bf; font: 700 8px/1.2 ui-monospace, "Cascadia Mono", Consolas, monospace; letter-spacing: .12em; }
@@ -955,6 +984,8 @@ footer p { margin: 0; }
   .source-stamp { display: none; }
   .input-sheet, .chart-section, .knowledge-section, .transit-browser { padding: 8px; }
   .form-grid { grid-template-columns: 1fr; }
+  .default-profile-note { align-items: flex-start; flex-direction: column; gap: 2px; margin-bottom: 10px; font-size: 11px; }
+  .field-hint { min-height: 0; }
   .method-grid { grid-template-columns: 1fr; }
   .form-actions button { font-size: 15px; }
   .result-bar { margin-bottom: 6px; }
@@ -1031,6 +1062,11 @@ footer p { margin: 0; }
   .monthly-network-node { min-height: 67px; padding: 5px; }
   .monthly-network-node strong { font-size: 10px; }
   .monthly-key-nodes, .monthly-resonances, .monthly-axes, .monthly-transformations { grid-template-columns: 1fr; }
+  .period-change-card > header { align-items: flex-start; flex-direction: column; gap: 4px; }
+  .period-change-card > header small { text-align: left; }
+  .period-change-grid { grid-template-columns: 1fr; }
+  .period-change-grid article { border-right: 0; border-bottom: 1px solid var(--rule); }
+  .period-change-grid article:last-child { border-bottom: 0; }
   .monthly-key-node, .monthly-resonance, .monthly-axis, .monthly-transform { min-height: auto; border-right: 0; }
   .monthly-key-node:nth-last-child(-n+2) { border-bottom: 1px solid var(--rule); }
   .monthly-key-node:last-child { border-bottom: 0; }
