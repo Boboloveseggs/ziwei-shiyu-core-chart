@@ -1097,8 +1097,9 @@
     var now = new Date();
     byId('birth-date').value = localDateValue(now);
     byId('target-date').value = localDateValue(now);
-    fillTimeOptions(byId('birth-time'), 8);
-    fillTimeOptions(byId('target-time'), hourToTimeIndex(now.getHours()));
+    var currentTimeIndex = hourToTimeIndex(now.getHours());
+    fillTimeOptions(byId('birth-time'), currentTimeIndex);
+    fillTimeOptions(byId('target-time'), currentTimeIndex);
     byId('daily-target-date').value = localDateValue(now);
     fillDailyTimeOptions(byId('daily-time-window'));
     toggleLeapMonth();
